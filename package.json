@@ -1,0 +1,27 @@
+{
+  "name": "catsoft",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "description": "Ecommerce website connected to magento 2.",
+  "version": "1.0.0",
+  "main": "next.config.js",
+  "dependencies": {
+    "next": "^7.0.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Solomedia/catsoft.git"
+  },
+  "author": "Solo media dev team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Solomedia/catsoft/issues"
+  },
+  "homepage": "https://github.com/Solomedia/catsoft#readme"
+}
