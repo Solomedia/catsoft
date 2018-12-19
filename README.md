@@ -13,8 +13,6 @@ Ecommerce website connected to magento 2.
 
 ## Features
 
-- Offline rendering.
-- css in js.
 - Automatic transpilation and bundling (with webpack and babel).
 - Hot code reloading.
 - Server rendering and indexing of `./pages`.
