@@ -1,22 +1,28 @@
 ### Catsoft
+
 Ecommerce website connected to magento 2.
 
 ## Technologies
-  - PWA.
-  - Nextjs.
-  - Reactjs.
-  - Typescript. 
-  - Apollo client.
-  - Emotionjs.
+
+- PWA.
+- Nextjs.
+- Reactjs.
+- Typescript.
+- Apollo client.
+- Emotionjs.
 
 ## Features
-  - Offline rendering.
-  - css in js.
-  - Automatic transpilation and bundling (with webpack and babel).
-  - Hot code reloading.
-  - Server rendering and indexing of `./pages`.
-  - Static file serving. `./static/` is mapped to `/static/`.
-  - SEO friendly.
+
+- Offline rendering.
+- css in js.
+- Automatic transpilation and bundling (with webpack and babel).
+- Hot code reloading.
+- Server rendering and indexing of `./pages`.
+- Code splitting.
+- Modules preloading.
+- Static file serving. `./static/` is mapped to `/static/`.
+- Responsive.
+- SEO friendly.
 
 ## Base Folder Structure
 
@@ -43,6 +49,7 @@ The `./static` directory maps to `/static` in the server, so you can put all you
 other static resources like images or compiled CSS in there.
 
 ## Install dependencies
+
 ### `yarn`
 
 ## Available Scripts
