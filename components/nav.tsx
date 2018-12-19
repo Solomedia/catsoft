@@ -1,12 +1,16 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 
 const links = [
-  { href: 'https://github.com/segmentio/create-next-app', label: 'Github', key: '' }
-].map((link) => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
-})
+  {
+    href: "https://github.com/segmentio/create-next-app",
+    label: "Github",
+    key: ""
+  }
+].map(link => {
+  link.key = `nav-link-${link.href}-${link.label}`;
+  return link;
+});
 
 const Nav = () => (
   <nav>
@@ -27,6 +31,6 @@ const Nav = () => (
       </ul>
     </ul>
   </nav>
-)
+);
 
-export default Nav
+export default Nav;

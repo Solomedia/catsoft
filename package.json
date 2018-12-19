@@ -4,7 +4,8 @@
     "dev": "next",
     "build": "next build",
     "start": "npm run build && next start",
-    "lint": "tslint --project ."
+    "lint": "tslint --project .",
+    "format": "prettier --write \"./**/*.{js,ts,tsx}\""
   },
   "description": "Ecommerce website connected to magento 2.",
   "version": "1.0.0",
@@ -19,6 +20,7 @@
   "devDependencies": {
     "@types/next": "^7.0.5",
     "@types/react": "^16.7.17",
+    "prettier": "^1.15.3",
     "tslint": "^5.12.0",
     "tslint-config-prettier": "^1.17.0",
     "tslint-react": "^3.6.0"
