@@ -3,17 +3,26 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "npm run build && next start",
+    "lint": "tslint --project ."
   },
   "description": "Ecommerce website connected to magento 2.",
   "version": "1.0.0",
   "main": "next.config.js",
   "dependencies": {
+    "@zeit/next-typescript": "^1.1.1",
     "next": "^7.0.2",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "typescript": "^3.2.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/next": "^7.0.5",
+    "@types/react": "^16.7.17",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-react": "^3.6.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Solomedia/catsoft.git"
@@ -23,5 +32,8 @@
   "bugs": {
     "url": "https://github.com/Solomedia/catsoft/issues"
   },
-  "homepage": "https://github.com/Solomedia/catsoft#readme"
+  "homepage": "https://github.com/Solomedia/catsoft#readme",
+  "engines": {
+    "node": ">=8.14.0"
+  }
 }
