@@ -1,4 +1,4 @@
-### Catsoft
+# Catsoft
 
 Ecommerce website connected to magento 2.
 
