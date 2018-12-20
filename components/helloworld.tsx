@@ -1,8 +1,11 @@
 import React from 'react';
 
-const helloWorld = () => (
+interface Props {
+	title?: string;
+}
+const helloWorld = (props: Props) => (
 	<div>
-		<h1>Hello world</h1>
+		<h1>{props.title || 'Hello world'}</h1>
 	</div>
 );
 
