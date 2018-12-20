@@ -21,6 +21,13 @@ Ecommerce website connected to magento 2.
 - Static file serving. `./static/` is mapped to `/static/`.
 - Responsive.
 - SEO friendly.
+- Storybook for component's documentation.
+
+## Recomendations
+
+- Use vscode as editor for a good tyscript experience.
+- Install prettier on your editor, for vscode you can use: [https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
+- Install tslint on your editor, for vscode you can use: [https://marketplace.visualstudio.com/items?itemName=eg2.tslint](https://marketplace.visualstudio.com/items?itemName=eg2.tslint).
 
 ## Base Folder Structure
 
@@ -71,3 +78,8 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 Starts the application in production mode.
 The application should be compiled with \`next build\` first.
+
+### `npm run storybook` || `yarn storybook`
+
+Runs the app in storybook
+Open [http://localhost:9001](http://localhost:9001) to view it in the browser.
