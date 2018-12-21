@@ -1,8 +1,9 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
+import { EmotionCritical } from 'create-emotion-server';
 
-export default class MyDocument extends Document {
-	static getInitialProps({ renderPage }) {
+export default class MyDocument extends Document<EmotionCritical> {
+	public static getInitialProps({ renderPage }) {
 		const page = renderPage();
 		const styles = extractCritical(page.html);
 		return { ...page, ...styles };
@@ -16,11 +17,10 @@ export default class MyDocument extends Document {
 		}
 	}
 
-	render() {
+	public render() {
 		return (
 			<html>
 				<Head>
-					<title>With Emotion</title>
 					<style dangerouslySetInnerHTML={{ __html: this.props.css }} />
 				</Head>
 				<body>

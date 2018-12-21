@@ -16,7 +16,7 @@ const Home = () => (
 				<Box width={1} px={2} bg="blue">
 					Half width
 				</Box>
-				<Box width={1} px={2} bg="black">
+				<Box width={1} px={2} bg="red">
 					Half width
 				</Box>
 			</Flex>
