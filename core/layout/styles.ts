@@ -4,7 +4,6 @@ import emotionNormalize from 'emotion-normalize';
 
 export const stylesNormalizer = () => injectGlobal`
 ${emotionNormalize}
-{}
 `;
 
 export const globalStyles = css`
