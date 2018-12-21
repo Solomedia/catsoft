@@ -1,14 +1,11 @@
 import React from 'react';
-import Head from '../components/head';
 import HelloWorld from '../components/helloworld';
-import Nav from '../components/nav';
+import PageLayout from '../core/layout';
 
 const Test = () => (
-	<div>
-		<Head title="Test page" />
-		<Nav />
+	<PageLayout title="test page">
 		<HelloWorld title="Hellow test page" />
-	</div>
+	</PageLayout>
 );
 
 export default Test;

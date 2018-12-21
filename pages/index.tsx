@@ -1,21 +1,19 @@
 import React from 'react';
-import Link from 'next/link';
-import Head from '../components/head';
-import Nav from '../components/nav';
+// import Head from '../components/Head';
+// import Nav from 'components/Nav';
 import HelloWorld from '../components/helloworld';
+import PageLayout from '../core/layout';
 
 const Home = () => (
-	<div>
-		<Head title="Home" />
-		<Nav />
-
+	<PageLayout title="Home Page">
 		<div className="hero">
 			<h1 className="title">Welcome</h1>
 			<div className="row">
 				<HelloWorld />
+				<p> Hello test </p>
 			</div>
 		</div>
-	</div>
+	</PageLayout>
 );
 
 export default Home;
