@@ -1,6 +1,6 @@
 import React from 'react';
 import HelloWorld from '../components/helloworld';
-import PageLayout from '../core/layout';
+import PageLayout from '../layouts/page';
 
 const Test = () => (
 	<PageLayout title="test page">

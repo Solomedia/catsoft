@@ -14,12 +14,11 @@ interface Props {
 const PageLayout = ({ children, title }: Props) => (
 	<React.Fragment>
 		<Global styles={globalStyles} />
-		<div>
-			<Head title={title} />
-			<Nav />
-			<h1>With Layout</h1>
-			{children}
-		</div>
+
+		<Head title={title} />
+		<Nav />
+		<h1>With Layout</h1>
+		{children}
 	</React.Fragment>
 );
 

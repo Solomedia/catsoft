@@ -1,18 +1,26 @@
 import React from 'react';
-// import Head from '../components/Head';
-// import Nav from 'components/Nav';
+import { Flex, Box } from '@rebass/grid/emotion';
 import HelloWorld from '../components/helloworld';
-import PageLayout from '../core/layout';
+import PageLayout from '../layouts/page';
+import { Container } from '../utils/ui';
 
 const Home = () => (
 	<PageLayout title="Home Page">
-		<div className="hero">
-			<h1 className="title">Welcome</h1>
-			<div className="row">
-				<HelloWorld />
-				<p> Hello test </p>
-			</div>
-		</div>
+		<Container>
+			<HelloWorld />
+			<p> Hello test </p>
+			<Flex>
+				<Box width={1} px={2} bg="tomato">
+					Half width
+				</Box>
+				<Box width={1} px={2} bg="blue">
+					Half width
+				</Box>
+				<Box width={1} px={2} bg="black">
+					Half width
+				</Box>
+			</Flex>
+		</Container>
 	</PageLayout>
 );
 
