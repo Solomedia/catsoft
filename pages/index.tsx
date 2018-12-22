@@ -6,11 +6,11 @@ import { Container } from '../utils/ui';
 
 const Home = () => (
 	<PageLayout title="Home Page">
-		<Container>
+		<Container mt={[2, 2]}>
 			<HelloWorld />
 			<p> Hello test </p>
 			<Flex>
-				<Box width={1} px={2} bg="tomato">
+				<Box width={1} px={4} bg="tomato">
 					Half width
 				</Box>
 				<Box width={1} px={2} bg="blue">

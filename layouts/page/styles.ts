@@ -1,12 +1,8 @@
 import css from '@emotion/css';
-import { injectGlobal } from 'emotion';
-import emotionNormalize from 'emotion-normalize';
-
-export const stylesNormalizer = () => injectGlobal`
-${emotionNormalize}
-`;
+import normalize from '../../utils/stylesNormalizer';
 
 export const globalStyles = css`
+	${normalize}
 	p {
 		font-size: 14px;
 	}

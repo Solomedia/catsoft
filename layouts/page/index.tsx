@@ -1,13 +1,11 @@
 import React from 'react';
+import { globalStyles } from './styles';
+import { Global } from '@emotion/core';
 import Head from '../../components/Head';
 import Nav from '../../components/Nav';
-import { globalStyles, stylesNormalizer } from './styles';
-import { Global } from '@emotion/core';
-
-stylesNormalizer();
 
 interface Props {
-	children: any;
+	children: React.ReactNode;
 	title?: string;
 }
 
