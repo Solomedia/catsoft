@@ -35,16 +35,36 @@ Ecommerce website connected to magento 2.
 .
 ├── README.md
 ├── components
-│   ├── head.js
+│   ├── head.tsx
+│   ├── helloworld.tsx
+│   └── nav.tsx
+├── core
+│   ├── styles-normalizer.ts
+│   ├── styles.ts
+│   └── theme.ts
+├── layouts
+│   └── main.tsx
 ├── next.config.js
-├── node_modules
-│   ├── [...]
+├── nodemon.json
 ├── package.json
 ├── pages
-│   └── index.js
+│   ├── _app.tsx
+│   ├── index.tsx
+│   └── test.tsx
+├── server
+│   └── index.ts
 ├── static
-│   └── favicon.ico
+│   └── favicon.ico
+├── stories
+│   └── index.stories.tsx
+├── tsconfig.json
+├── tsconfig.server.json
+├── tslint.json
+├── utils
+│   └── ui.ts
+├── yarn-error.log
 └── yarn.lock
+
 ```
 
 Routing in Next.js is based on the file system, so `./pages/index.js` maps to the `/` route and
