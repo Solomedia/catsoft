@@ -1,11 +1,10 @@
-import React from 'react';
 import HelloWorld from '../components/helloworld';
-import PageLayout from '../layouts/page';
+import Main from '../layouts/main';
 
 const Test = () => (
-	<PageLayout title="test page">
+	<Main title="test page">
 		<HelloWorld title="Hellow test page" />
-	</PageLayout>
+	</Main>
 );
 
 export default Test;

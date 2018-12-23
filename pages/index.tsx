@@ -1,27 +1,35 @@
 import React from 'react';
 import { Flex, Box } from '@rebass/grid/emotion';
 import HelloWorld from '../components/helloworld';
-import PageLayout from '../layouts/page';
-import { Container } from '../utils/ui';
+import Main from '../layouts/main';
+import { Container, Row } from '../utils/ui';
 
-const Home = () => (
-	<PageLayout title="Home Page">
-		<Container mt={[2, 2]}>
-			<HelloWorld />
-			<p> Hello test </p>
-			<Flex>
-				<Box width={1} px={4} bg="tomato">
-					Half width
-				</Box>
-				<Box width={1} px={2} bg="blue">
-					Half width
-				</Box>
-				<Box width={1} px={2} bg="red">
-					Half width
-				</Box>
-			</Flex>
-		</Container>
-	</PageLayout>
-);
+class Home extends React.Component {
+	public render() {
+		return (
+			<Main title="Home Page">
+				<Container mt={[0, 1, 2]}>
+					<HelloWorld />
+					<Flex>
+						<Box width={1 / 2} px={2} bg="tomato">
+							Half width
+						</Box>
+						<Box width={1 / 2} px={2} bg="red" mt={[1]}>
+							Half width
+						</Box>
+					</Flex>
+					<Row>
+						<Box width={1 / 2} px={2} bg="tomato">
+							Half width
+						</Box>
+						<Box width={1 / 2} px={2} bg="red" mt={[1]}>
+							other width
+						</Box>
+					</Row>
+				</Container>
+			</Main>
+		);
+	}
+}
 
 export default Home;

@@ -1,22 +1,21 @@
-import React from 'react';
 import { withTheme } from 'emotion-theming';
 import styled from '@emotion/styled';
-import { ThemeProvider } from 'emotion-theming';
+import { ThemeProps } from '../utils/theme';
 
-// interface Props {
-// 	title?: string;
-// }
+interface Props {
+	title?: string;
+	theme: ThemeProps;
+}
 
 const SomeText = styled.div`
-	background: ${props =>
-		props.theme.length ? props.theme.colors.primary : 'purple'};
+	background: ${props => props.theme.colors.primary};
 `;
 
-const helloWorld = (props: any) => (
+const helloWorld = (props: Props) => (
 	<div>
 		<h1>{props.title || 'Hello world'}</h1>
-		<p>{props.theme.colors.primary}</p>
-		<SomeText>Some text</SomeText>
+		{/* <p>{props.theme.colors.primary}</p> */}
+		<SomeText theme={props.theme}>Some text</SomeText>
 	</div>
 );
 

@@ -1073,6 +1073,13 @@
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.6.6.tgz#62266c5f0eac6941fece302abad69f2ee7e25e44"
   integrity sha512-ojhgxzUHZ7am3D2jHkMzPpsBAiB005GF5YU4ea+8DNPybMk01JJUM9V9YRlF/GE95tcOm8DxQvWA2jq19bGalQ==
 
+"@emotion/is-prop-valid@0.7.3":
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.7.3.tgz#a6bf4fa5387cbba59d44e698a4680f481a8da6cc"
+  integrity sha512-uxJqm/sqwXw3YPA5GXX365OBcJGFtxUVkB6WyezqFHlNe9jqUWH5ur2O2M8dGBz61kn1g3ZBlzUunFQXQIClhA==
+  dependencies:
+    "@emotion/memoize" "0.7.1"
+
 "@emotion/is-prop-valid@^0.6.8":
   version "0.6.8"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.6.8.tgz#68ad02831da41213a2089d2cab4e8ac8b30cbd85"
@@ -1138,12 +1145,30 @@
     "@emotion/serialize" "^0.9.1"
     "@emotion/utils" "^0.8.2"
 
+"@emotion/styled-base@^10.0.5":
+  version "10.0.5"
+  resolved "https://registry.yarnpkg.com/@emotion/styled-base/-/styled-base-10.0.5.tgz#3bc29e7efc4c04190de4f84fda9dc7e6dc18a885"
+  integrity sha512-rnz0cg+gZttd4zWb6efH7jZojozou1OtcqhjSvd79v2Iu36zJcD0USzefy9k9nVtPmvyLXYpM+zxqFJXtnKiCQ==
+  dependencies:
+    "@emotion/is-prop-valid" "0.7.3"
+    "@emotion/serialize" "^0.11.3"
+    "@emotion/utils" "0.11.1"
+    object-assign "^4.1.1"
+
 "@emotion/styled@^0.10.6":
   version "0.10.6"
   resolved "https://registry.yarnpkg.com/@emotion/styled/-/styled-0.10.6.tgz#1f6af1d3d4bf9fdeb05a4d220046ce11ad21a7ca"
   integrity sha512-DFNW8jlMjy1aYCj/PKsvBoJVZAQXzjmSCwtKXLs31qZzNPaUEPbTYSIKnMUtIiAOYsu0pUTGXM+l0a+MYNm4lA==
   dependencies:
     "@emotion/styled-base" "^0.10.6"
+
+"@emotion/styled@^10.0.5":
+  version "10.0.5"
+  resolved "https://registry.yarnpkg.com/@emotion/styled/-/styled-10.0.5.tgz#f742dd6f9f5f4b2fde275534771f69419a7549bd"
+  integrity sha512-aCBYANdi57jG0Zqk1EfbpHkOTvl9iftd1uGc4GyFaBzviWfWSsKu7pdkJ6vNwhpSn7TEj32WM1D4Z4SRk3GHfQ==
+  dependencies:
+    "@emotion/styled-base" "^10.0.5"
+    babel-plugin-emotion "^10.0.5"
 
 "@emotion/stylis@0.8.3":
   version "0.8.3"
@@ -1661,6 +1686,14 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
+"@types/rebass__grid@^6.0.2":
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/@types/rebass__grid/-/rebass__grid-6.0.2.tgz#98728ae25145ad2da4a052c11ccb3fec420cf515"
+  integrity sha512-HAkwSi0hUwWKyZ8Pux1hrVV6ECCsceK0MoVZHmImZX/ezd1PsW5kC9vHKZwpyWJBzZD+3mE7eFDNrZdvJxIUpg==
+  dependencies:
+    "@types/react" "*"
+    "@types/styled-components" "*"
+
 "@types/serve-static@*":
   version "1.13.2"
   resolved "https://registry.yarnpkg.com/@types/serve-static/-/serve-static-1.13.2.tgz#f5ac4d7a6420a99a6a45af4719f4dcd8cd907a48"
@@ -1676,6 +1709,15 @@
   dependencies:
     "@types/react" "*"
     "@types/webpack-env" "*"
+
+"@types/styled-components@*":
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-4.1.4.tgz#c6915ccee4413da2e1e81b4df9d7ea5b97eb56aa"
+  integrity sha512-zEj6BptOBBxob0hnNdr/qiXZjlC8EUVl7GDN1z+kp58zLtDBjbrbo+1yjL2Gi64IjhFaF7Qz4MbsDdbBuUa83A==
+  dependencies:
+    "@types/node" "*"
+    "@types/react" "*"
+    csstype "^2.2.0"
 
 "@types/tapable@*":
   version "1.0.4"

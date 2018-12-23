@@ -1,8 +1,9 @@
 import React from 'react';
-import { globalStyles } from './styles';
 import { Global } from '@emotion/core';
-import Head from '../../components/Head';
-import Nav from '../../components/Nav';
+import { globalStyles } from '../core/styles';
+import Head from '../components/head';
+import Nav from '../components/nav';
+import { withTheme } from 'emotion-theming';
 
 interface Props {
 	children: React.ReactNode;
@@ -20,4 +21,4 @@ const PageLayout = ({ children, title }: Props) => (
 	</React.Fragment>
 );
 
-export default PageLayout;
+export default withTheme(PageLayout);

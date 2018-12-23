@@ -20,6 +20,7 @@
 	"main": "next.config.js",
 	"dependencies": {
 		"@emotion/core": "^10.0.5",
+		"@emotion/styled": "^10.0.5",
 		"@rebass/grid": "^6.0.0-7",
 		"@zeit/next-typescript": "^1.1.1",
 		"emotion": "^10.0.5",
@@ -38,6 +39,7 @@
 		"@types/express": "^4.16.0",
 		"@types/next": "^7.0.5",
 		"@types/react": "^16.7.17",
+		"@types/rebass__grid": "^6.0.2",
 		"@types/storybook__react": "^4.0.0",
 		"babel-loader": "^8.0.4",
 		"babel-plugin-emotion": "^10.0.5",
