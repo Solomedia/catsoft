@@ -8,6 +8,7 @@ export interface ThemeProps {
 	colors: object;
 	space: number[];
 	breakpoints: string[];
+	fontSizes: number[];
 }
 
 const theme: ThemeProps = {
@@ -25,7 +26,8 @@ const theme: ThemeProps = {
 		mischka: '#D4D5E2'
 	},
 	space: [5, 10, 15, 20, 25, 30, 35, 40],
-	breakpoints: Object.keys(breakpoints).map(key => breakpoints[key])
+	breakpoints: Object.keys(breakpoints).map(key => breakpoints[key]),
+	fontSizes: [12, 14, 16, 18, 20, 22, 24, 26, 28, 32, 45]
 };
 
 export default theme;

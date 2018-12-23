@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, Box } from '@rebass/grid/emotion';
 import HelloWorld from '../components/helloworld';
 import Main from '../layouts/main';
-import { Container, Row } from '../utils/ui';
+import { Container, Row, Column } from '../utils/ui';
 
 class Home extends React.Component {
 	public render() {
@@ -11,20 +11,16 @@ class Home extends React.Component {
 				<Container mt={[0, 1, 2]}>
 					<HelloWorld />
 					<Flex>
-						<Box width={1 / 2} px={2} bg="tomato">
+						<Box width={[1 / 2]} px={2} fontSize={[0, 1, 2]}>
 							Half width
 						</Box>
-						<Box width={1 / 2} px={2} bg="red" mt={[1]}>
+						<Box width={[1 / 4]} px={2}>
 							Half width
 						</Box>
 					</Flex>
 					<Row>
-						<Box width={1 / 2} px={2} bg="tomato">
-							Half width
-						</Box>
-						<Box width={1 / 2} px={2} bg="red" mt={[1]}>
-							other width
-						</Box>
+						<Column width={1 / 2}>Half width</Column>
+						<Column width={1 / 2}>other width</Column>
 					</Row>
 				</Container>
 			</Main>

@@ -18,3 +18,7 @@ export const Row = styled(Box)`
 		display: flex;
 	}
 `;
+
+export const Column: Box = styled(Box)`
+	padding: 0 15px;
+`;

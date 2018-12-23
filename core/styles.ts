@@ -3,4 +3,7 @@ import normalize from './styles-normalizer';
 
 export const globalStyles = css`
 	${normalize}
+	body {
+		font-family: 'Montserrat', sans-serif;
+	}
 `;
