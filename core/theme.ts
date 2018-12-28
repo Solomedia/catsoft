@@ -4,18 +4,8 @@ export const breakpoints = {
 	lg: '1200px'
 };
 
-export interface Colors {
-	black: string;
-	primary: string;
-	secondary: string;
-	flowerblue: string;
-	waterloo: string;
-	amber: string;
-	conifer: string;
-	bittersweet: string;
-	whisper: string;
-	linkWater: string;
-	mischka: string;
+interface Colors {
+	[key: string]: any;
 }
 
 export interface ThemeProps {
