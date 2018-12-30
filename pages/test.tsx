@@ -1,14 +1,10 @@
-import React from 'react';
-import Head from '../components/head';
 import HelloWorld from '../components/helloworld';
-import Nav from '../components/nav';
+import Main from '../layouts/main';
 
 const Test = () => (
-	<div>
-		<Head title="Test page" />
-		<Nav />
+	<Main title="test page">
 		<HelloWorld title="Hellow test page" />
-	</div>
+	</Main>
 );
 
 export default Test;
