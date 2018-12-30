@@ -1,22 +1,44 @@
-import { withTheme } from 'emotion-theming';
+import { graphql, DataValue } from 'react-apollo';
+import gql from 'graphql-tag';
 import styled from '@emotion/styled';
-import { ThemeProps } from '../utils/theme';
+import { ThemeProps } from '../core/theme';
+
+interface Feed {
+	count: number;
+}
 
 interface Props {
 	title?: string;
 	theme: ThemeProps;
+	data: DataValue<{ feed: Feed }>;
 }
 
 const SomeText = styled.div`
-	background: ${props => props.theme.colors.primary};
+	background: ${(props: Props) => props.theme.colors.primary};
 `;
 
-const helloWorld = (props: Props) => (
-	<div>
-		<h1>{props.title || 'Hello world'}</h1>
-		{/* <p>{props.theme.colors.primary}</p> */}
-		<SomeText theme={props.theme}>Some text</SomeText>
-	</div>
-);
+const helloWorld = (props: Props) => {
+	const {
+		title,
+		data: { feed }
+	} = props;
 
-export default withTheme(helloWorld);
+	return (
+		<div>
+			<h1>{title || 'Hello world'}</h1>
+			<h1>{feed.count}</h1>
+			<SomeText theme={props.theme}>Some text</SomeText>
+			<button onClick={() => console.log(props.data)}>log props</button>
+		</div>
+	);
+};
+
+const FEED_QUERY = gql`
+	query feed {
+		feed {
+			count
+		}
+	}
+`;
+
+export default graphql(FEED_QUERY)(helloWorld);

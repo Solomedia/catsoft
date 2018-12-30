@@ -4,8 +4,12 @@ export const breakpoints = {
 	lg: '1200px'
 };
 
+interface Colors {
+	[key: string]: any;
+}
+
 export interface ThemeProps {
-	colors: object;
+	colors: Colors;
 	space: number[];
 	breakpoints: string[];
 	fontSizes: number[];
