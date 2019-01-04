@@ -1,6 +1,5 @@
-import styled from '@emotion/styled';
 import { Box } from '@rebass/grid/emotion';
-import { breakpoints } from '../core/theme';
+import styled, { breakpoints } from '../core/theme';
 
 export const Container: Box = styled(Box)`
 	max-width: 1200px;

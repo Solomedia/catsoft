@@ -1,3 +1,5 @@
+import styled, { CreateStyled } from '@emotion/styled';
+
 export const breakpoints = {
 	sm: '768px',
 	md: '960px',
@@ -15,7 +17,7 @@ export interface ThemeProps {
 	fontSizes: number[];
 }
 
-const theme: ThemeProps = {
+export const theme: ThemeProps = {
 	colors: {
 		black: '#000032',
 		primary: '#5C56C8',
@@ -34,4 +36,4 @@ const theme: ThemeProps = {
 	fontSizes: [12, 14, 16, 18, 20, 22, 24, 26, 28, 32, 45]
 };
 
-export default theme;
+export default styled as CreateStyled<ThemeProps>;
