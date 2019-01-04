@@ -54,6 +54,7 @@ const withApolloClient = App => {
 		public apolloClient = initApollo(this.props.apolloState);
 
 		public render() {
+			this.apolloClient.initQueryManager();
 			return <App {...this.props} apolloClient={this.apolloClient} />;
 		}
 	};
