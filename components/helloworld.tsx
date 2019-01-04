@@ -1,23 +1,12 @@
-import { graphql, DataValue } from 'react-apollo';
+import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import styled from '@emotion/styled';
-import { ThemeProps } from '../core/theme';
-
-interface Feed {
-	count: number;
-}
-
-interface Props {
-	title?: string;
-	theme: ThemeProps;
-	data: DataValue<{ feed: Feed }>;
-}
 
 const SomeText = styled.div`
-	background: ${(props: Props) => props.theme.colors.primary};
+	background: ${props => props.theme.colors.primary};
 `;
 
-const helloWorld = (props: Props) => {
+const helloWorld = props => {
 	const {
 		title,
 		data: { feed }
@@ -41,4 +30,16 @@ const FEED_QUERY = gql`
 	}
 `;
 
-export default graphql(FEED_QUERY)(helloWorld);
+interface Feed {
+	count: number;
+}
+
+interface Response {
+	feed: Feed;
+}
+
+interface InputProps {
+	title?: string;
+}
+
+export default graphql<InputProps, Response>(FEED_QUERY)(helloWorld);

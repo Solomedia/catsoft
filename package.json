@@ -12,7 +12,7 @@
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "npm run format && npm run lint"
+			"pre-commit": "npm run format && npm run lint && tsc --noEmit"
 		}
 	},
 	"description": "Ecommerce website connected to magento 2.",
