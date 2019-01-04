@@ -1,9 +1,29 @@
 import { ApolloClient, InMemoryCache, HttpLink } from 'apollo-boost';
 import fetch from 'isomorphic-unfetch';
 import { graphqlEndpoint } from '../utils/constants';
+import { createHttpLink } from 'apollo-link-http';
+import { setContext } from 'apollo-link-context';
 
 let apolloClient = null;
 const isBrowser = typeof window !== 'undefined';
+
+const httpLink = createHttpLink({
+	uri: graphqlEndpoint
+	// fetchOptions: {
+	// 	mode: 'no-cors'
+	// }
+});
+
+const authLink = setContext((_, { headers }) => {
+	return {
+		headers: {
+			...headers,
+			// TODO remove Access-Control-Allow-Origin header. It was temporarily added for demo purposes, use fetchOptions mode instead if necessary.
+			'Access-Control-Allow-Origin': '*',
+			'TEST-TEST': 'custom header'
+		}
+	};
+});
 
 if (!isBrowser) {
 	global['fetch'] = fetch;
@@ -13,12 +33,7 @@ function create(initialState) {
 	return new ApolloClient({
 		connectToDevTools: isBrowser,
 		ssrMode: !isBrowser, // Disables forceFetch on the server (so queries are only run once)
-		link: new HttpLink({
-			uri: graphqlEndpoint
-			// fetchOptions: {
-			// 	mode: 'no-cors'
-			// }
-		}),
+		link: authLink.concat(httpLink),
 		cache: new InMemoryCache().restore(initialState)
 	});
 }

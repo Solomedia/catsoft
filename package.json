@@ -24,6 +24,8 @@
 		"@rebass/grid": "^6.0.0-7",
 		"@zeit/next-typescript": "^1.1.1",
 		"apollo-boost": "^0.1.23",
+		"apollo-link-context": "^1.0.12",
+		"apollo-link-http": "^1.5.9",
 		"emotion": "^10.0.5",
 		"emotion-server": "^10.0.5",
 		"emotion-theming": "^10.0.5",
