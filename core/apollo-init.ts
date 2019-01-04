@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache, HttpLink } from 'apollo-boost';
+import { ApolloClient, InMemoryCache } from 'apollo-boost';
 import fetch from 'isomorphic-unfetch';
 import { graphqlEndpoint } from '../utils/constants';
 import { createHttpLink } from 'apollo-link-http';
