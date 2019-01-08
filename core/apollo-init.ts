@@ -17,10 +17,8 @@ const httpLink = createHttpLink({
 const authLink = setContext((_, { headers }) => {
 	return {
 		headers: {
-			...headers,
-			// TODO remove Access-Control-Allow-Origin header. It was temporarily added for demo purposes, use fetchOptions mode instead if necessary.
-			'Access-Control-Allow-Origin': '*',
-			'TEST-TEST': 'custom header'
+			...headers
+			// 'Custom-Header': 'data'
 		}
 	};
 });

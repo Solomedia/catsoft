@@ -1,5 +1,7 @@
 import * as express from 'express';
 import * as next from 'next';
+import * as nextI18NextMiddleware from 'next-i18next/middleware';
+import * as nextI18next from '../i18n';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -10,7 +12,7 @@ app
 	.prepare()
 	.then(() => {
 		const server = express();
-
+		nextI18NextMiddleware(nextI18next, app, server);
 		server.get('*', (req, res) => {
 			return handle(req, res);
 		});
