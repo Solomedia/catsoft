@@ -6,4 +6,7 @@ export const globalStyles = css`
 	body {
 		font-family: 'Montserrat', sans-serif;
 	}
+	a {
+		text-decoration: none;
+	}
 `;

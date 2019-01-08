@@ -2,13 +2,12 @@ import { withTheme } from 'emotion-theming';
 import { Box } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
 import { Container, Col } from '../../utils/ui';
-import styled from '../../core/theme';
+import styled, { ThemeProps } from '../../core/theme';
 import { Row } from '../../utils/ui';
 
 export const A: any = styled.a`
 	color: white;
 	font-size: 12px;
-	text-decoration: none;
 	&:after {
 		content: '|';
 		margin: ${(props: any) => (props.separator ? '0 10px' : '0')};
@@ -16,7 +15,12 @@ export const A: any = styled.a`
 	}
 `;
 
-const TopNav = props => {
+interface Props {
+	t: (arg: string) => string;
+	theme: ThemeProps;
+}
+
+const TopNav: React.SFC<Props> = props => {
 	const { t } = props;
 	return (
 		<Box bg={props.theme.colors.primary} py={0}>
