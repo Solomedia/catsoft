@@ -3,6 +3,8 @@ import { ApolloProvider } from 'react-apollo';
 import { ThemeProvider } from 'emotion-theming';
 import { theme } from '../core/theme';
 import withApolloClient from '../core/with-apollo-client';
+import * as i18next from '../i18n';
+const { appWithTranslation } = i18next;
 
 class MyApp extends App<{ apolloClient }> {
 	public render() {
@@ -19,4 +21,4 @@ class MyApp extends App<{ apolloClient }> {
 	}
 }
 
-export default withApolloClient(MyApp);
+export default withApolloClient(appWithTranslation(MyApp));

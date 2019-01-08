@@ -1,12 +1,12 @@
 import styled from '../core/theme';
 
-interface Feed {
-	count: number;
-}
+// interface Feed {
+// 	count: number;
+// }
 
 interface Props {
 	title?: string;
-	data: Feed;
+	data: any;
 }
 
 const SomeText = styled('div')`
