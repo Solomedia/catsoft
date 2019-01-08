@@ -1,6 +1,7 @@
 import React from 'react';
-import MiscHeader from './misc';
+import TopNav from './top-nav';
 import * as i18Next from '../../i18n';
+import SearchBar from './searchbar';
 
 const { withNamespaces } = i18Next;
 
@@ -10,7 +11,8 @@ class Header extends React.Component<any> {
 
 		return (
 			<header>
-				<MiscHeader t={t} />
+				<TopNav t={t} />
+				<SearchBar />
 			</header>
 		);
 	}

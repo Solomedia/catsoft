@@ -19,6 +19,7 @@
 	"version": "1.0.0",
 	"main": "next.config.js",
 	"dependencies": {
+		"@emotion/babel-preset-css-prop": "^10.0.6",
 		"@emotion/core": "^10.0.5",
 		"@emotion/styled": "^10.0.5",
 		"@rebass/grid": "^6.0.0-7",
