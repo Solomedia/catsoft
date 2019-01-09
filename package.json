@@ -3,7 +3,7 @@
 	"scripts": {
 		"dev": "nodemon server/index.ts",
 		"build": "next build && tsc --project tsconfig.server.json",
-		"start": "npm run build && NODE_ENV=production node .next/production-server/index.js",
+		"start": "npm run build && NODE_ENV=production node .next/production-server/server/index.js",
 		"storybook": "start-storybook -p 9001",
 		"lint:ts": "tslint --project .",
 		"lint:css": "stylelint '**/*.ts'",
