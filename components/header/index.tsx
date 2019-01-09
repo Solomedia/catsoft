@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { withTheme } from 'emotion-theming';
 import { css } from '@emotion/core';
+import styled from '../../core/theme';
 import TopNav from './top-nav';
 import * as i18Next from '../../i18n';
 import SearchBar from './searchbar';
@@ -10,6 +11,19 @@ import { ThemeProps } from '../../core/theme';
 import { Box } from '@rebass/grid/emotion';
 
 const { withNamespaces } = i18Next;
+
+const Logo = styled.a`
+	font-size: 30px;
+	color: white;
+	font-weight: 900;
+`;
+
+const Hr = styled.hr`
+	background-color: #6354ea;
+	border: 0;
+	width: 100%;
+	height: 1px;
+`;
 
 interface Props {
 	t: (arg: string) => string;
@@ -23,34 +37,32 @@ class Header extends React.Component<Props> {
 		return (
 			<Box bg={theme.colors.primary}>
 				<TopNav t={t} />
-				<Box
+				<Hr />
+				<Container
 					css={css`
-						padding: 17px 0 27px;
-						border-top: 1px solid #6354ea;
+						padding: 17px 0 24px;
 					`}
 				>
-					<Container>
-						<Row>
-							<Col width={1 / 3}>
-								<Link href="/">
-									<a
-										css={css`
-											font-size: 30px;
-											color: white;
-											font-weight: 900;
-										`}
-									>
-										CATSOFT
-									</a>
-								</Link>
-							</Col>
-							<Col width={1 / 3}>
-								<SearchBar />
-							</Col>
-							<Col width={1 / 3}>Setting</Col>
-						</Row>
-					</Container>
-				</Box>
+					<Row
+						css={css`
+							align-items: center;
+						`}
+					>
+						<Col>
+							<Link href="/">
+								<Logo>CATSOFT</Logo>
+							</Link>
+						</Col>
+						<Col
+							width={1}
+							css={css`
+								max-width: 664px;
+							`}
+						>
+							<SearchBar />
+						</Col>
+					</Row>
+				</Container>
 			</Box>
 		);
 	}

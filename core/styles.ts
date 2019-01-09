@@ -9,4 +9,9 @@ export const globalStyles = css`
 	a {
 		text-decoration: none;
 	}
+	input {
+		&:focus {
+			outline: 0;
+		}
+	}
 `;

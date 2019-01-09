@@ -1,6 +1,9 @@
 import css from '@emotion/css';
 
 const normalize = css`
+	* {
+		box-sizing: border-box;
+	}
 	html {
 		line-height: 1.15;
 	}
