@@ -3,7 +3,7 @@
 	"scripts": {
 		"dev": "nodemon server/index.ts",
 		"build": "next build && tsc --project tsconfig.server.json",
-		"start": "npm run build && NODE_ENV=production node .next/production-server/index.js",
+		"start": "npm run build && NODE_ENV=production node .next/production-server/server/index.js",
 		"storybook": "start-storybook -p 9001",
 		"lint:ts": "tslint --project .",
 		"lint:css": "stylelint '**/*.ts'",
@@ -19,6 +19,7 @@
 	"version": "1.0.0",
 	"main": "next.config.js",
 	"dependencies": {
+		"@emotion/babel-preset-css-prop": "^10.0.6",
 		"@emotion/core": "^10.0.5",
 		"@emotion/styled": "^10.0.5",
 		"@rebass/grid": "^6.0.0-7",

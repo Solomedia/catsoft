@@ -1,19 +1,71 @@
 import React from 'react';
-import MiscHeader from './misc';
+import Link from 'next/link';
+import { withTheme } from 'emotion-theming';
+import { css } from '@emotion/core';
+import styled from '../../core/theme';
+import TopNav from './top-nav';
 import * as i18Next from '../../i18n';
+import SearchBar from './searchbar';
+import { Row, Col, Container } from '../../utils/ui';
+import { ThemeProps } from '../../core/theme';
+import { Box } from '@rebass/grid/emotion';
 
 const { withNamespaces } = i18Next;
 
-class Header extends React.Component<any> {
+const Logo = styled.a`
+	font-size: 30px;
+	color: white;
+	font-weight: 900;
+`;
+
+const Hr = styled.hr`
+	background-color: #6354ea;
+	border: 0;
+	width: 100%;
+	height: 1px;
+`;
+
+interface Props {
+	t: (arg: string) => string;
+	theme: ThemeProps;
+}
+
+class Header extends React.Component<Props> {
 	public render() {
-		const { t } = this.props;
+		const { t, theme } = this.props;
 
 		return (
-			<header>
-				<MiscHeader t={t} />
-			</header>
+			<Box bg={theme.colors.primary}>
+				<TopNav t={t} />
+				<Hr />
+				<Container
+					css={css`
+						padding: 17px 0 24px;
+					`}
+				>
+					<Row
+						css={css`
+							align-items: center;
+						`}
+					>
+						<Col>
+							<Link href="/">
+								<Logo>CATSOFT</Logo>
+							</Link>
+						</Col>
+						<Col
+							width={1}
+							css={css`
+								max-width: 664px;
+							`}
+						>
+							<SearchBar />
+						</Col>
+					</Row>
+				</Container>
+			</Box>
 		);
 	}
 }
 
-export default withNamespaces('header')(Header);
+export default withNamespaces('header')(withTheme(Header));
