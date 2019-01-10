@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, Box } from '@rebass/grid/emotion';
-import { graphql, DataValue } from 'react-apollo';
-import gql from 'graphql-tag';
+import { DataValue } from 'react-apollo';
+// import gql from 'graphql-tag';
 import HelloWorld from '../components/helloworld';
 import Main from '../layouts/main';
 import { Container, Row, Col } from '../utils/ui';
@@ -36,15 +36,16 @@ class Home extends React.Component<{ data: DataValue<{ feed }> }> {
 	}
 }
 
-const FEED_QUERY = gql`
-	query feed {
-		feed {
-			count
-			links {
-				url
-			}
-		}
-	}
-`;
+// const FEED_QUERY = gql`
+// 	query feed {
+// 		feed {
+// 			count
+// 			links {
+// 				url
+// 			}
+// 		}
+// 	}
+// `;
 
-export default graphql(FEED_QUERY)(Home);
+// export default graphql(FEED_QUERY)(Home);
+export default Home;

@@ -1,6 +1,6 @@
 import React from 'react';
-import { graphql, DataValue } from 'react-apollo';
-import gql from 'graphql-tag';
+import { DataValue } from 'react-apollo';
+// import gql from 'graphql-tag';
 import HelloWorld from '../components/helloworld';
 import Main from '../layouts/main';
 import { Container } from '../utils/ui';
@@ -23,12 +23,13 @@ class Test extends React.Component<{ data: DataValue<{ feed }> }> {
 	}
 }
 
-const FEED_QUERY = gql`
-	query feed {
-		feed {
-			count
-		}
-	}
-`;
+// const FEED_QUERY = gql`
+// 	query feed {
+// 		feed {
+// 			count
+// 		}
+// 	}
+// `;
 
-export default graphql(FEED_QUERY)(Test);
+// export default graphql(FEED_QUERY)(Test);
+export default Test;

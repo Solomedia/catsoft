@@ -15,9 +15,10 @@ export const ContainerFluid = styled(Box)`
 
 export const Row: Flex = styled(Flex)`
 	label: row;
-	display: block;
+	margin: 0 -15px;
+	flex-direction: column;
 	@media (min-width: ${breakpoints['sm']}) {
-		display: flex;
+		flex-direction: row;
 	}
 `;
 
