@@ -40,7 +40,7 @@ const Head = (props: Props) => (
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<link
-			href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,900"
+			href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,900"
 			rel="stylesheet"
 		/>
 		<link

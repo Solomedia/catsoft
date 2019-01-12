@@ -38,7 +38,9 @@
 		"next": "^7.0.2",
 		"next-i18next": "^0.17.1",
 		"react": "^16.6.3",
+		"react-animate-height": "^2.0.7",
 		"react-apollo": "^2.3.3",
+		"react-device-detect": "^1.6.1",
 		"react-dom": "^16.6.3",
 		"typescript": "^3.2.2"
 	},

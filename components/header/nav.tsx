@@ -1,41 +1,25 @@
-import Link from 'next/link';
-import { graphql } from 'react-apollo';
-import { css } from '@emotion/core';
-import { Flex } from '@rebass/grid/emotion';
-import { withTheme } from 'emotion-theming';
+import React from 'react';
 import gql from 'graphql-tag';
-
-import { Col, Container, Row } from '../../utils/ui';
+import { graphql, DataValue } from 'react-apollo';
+import { withTheme } from 'emotion-theming';
 import { Box } from '@rebass/grid/emotion';
-import styled, { breakpoints } from '../../core/theme';
 
-const A = styled.a`
-	color: #fff;
-	font-weight: 700;
-	font-size: 28px;
-	@media (min-width: ${breakpoints['sm']}) {
-		font-size: 14px;
-	}
-`;
-
-const LinkIcon = styled.i`
-	color: #d4d5e2;
-	margin-left: 8px;
-	margin-top: 5px;
-	font-size: 18px;
-	@media (min-width: ${breakpoints['sm']}) {
-		margin-left: 13px;
-		margin-top: auto;
-		font-size: 13px;
-	}
-`;
+import { Container, Row } from '../../utils/ui';
+import NavItem from './nav-item';
+import styled, { ThemeProps } from '../../core/theme';
 
 const Wrapper = styled(Container)`
 	label: wrapper;
 	max-width: 931px;
+	padding: 0 15px;
 `;
 
-const Nav = props => {
+interface Props {
+	data: DataValue<{ category }>;
+	theme: ThemeProps;
+}
+
+const Nav: React.SFC<Props> = props => {
 	const {
 		data: { category },
 		theme
@@ -43,26 +27,12 @@ const Nav = props => {
 
 	const NavItems =
 		category &&
-		category.children.map(item => (
-			<Col
-				key={item.id}
-				css={css`
-					@media (max-width: ${breakpoints['sm']}) {
-						margin-top: 10px;
-					}
-				`}
-			>
-				<Link prefetch href="/">
-					<Flex alignItems="center" justifyContent="center">
-						<A href="/">{item.name}</A>
-						<LinkIcon className="fa fa-chevron-down" />
-					</Flex>
-				</Link>
-			</Col>
+		category.children.map(product => (
+			<NavItem key={product.id} product={product} />
 		));
 
 	return (
-		<Box bg={theme.colors.secondary} py={16}>
+		<Box bg={theme.colors.secondary}>
 			<Wrapper>
 				<Row justifyContent="space-between">{NavItems}</Row>
 			</Wrapper>
@@ -77,6 +47,12 @@ const CATEGORIES_QUERY = gql`
 				name
 				id
 				position
+				products {
+					items {
+						name
+						id
+					}
+				}
 			}
 		}
 	}
