@@ -58,11 +58,21 @@ class Header extends React.Component<Props> {
 						<Col
 							width={1}
 							css={css`
-								max-width: 664px;
+								max-width: 694px;
 							`}
 						>
 							<SearchBar />
-							<Cta/>
+						</Col>
+						<Col
+							css={css`
+								display: flex;
+								justify-content: space-around;
+								min-width: 260px;
+								width: 40%;
+							`}
+						>
+							<Cta ctaType="persone" text="Hello, log in or sign up" />
+							<Cta text="Your cart" ctaType="shopping_cart" inCard={0} />
 						</Col>
 					</Row>
 				</Container>

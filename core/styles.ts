@@ -6,6 +6,9 @@ export const globalStyles = css`
 	body {
 		font-family: 'Montserrat', sans-serif;
 	}
+	p {
+		margin: 0;
+	}
 	a {
 		text-decoration: none;
 		&:hover {
