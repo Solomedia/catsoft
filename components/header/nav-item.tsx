@@ -34,8 +34,8 @@ const LinkStyled: any = styled.a`
 		border-right: 12px solid transparent;
 		border-bottom: 12px solid ${(props: any) => props.theme.colors.primary};
 		position: absolute;
-		bottom: -15px;
-		right: -29px;
+		bottom: -19px;
+		right: -32px;
 		visibility: ${(props: any) => (props.show ? 'visible' : 'hidden')};
 		opacity: ${(props: any) => (props.show ? 1 : 0)};
 		transition: opacity 0.2s;
@@ -45,15 +45,16 @@ const LinkStyled: any = styled.a`
 	}
 `;
 
-const LinkIcon = styled.i`
+const LinkIcon: any = styled.i`
 	color: #d4d5e2;
 	margin-left: 8px;
 	margin-top: 5px;
-	font-size: 18px;
+	font-size: 25px;
+	visibility: ${(props: any) => (!props.withProducts ? 'hidden' : 'visible')};
 	@media (min-width: ${breakpoints['sm']}) {
 		margin-left: 13px;
 		margin-top: auto;
-		font-size: 13px;
+		font-size: 20px;
 	}
 `;
 
@@ -82,15 +83,12 @@ class NavItem extends React.Component<Props, State> {
 		const LinkContent = product && product.products && (
 			<Flex alignItems="center" justifyContent="center">
 				<LinkStyled show={showSubmenu}>{product.name}</LinkStyled>
-				{product.products.items.length > 0 && (
-					<LinkIcon
-						className={
-							isMobile && showSubmenu
-								? 'fa fa-chevron-up'
-								: 'fa fa-chevron-down'
-						}
-					/>
-				)}
+				<LinkIcon
+					className="material-icons"
+					withProducts={product.products.items.length}
+				>
+					{isMobile && showSubmenu ? 'expand_less' : 'expand_more'}
+				</LinkIcon>
 			</Flex>
 		);
 

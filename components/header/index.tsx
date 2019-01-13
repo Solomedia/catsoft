@@ -10,6 +10,7 @@ import { Row, Col, Container } from '../../utils/ui';
 import { ThemeProps } from '../../core/theme';
 import { Box } from '@rebass/grid/emotion';
 import Nav from './nav';
+import Cta from './cta';
 
 const { withNamespaces } = i18Next;
 
@@ -61,6 +62,7 @@ class Header extends React.Component<Props> {
 							`}
 						>
 							<SearchBar />
+							<Cta/>
 						</Col>
 					</Row>
 				</Container>
