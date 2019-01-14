@@ -9,6 +9,7 @@ import SearchBar from './searchbar';
 import { Row, Col, Container } from '../../utils/ui';
 import { ThemeProps } from '../../core/theme';
 import { Box } from '@rebass/grid/emotion';
+import Nav from './nav';
 
 const { withNamespaces } = i18Next;
 
@@ -40,7 +41,7 @@ class Header extends React.Component<Props> {
 				<Hr />
 				<Container
 					css={css`
-						padding: 17px 0 24px;
+						padding: 17px 15px 24px;
 					`}
 				>
 					<Row
@@ -63,6 +64,7 @@ class Header extends React.Component<Props> {
 						</Col>
 					</Row>
 				</Container>
+				<Nav />
 			</Box>
 		);
 	}

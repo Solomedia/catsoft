@@ -8,6 +8,9 @@ export const globalStyles = css`
 	}
 	a {
 		text-decoration: none;
+		&:hover {
+			cursor: pointer;
+		}
 	}
 	input {
 		&:focus {
