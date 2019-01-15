@@ -10,6 +10,7 @@ import { Row, Col, Container } from '../../utils/ui';
 import { ThemeProps } from '../../core/theme';
 import { Box } from '@rebass/grid/emotion';
 import Nav from './nav';
+import Cta from './cta';
 
 const { withNamespaces } = i18Next;
 
@@ -57,10 +58,21 @@ class Header extends React.Component<Props> {
 						<Col
 							width={1}
 							css={css`
-								max-width: 664px;
+								max-width: 694px;
 							`}
 						>
 							<SearchBar />
+						</Col>
+						<Col
+							css={css`
+								display: flex;
+								justify-content: space-around;
+								min-width: 260px;
+								width: 40%;
+							`}
+						>
+							<Cta ctaType="persone" text="Hello, log in or sign up" />
+							<Cta text="Your cart" ctaType="shopping_cart" inCard={0} />
 						</Col>
 					</Row>
 				</Container>

@@ -29,7 +29,7 @@ const SearchBar = () => {
 			`}
 		>
 			<SearchInput placeholder="Search the entire store here" />
-			<Icon className="fa fa-search" />
+			<Icon className="material-icons">search</Icon>
 		</div>
 	);
 };
