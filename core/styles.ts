@@ -3,8 +3,26 @@ import normalize from './styles-normalizer';
 
 export const globalStyles = css`
 	${normalize}
+	button,
+	input,
+	optgroup,
+	select,
+	textarea,
 	body {
 		font-family: 'Montserrat', sans-serif;
+	}
+	button {
+		cursor: pointer;
+	}
+	button,
+	input,
+	optgroup,
+	select,
+	textarea {
+		&:focus,
+		&:active {
+			outline: 0;
+		}
 	}
 	p {
 		margin: 0;
@@ -13,11 +31,6 @@ export const globalStyles = css`
 		text-decoration: none;
 		&:hover {
 			cursor: pointer;
-		}
-	}
-	input {
-		&:focus {
-			outline: 0;
 		}
 	}
 `;

@@ -8,6 +8,7 @@
 		"no-console": false,
 		"no-string-literal": false,
 		"jsx-no-lambda": false,
-		"jsx-boolean-value": false
+		"jsx-boolean-value": false,
+		"curly": false
 	}
 }
