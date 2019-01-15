@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Link from 'next/link';
 import { Flex, Box } from '@rebass/grid/emotion';
@@ -35,7 +36,7 @@ const LinkStyled: any = styled.a`
 		border-bottom: 12px solid ${(props: any) => props.theme.colors.primary};
 		position: absolute;
 		bottom: -19px;
-		right: -32px;
+		right: -25px;
 		visibility: ${(props: any) => (props.show ? 'visible' : 'hidden')};
 		opacity: ${(props: any) => (props.show ? 1 : 0)};
 		transition: opacity 0.2s;
@@ -47,7 +48,6 @@ const LinkStyled: any = styled.a`
 
 const LinkIcon: any = styled.i`
 	color: #d4d5e2;
-	margin-left: 8px;
 	margin-top: 5px;
 	font-size: 25px;
 	visibility: ${(props: any) => (!props.withProducts ? 'hidden' : 'visible')};
@@ -99,11 +99,14 @@ class NavItem extends React.Component<Props, State> {
 					onMouseLeave={() =>
 						!isMobile && this.setState({ showSubmenu: false })
 					}
-					onClick={() =>
-						isMobile &&
-						product.products.items.length &&
-						this.setState((state: any) => ({ showSubmenu: !state.showSubmenu }))
-					}
+					onClick={() => {
+						if (isMobile && product.products.items.length) {
+							this.setState((state: any) => ({
+								showSubmenu: !state.showSubmenu
+							}));
+							document.querySelector('body').style.overflowY = 'auto';
+						}
+					}}
 				>
 					{!isMobile || !product.products.items.length ? (
 						<Link prefetch href="/">
