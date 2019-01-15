@@ -11,7 +11,6 @@ import styled, { ThemeProps } from '../../core/theme';
 const Wrapper = styled(Container)`
 	label: wrapper;
 	max-width: 931px;
-	padding: 0 15px;
 `;
 
 interface Props {
@@ -32,7 +31,7 @@ const Nav: React.SFC<Props> = props => {
 		));
 
 	return (
-		<Box bg={theme.colors.secondary}>
+		<Box bg={[theme.colors.secondary, theme.colors.primary]}>
 			<Wrapper>
 				<Row justifyContent="space-between">{NavItems}</Row>
 			</Wrapper>
