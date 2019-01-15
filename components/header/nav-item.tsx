@@ -70,8 +70,8 @@ interface Props {
 	product: Product;
 }
 
-class NavItem extends React.Component<Props, State> {
-	public state = {
+class NavItem extends React.Component<Props> {
+	public state: State = {
 		showSubmenu: false
 	};
 

@@ -11,7 +11,6 @@ import styled, { ThemeProps } from '../../core/theme';
 const Wrapper = styled(Container)`
 	label: wrapper;
 	max-width: 931px;
-	padding: 0 15px;
 `;
 
 interface Props {
