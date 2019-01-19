@@ -4,8 +4,8 @@ import { DataValue } from 'react-apollo';
 // import gql from 'graphql-tag';
 import HelloWorld from '../components/helloworld';
 import Main from '../layouts/main';
+import HeroWithCta from '../components/hero-with-cta';
 import { Container, Row, Col } from '../utils/ui';
-import CtaHero from '../components/cta-hero';
 
 class Home extends React.Component<{ data: DataValue<{ feed }> }> {
 	public static async getInitialProps() {
@@ -18,7 +18,7 @@ class Home extends React.Component<{ data: DataValue<{ feed }> }> {
 		return (
 			<Main title="Home Page">
 				<Container>
-					<CtaHero />
+					<HeroWithCta />
 				</Container>
 				<Container mt={[0, 1, 2]}>
 					<HelloWorld data={this.props.data} />
