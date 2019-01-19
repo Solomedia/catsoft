@@ -1,5 +1,6 @@
 import css from '@emotion/css';
 import normalize from './styles-normalizer';
+import { theme } from './theme';
 
 export const globalStyles = css`
 	${normalize}
@@ -9,8 +10,11 @@ export const globalStyles = css`
 	select,
 	textarea,
 	body {
+		color: ${theme.colors.black};
 		font-family: 'Montserrat', sans-serif;
+		font-size: 14px;
 	}
+
 	button {
 		cursor: pointer;
 	}
@@ -23,6 +27,15 @@ export const globalStyles = css`
 		&:active {
 			outline: 0;
 		}
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-weight: 500;
+		margin: 0;
 	}
 	p {
 		margin: 0;

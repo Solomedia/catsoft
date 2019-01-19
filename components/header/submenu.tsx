@@ -27,6 +27,7 @@ const Wrapper: Box = styled(Box)`
 		transform: translateX(-50%);
 		transition: opacity 0.2s;
 		overflow: visible;
+		z-index: 1;
 	}
 	&:before {
 		@media (max-width: ${breakpoints['sm']}) {
