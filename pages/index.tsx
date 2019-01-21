@@ -1,13 +1,20 @@
 import React from 'react';
-import { Flex, Box } from '@rebass/grid/emotion';
 import { DataValue } from 'react-apollo';
-// import gql from 'graphql-tag';
-import HelloWorld from '../components/helloworld';
+import { Box } from '@rebass/grid/emotion';
+// Project modules
 import Main from '../layouts/main';
 import HeroWithCta from '../components/hero-with-cta';
-import { Container, Row, Col } from '../utils/ui';
+import Reviews from '../components/reviews';
+import { Container } from '../utils/ui';
+import { ThemeProps } from '../core/theme';
+import { theme } from '../core/theme';
 
-class Home extends React.Component<{ data: DataValue<{ feed }> }> {
+interface Props {
+	data: DataValue<{ feed }>;
+	theme: ThemeProps;
+}
+
+class Home extends React.Component<Props> {
 	public static async getInitialProps() {
 		return {
 			namespacesRequired: ['common', 'footer', 'header']
@@ -20,36 +27,14 @@ class Home extends React.Component<{ data: DataValue<{ feed }> }> {
 				<Container>
 					<HeroWithCta />
 				</Container>
-				<Container mt={[0, 1, 2]}>
-					<HelloWorld data={this.props.data} />
-					<Flex>
-						<Box width={[1 / 2]} px={2} fontSize={[0, 1, 2]}>
-							Half width
-						</Box>
-						<Box width={[1 / 4]} px={2}>
-							Half width
-						</Box>
-					</Flex>
-					<Row>
-						<Col width={1 / 2}>Half width</Col>
-						<Col width={1 / 2}>other width</Col>
-					</Row>
-				</Container>
+				<Box bg={theme.colors.containerBg2}>
+					<Container>
+						<Reviews />
+					</Container>
+				</Box>
 			</Main>
 		);
 	}
 }
 
-// const FEED_QUERY = gql`
-// 	query feed {
-// 		feed {
-// 			count
-// 			links {
-// 				url
-// 			}
-// 		}
-// 	}
-// `;
-
-// export default graphql(FEED_QUERY)(Home);
 export default Home;
