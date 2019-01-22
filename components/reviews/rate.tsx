@@ -4,39 +4,69 @@ import { Box, Flex } from '@rebass/grid/emotion';
 import { Text } from '../../utils/ui';
 import { breakpoints } from '../../core/theme';
 
-const Rating = props => {
-	const { open } = props;
+interface ReviewType {
+	reviewer: string;
+	comment: string;
+	rate: number;
+	stars: number;
+	client_name: string;
+	profession: string;
+	company: string;
+}
 
-	return (
-		<Wrapper open={open}>
-			<RateBox>
-				<img src="https://via.placeholder.com/40x40" />
-				<TextName>Reviwer</TextName>
-				<TextRate>9.2</TextRate>
-				<TextCount>
-					OUT OF 10 <br /> (3800 + Reviews)
-				</TextCount>
-			</RateBox>
-			{open && (
-				<CommentBox>
-					<TextComment>
-						“ In these lines will be be some quotes from clients that bought
-						software ”
-					</TextComment>
-					<Flex mt={1}>
-						<StartIcon className="material-icons">star_rate</StartIcon>
-						<StartIcon className="material-icons">star_rate</StartIcon>
-						<StartIcon className="material-icons">star_rate</StartIcon>
-						<StartIcon className="material-icons">star_rate</StartIcon>
-						<StartIcon className="material-icons">star_rate</StartIcon>
-					</Flex>
-					<TextClientInfo mt={0}>
-						- The Client’s name, his profession and Company
-					</TextClientInfo>
-				</CommentBox>
-			)}
-		</Wrapper>
-	);
+interface Props {
+	open: boolean;
+	data: ReviewType;
+}
+
+const Rate: React.SFC<Props> = props => {
+	const { open, data } = props;
+
+	if (data) {
+		const {
+			reviewer,
+			comment,
+			rate,
+			stars,
+			client_name,
+			profession,
+			company
+		} = data;
+
+		const RederStars = () => {
+			const starIcons = [];
+			for (let x = 0; x < stars; x++) {
+				starIcons.push(
+					<StartIcon key={x} className="material-icons">
+						star_rate
+					</StartIcon>
+				);
+			}
+			return starIcons;
+		};
+
+		return (
+			<Wrapper open={open}>
+				<RateBox>
+					<img src="https://via.placeholder.com/40x40" />
+					<TextName>{reviewer}</TextName>
+					<TextRate>{rate}</TextRate>
+					<TextCount>
+						OUT OF 10 <br /> (3800 + Reviews)
+					</TextCount>
+				</RateBox>
+				{open && (
+					<CommentBox>
+						<TextComment>{comment}</TextComment>
+						<Flex mt={1}>{RederStars()}</Flex>
+						<TextClientInfo mt={0}>
+							- {client_name} {profession} {company}
+						</TextClientInfo>
+					</CommentBox>
+				)}
+			</Wrapper>
+		);
+	} else return <div />;
 };
 
 const Wrapper: Box = styled(Box)`
@@ -130,4 +160,4 @@ const StartIcon = styled.i`
 	font-size: 14px;
 `;
 
-export default Rating;
+export default Rate;

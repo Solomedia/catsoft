@@ -1,0 +1,44 @@
+{
+	"reviews": [
+		{
+			"id": 0,
+			"reviewer": "Reviewer",
+			"comment": "Lorem ipsum dolotrum ipsum dolotrum ipsum dolotrumipsum dolotrum ipsum dolotrum",
+			"rate": 9.9,
+			"stars": 5,
+			"client_name": "Client's name",
+			"profession": "profession",
+			"company": "and Company name"
+		},
+		{
+			"id": 23242,
+			"reviewer": "Reviewer",
+			"comment": "Lorem ipsum dolotrum ipsum dolotrum ipsum dolotrumipsum dolotrum ipsum dolotrum",
+			"rate": 9.5,
+			"stars": 3,
+			"client_name": "Client's name",
+			"profession": "profession",
+			"company": "and Company name"
+		},
+		{
+			"id": 23434,
+			"reviewer": "Reviewer",
+			"comment": "Lorem ipsum dolotrum ipsum dolotrum ipsum dolotrumipsum dolotrum ipsum dolotrum",
+			"rate": 9.8,
+			"stars": 4,
+			"client_name": "Client's name",
+			"profession": "profession",
+			"company": "and Company name"
+		},
+		{
+			"id": 23577442,
+			"reviewer": "Reviewer",
+			"comment": "Lorem ipsum dolotrum ipsum dolotrum ipsum dolotrumipsum dolotrum ipsum dolotrum",
+			"rate": 9.9,
+			"stars": 5,
+			"client_name": "Client's name",
+			"profession": "profession",
+			"company": "and Company name"
+		}
+	]
+}
