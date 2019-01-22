@@ -43,7 +43,6 @@ const Wrapper: Box = styled(Box)`
 	label: reviewBox;
 	align-items: center;
 	background-color: #fff;
-	border-radius: 50%;
 	border-radius: ${(props: any) => (props.open ? '100px' : '50%')};
 	box-shadow: ${(props: any) =>
 		props.open ? '0 2px 28px 3px rgba(0, 0, 0, 0.1)' : 0};
