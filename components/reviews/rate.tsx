@@ -33,7 +33,7 @@ const Rate: React.SFC<Props> = props => {
 			company
 		} = data;
 
-		const RederStars = () => {
+		const RenderStars = () => {
 			const starIcons = [];
 			for (let x = 0; x < stars; x++) {
 				starIcons.push(
@@ -58,7 +58,7 @@ const Rate: React.SFC<Props> = props => {
 				{open && (
 					<CommentBox>
 						<TextComment>{comment}</TextComment>
-						<Flex mt={1}>{RederStars()}</Flex>
+						<Flex mt={1}>{RenderStars()}</Flex>
 						<TextClientInfo mt={0}>
 							- {client_name} {profession} {company}
 						</TextClientInfo>
