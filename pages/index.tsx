@@ -8,7 +8,7 @@ import Reviews from '../components/reviews';
 import { Container } from '../utils/ui';
 import { ThemeProps } from '../core/theme';
 import { theme } from '../core/theme';
-import ReviewSlider from '../components/reviews-slider';
+import ReviewSlider from '../components/review-slider';
 
 interface Props {
 	data: DataValue<{ feed }>;

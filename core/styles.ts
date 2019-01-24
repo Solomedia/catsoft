@@ -37,7 +37,8 @@ export const globalStyles = css`
 		font-weight: 500;
 		margin: 0;
 	}
-	p {
+	p,
+	ul {
 		margin: 0;
 	}
 	a {
