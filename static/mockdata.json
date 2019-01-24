@@ -40,5 +40,35 @@
 			"profession": "profession",
 			"company": "and Company name"
 		}
+	],
+	"clients_reviews": [
+		{
+			"imgUrl": "https://via.placeholder.com/82x33",
+			"quote": "“ In these lines will be be some quotes from clients that bought software in CatSoft website ”",
+			"name": "Client's name",
+			"profession": "his profession",
+			"company": "and Company"
+		},
+		{
+			"imgUrl": "https://via.placeholder.com/82x33",
+			"quote": "“ In these lines will be be some quotes from clients that bought software in CatSoft website ”",
+			"name": "Client's name",
+			"profession": "his profession",
+			"company": "and Company"
+		},
+		{
+			"imgUrl": "https://via.placeholder.com/82x33",
+			"quote": "“ In these lines will be be some quotes from clients that bought software in CatSoft website ”",
+			"name": "Client's name",
+			"profession": "his profession",
+			"company": "and Company"
+		},
+		{
+			"imgUrl": "https://via.placeholder.com/82x33",
+			"quote": "“ In these lines will be be some quotes from clients that bought software in CatSoft website ”",
+			"name": "Client's name",
+			"profession": "his profession",
+			"company": "and Company"
+		}
 	]
 }
