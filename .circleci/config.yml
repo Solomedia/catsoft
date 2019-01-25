@@ -11,13 +11,12 @@ jobs:
     steps:
       - checkout
 
-      - run: 
-          name: Create Packages
+      - run:
+          name: 'Create Packages'
           command: yarn build
-      - run: 
-          name: Deploy Over SSH
+      - run:
+          name: 'Deploy Over SSH'
           command: |
-              ssh -o "StrictHostKeyChecking no" ubuntu@ec2-3-16-168-150.us-east-2.compute.amazonaws.com "rm -rf  /var/www/"
-              rsync -avce ssh /working_dir/catsoft/.next/ ubuntu@ec2-3-16-168-150.us-east-2.compute.amazonaws.com:/var/www/
+            ssh -o "StrictHostKeyChecking no" ubuntu@ec2-3-16-168-150.us-east-2.compute.amazonaws.com "rm -rf  /var/www/"
+            rsync -avce ssh /working_dir/catsoft/.next/ ubuntu@ec2-3-16-168-150.us-east-2.compute.amazonaws.com:/var/www/
             fi
-            
