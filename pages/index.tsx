@@ -5,6 +5,7 @@ import { Box } from '@rebass/grid/emotion';
 import Main from '../layouts/main';
 import HeroWithCta from '../components/hero-with-cta';
 import Reviews from '../components/reviews';
+import Category from '../components/category';
 import { Container } from '../utils/ui';
 import { ThemeProps } from '../core/theme';
 import { theme } from '../core/theme';
@@ -28,6 +29,9 @@ class Home extends React.Component<Props> {
 					<HeroWithCta />
 				</Container>
 				<Box bg={theme.colors.containerBg2}>
+					<Container>
+						<Category />
+					</Container>
 					<Container>
 						<Reviews />
 					</Container>

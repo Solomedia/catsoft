@@ -3,7 +3,6 @@ import { Global } from '@emotion/core';
 import { globalStyles } from '../core/styles';
 import Head from '../components/head';
 import Header from '../components/header';
-import Category from '../components/category';
 
 // interface Props {
 // 	children: React.ReactNode;
@@ -26,7 +25,6 @@ class PageLayout extends React.Component<any> {
 				<Head title={title} />
 				<Header />
 				{children}
-				<Category />
 			</React.Fragment>
 		);
 	}

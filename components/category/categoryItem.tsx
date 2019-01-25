@@ -1,26 +1,20 @@
-import { Box } from '@rebass/grid/emotion';
+import { Box, Flex } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 import styled, { ThemeProps, breakpoints } from '../../core/theme';
-
-const LinkStyled = styled.a`
-	color: #fff;
-	font-size: 18px;
-	font-weight: 500;
-	@media (min-width: ${breakpoints['sm']}) {
-		color: #000032;
-		font-size: 14px;
-	}
-`;
+import { Col, Button } from '../../utils/ui';
 
 interface Props {
-	text: string;
+	color: string;
+	title: string;
+	subtitle: string;
+	image: string;
+	imageAlt: string;
 	theme: ThemeProps;
 }
 
 const CategoryItem: React.SFC<Props> = props => {
-	const { text, theme } = props;
-
+	const { title, subtitle, theme, color, image, imageAlt } = props;
 	return (
 		<Box
 			mr={2}
@@ -29,23 +23,95 @@ const CategoryItem: React.SFC<Props> = props => {
 				height: 181.3px;
 				width: 384px;
 				border-radius: 1.4px;
-				background-color: ${theme.colors.primary};
+				background-color: ${theme.colors.white};
+				position: relative;
 			`}
 		>
-			<Box
+			<Flex
 				css={css`
-					margin-top: 5px;
-					height: 96px;
-					width: 135px;
-					background-color: #ffc000;
+					align-items: center;
+					margin: 0 -15px;
+					@media (max-width: ${breakpoints['sm']}) {
+						flex-wrap: wrap;
+						justify-content: space-between;
+					}
 				`}
 			>
-				Hello
-			</Box>
-			<h1>{text}</h1>
-			<LinkStyled>a</LinkStyled>
+				<Col
+					order={1}
+					width={[1 / 3]}
+					css={css`
+						display: flex;
+						align-items: center;
+					`}
+				>
+					<Box
+						css={css`
+							background-color: ${color};
+							height: 96px;
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+							width: 135px;
+						`}
+					>
+						<Image
+							src={image}
+							alt={imageAlt}
+						/>
+					</Box>
+				</Col>
+				<Col
+					order={2}
+					css={css`
+						display: flex;
+						align-items: center;
+					`}
+				>
+					<CtaBox>
+						<Title>
+							{title} <br />
+							<TitleBold>{subtitle}</TitleBold>
+						</Title>
+						<Button
+							css={css`
+								margin-top: 8px;
+							`}
+							sm
+						>
+							Click here
+						</Button>
+					</CtaBox>
+				</Col>
+			</Flex>
 		</Box>
 	);
 };
+
+const Image = styled.img`
+	left: 21px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+`;
+
+const Title = styled.h2`
+	color: ${(props: any) => props.theme.colors.black};
+	font-size: 22px;
+	font-weight: 300;
+	line-height: 27px;
+	text-transform: uppercase;
+`;
+
+const TitleBold = styled.span`
+	font-weight: 900;
+`;
+
+const CtaBox: Box = styled(Box)`
+	label: CtaBox;
+	padding-left: 32px;
+	padding-top: 40px;
+	width: 100%;
+`;
 
 export default withTheme(CategoryItem);
