@@ -12,7 +12,7 @@ jobs:
       - checkout
       - run: 
           name: Create Packages
-          command: | yarn build
+          command: yarn build
       - run: 
           name: Deploy Over SSH
           command: |
