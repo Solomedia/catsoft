@@ -10,6 +10,7 @@ jobs:
 
     steps:
       - checkout
+
       - run: 
           name: Create Packages
           command: yarn build
@@ -19,3 +20,4 @@ jobs:
               ssh -o "StrictHostKeyChecking no" ubuntu@ec2-3-16-168-150.us-east-2.compute.amazonaws.com "rm -rf  /var/www/"
               rsync -avce ssh /working_dir/catsoft/.next/ ubuntu@ec2-3-16-168-150.us-east-2.compute.amazonaws.com:/var/www/
             fi
+            
