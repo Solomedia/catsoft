@@ -9,6 +9,7 @@ import { Container } from '../utils/ui';
 import { ThemeProps } from '../core/theme';
 import { theme } from '../core/theme';
 import ReviewSlider from '../components/review-slider';
+import BrandsBannerMob from '../components/brands-banner-mob';
 
 interface Props {
 	data: DataValue<{ feed }>;
@@ -28,7 +29,8 @@ class Home extends React.Component<Props> {
 				<Container>
 					<HeroWithCta />
 				</Container>
-				<Box bg={theme.colors.containerBg2} mt={3} py={['30px', '80px']}>
+				<BrandsBannerMob />
+				<Box bg={theme.colors.containerBg2} mt={['0', 3]} py={['30px', '80px']}>
 					<Container>
 						<Reviews />
 						<ReviewSlider />
