@@ -9,6 +9,10 @@ jobs:
       - image: circleci/node:10.15.0
 
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - '13:a1:74:7c:be:db:c9:39:21:68:d6:4b:e2:90:fd:69:f9:b5:9c'
+
       - checkout
 
       - run:
@@ -21,6 +25,6 @@ jobs:
       - run:
           name: 'Deploy Over SSH'
           command: |
-            ssh -o "StrictHostKeyChecking no" ubuntu@ec2-3-16-168-150.us-east-2.compute.amazonaws.com "rm -rf  /var/www/"
-            rsync -avce ssh /working_dir/catsoft/.next/ ubuntu@ec2-3-16-168-150.us-east-2.compute.amazonaws.com:/var/www/
+            ssh -o "StrictHostKeyChecking no" circleci@ec2-3-16-168-150.us-east-2.compute.amazonaws.com "rm -rf  /var/www/"
+            rsync -avce ssh /working_dir/catsoft/.next/ circleci@ec2-3-16-168-150.us-east-2.compute.amazonaws.com:/var/www/
             fi
