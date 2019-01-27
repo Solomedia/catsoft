@@ -70,5 +70,46 @@
 			"profession": "his profession",
 			"company": "and Company"
 		}
+	],
+	"footer": [
+		{
+			"title": "MY ACCOUNT",
+			"links": [
+				{ "linkText": "Create Account", "url": "/" },
+				{ "linkText": "Login", "url": "/" },
+				{ "linkText": "Cart", "url": "/" }
+			]
+		},
+		{
+			"title": "INFO",
+			"links": [
+				{ "linkText": "Privacy Policy", "url": "/" },
+				{ "linkText": "EULA", "url": "/" },
+				{ "linkText": "TERMS OF SERVICE", "url": "/" }
+			]
+		},
+		{
+			"title": "COMPANY",
+			"links": [
+				{ "linkText": "ABOUT US", "url": "/" },
+				{ "linkText": "ORDERS and RETURNS", "url": "/" }
+			]
+		},
+		{
+			"title": "YOU CAN TRUST US",
+			"links": [{ "imgUrl": "https://via.placeholder.com/250x80", "url": "/" }]
+		},
+		{
+			"title": "GET IN TOUCH",
+			"links": [
+				{
+					"linkText": "3/F Comerica Bank Building, 600 B St, San Diego, CA 92101, USA",
+					"url": "/",
+					"icon": "home"
+				},
+				{ "linkText": "+1 888-848-9224", "url": "/", "icon": "phone_iphone" },
+				{ "linkText": "sales@catsoft.co", "url": "/", "icon": "email" }
+			]
+		}
 	]
 }
