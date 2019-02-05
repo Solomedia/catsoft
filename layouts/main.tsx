@@ -1,9 +1,7 @@
 import React from 'react';
 import { Global } from '@emotion/core';
 import { globalStyles } from '../core/styles';
-import Head from '../components/head';
-import Header from '../components/header';
-import Footer from '../components/footer';
+import { Footer, Head, Header } from '../components';
 
 // interface Props {
 // 	children: React.ReactNode;

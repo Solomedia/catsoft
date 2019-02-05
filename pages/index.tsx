@@ -3,13 +3,15 @@ import { DataValue } from 'react-apollo';
 import { Box } from '@rebass/grid/emotion';
 // Local modules
 import Main from '../layouts/main';
-import HeroWithCta from '../components/hero-with-cta';
-import Reviews from '../components/reviews';
 import { Container } from '../utils/ui';
 import { ThemeProps } from '../core/theme';
 import { theme } from '../core/theme';
-import ReviewSlider from '../components/review-slider';
-import BrandsBannerMob from '../components/brands-banner-mob';
+import {
+	BrandsBannerMob,
+	ReviewSlider,
+	Reviews,
+	HeroWithCta
+} from '../components';
 
 interface Props {
 	data: DataValue<{ feed }>;
