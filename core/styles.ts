@@ -47,4 +47,7 @@ export const globalStyles = css`
 			cursor: pointer;
 		}
 	}
+	img {
+		max-width: 100%;
+	}
 `;
