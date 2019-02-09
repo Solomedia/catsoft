@@ -1,8 +1,8 @@
 import React from 'react';
 import Main from '../layouts/main';
 import { Container } from '../utils/ui';
-import { BannerWithTabs, SelectFilter } from '../components';
-import { Box } from '@rebass/grid/emotion';
+import { Box, Flex } from '@rebass/grid/emotion';
+import { BannerWithTabs, SelectFilter, CategoriesSideBar } from '../components';
 
 class Products extends React.Component<{}> {
 	public static async getInitialProps() {
@@ -21,9 +21,12 @@ class Products extends React.Component<{}> {
 						tabs={['windows', 'tabs']}
 						mt={[2, 6]}
 					/>
-					<Box mt={4} mb={'100px'}>
-						<SelectFilter options={['best selling', 'refine']} />
-					</Box>
+					<Flex justifyContent="flex-end" mt={4}>
+						<Box>
+							<SelectFilter options={['best selling', 'refine']} />
+						</Box>
+					</Flex>
+					<CategoriesSideBar />
 				</Container>
 			</Main>
 		);
