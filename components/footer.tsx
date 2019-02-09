@@ -59,7 +59,7 @@ const Footer = () => {
 		));
 
 	return (
-		<Box py={'20px'} bg={'#fafafc'}>
+		<Box mt={[2, 4]} py={'20px'} bg={'#fafafc'}>
 			<Container>
 				<Row justifyContent="space-between">
 					{footerData.map((section, i) => (

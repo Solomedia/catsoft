@@ -1,4 +1,67 @@
 {
+	"platformCategories": [
+		{
+			"value": "windows",
+			"TextLabel": "Windows"
+		},
+		{
+			"value": "max",
+			"TextLabel": "Mac"
+		}
+	],
+	"versionCategories": [
+		{
+			"value": "ms-office-2010",
+			"TextLabel": "MS Office 2010"
+		},
+		{
+			"value": "ms-office-2013",
+			"TextLabel": "MS office 2013"
+		},
+		{
+			"value": "home-business",
+			"TextLabel": "ms-ffice-2010"
+		},
+		{
+			"value": "home-student",
+			"TextLabel": "Home an Student"
+		},
+		{
+			"value": "office-365",
+			"TextLabel": "Office 365"
+		},
+		{
+			"value": "Office for Mac",
+			"TextLabel": "Office-for-mac"
+		}
+	],
+
+	"releaseCategories": [
+		{
+			"value": "2019",
+			"TextLabel": "2019"
+		},
+		{
+			"value": "2016",
+			"TextLabel": "2016"
+		},
+		{
+			"value": "2013",
+			"TextLabel": "2013"
+		},
+		{
+			"value": "2011-mac",
+			"TextLabel": "2011 (mac)"
+		},
+		{
+			"value": "2010",
+			"TextLabel": "2010"
+		},
+		{
+			"value": "2007",
+			"TextLabel": "2007"
+		}
+	],
 	"reviews": [
 		{
 			"id": 0,
