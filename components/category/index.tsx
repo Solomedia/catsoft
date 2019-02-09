@@ -6,20 +6,12 @@ import { css } from '@emotion/core';
 import { Box, Flex } from '@rebass/grid/emotion';
 import { Container, Col } from '../../utils/ui';
 import CategoryItem from './categoryItem';
+import data from '../../static/mockdata.json';
 
 import styled, { ThemeProps, breakpoints } from '../../core/theme';
 import * as i18Next from '../../i18n';
-import Carousel from 'nuka-carousel';
 
 const { withNamespaces } = i18Next;
-
-const Title = styled.p`
-	color: '#000032';
-	font-size: 28px;
-	font-weight: 300;
-	line-height: 32px;
-	margin-bottom: 24px;
-`;
 
 interface Props {
 	t: (arg: string) => string;
@@ -39,7 +31,7 @@ class Category extends React.Component<Props> {
 			<Box
 				css={css`
 					background-color: ${theme.colors.containerBg2};
-					padding: 100px 0;
+					padding: 20px 0 60px 0;
 					@media (max-width: ${breakpoints['sm']}) {
 						display: flex;
 						flex-direction: column;
@@ -61,78 +53,31 @@ class Category extends React.Component<Props> {
 							}
 						`}
 					>
-						<Col
-							order={1}
-							width={[1 / 3]}
-							css={css`
-								display: flex;
+						{data &&
+							data.shop_by_category &&
+							data.shop_by_category.map(
+								({ color, image, imageAlt, subtitle, title }, i) => (
+									<Col
+										order={1}
+										width={[1, 1 / 3]}
+										key={i}
+										css={css`
 								align-items: center;
-							`}
-						>
-							<CategoryItem
-								title="Package"
-								subtitle="Collection"
-								image="https://via.placeholder.com/98x144"
-								imageAlt="placeholder"
-								color="#ffc000"
-							/>
-						</Col>
-						<Col
-							order={2}
-							width={[1 / 3]}
-							css={css`
 								display: flex;
-								align-items: center;
 							`}
-						>
-							<CategoryItem
-								title="Package"
-								subtitle="Collection"
-								image="https://via.placeholder.com/98x144"
-								imageAlt="placeholder"
-								color="#B2D043"
-							/>
-						</Col>
-						<Col
-							order={3}
-							width={[1 / 3]}
-							css={css`
-								display: flex;
-								align-items: center;
-							`}
-						>
-							<CategoryItem
-								title="Package"
-								subtitle="Collection"
-								image="https://via.placeholder.com/98x144"
-								imageAlt="placeholder"
-								color="#ff766b"
-							/>
-						</Col>
+									>
+										<CategoryItem
+											color={color}
+											image={image}
+											imageAlt={imageAlt}
+											subtitle={subtitle}
+											title={title}
+										/>
+									</Col>
+								)
+							)}
+
 					</Flex>
-					<Carousel>
-						<CategoryItem
-							title="Package"
-							subtitle="Collection"
-							image="https://via.placeholder.com/98x144"
-							imageAlt="placeholder"
-							color="#ffc000"
-						/>
-						<CategoryItem
-							title="Package"
-							subtitle="Collection"
-							image="https://via.placeholder.com/98x144"
-							imageAlt="placeholder"
-							color="#B2D043"
-						/>
-						<CategoryItem
-							title="Package"
-							subtitle="Collection"
-							image="https://via.placeholder.com/98x144"
-							imageAlt="placeholder"
-							color="#ff766b"
-						/>
-					</Carousel>
 				</Container>
 			</Box>
 		);
@@ -156,6 +101,14 @@ const CATEGORIES_QUERY = gql`
 			}
 		}
 	}
+`;
+
+const Title = styled.p`
+	color: '#000032';
+	font-size: 28px;
+	font-weight: 300;
+	line-height: 32px;
+	margin-bottom: 24px;
 `;
 
 export default graphql(CATEGORIES_QUERY)(

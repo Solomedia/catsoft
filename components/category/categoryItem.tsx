@@ -19,12 +19,13 @@ const CategoryItem: React.SFC<Props> = props => {
 		<Box
 			mr={2}
 			css={css`
-				margin-top: 10px;
-				height: 181.3px;
-				width: 384px;
-				border-radius: 1.4px;
 				background-color: ${theme.colors.white};
+				border-radius: 1.4px;
+				height: 181.3px;
+				margin-top: 10px;
+				max-width: 384px;
 				position: relative;
+				width: 100%;
 			`}
 		>
 			<Flex
@@ -41,8 +42,8 @@ const CategoryItem: React.SFC<Props> = props => {
 					order={1}
 					width={[1 / 3]}
 					css={css`
-						display: flex;
 						align-items: center;
+						display: flex;
 					`}
 				>
 					<Box
@@ -64,8 +65,8 @@ const CategoryItem: React.SFC<Props> = props => {
 				<Col
 					order={2}
 					css={css`
-						display: flex;
 						align-items: center;
+						display: flex;
 					`}
 				>
 					<CtaBox>

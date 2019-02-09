@@ -1,0 +1,237 @@
+{
+	"platformCategories": [
+		{
+			"value": "windows",
+			"TextLabel": "Windows"
+		},
+		{
+			"value": "max",
+			"TextLabel": "Mac"
+		}
+	],
+	"versionCategories": [
+		{
+			"value": "ms-office-2010",
+			"TextLabel": "MS Office 2010"
+		},
+		{
+			"value": "ms-office-2013",
+			"TextLabel": "MS office 2013"
+		},
+		{
+			"value": "home-business",
+			"TextLabel": "ms-ffice-2010"
+		},
+		{
+			"value": "home-student",
+			"TextLabel": "Home an Student"
+		},
+		{
+			"value": "office-365",
+			"TextLabel": "Office 365"
+		},
+		{
+			"value": "Office for Mac",
+			"TextLabel": "Office-for-mac"
+		}
+	],
+	"releaseCategories": [
+		{
+			"value": "2019",
+			"TextLabel": "2019"
+		},
+		{
+			"value": "2016",
+			"TextLabel": "2016"
+		},
+		{
+			"value": "2013",
+			"TextLabel": "2013"
+		},
+		{
+			"value": "2011-mac",
+			"TextLabel": "2011 (mac)"
+		},
+		{
+			"value": "2010",
+			"TextLabel": "2010"
+		},
+		{
+			"value": "2007",
+			"TextLabel": "2007"
+		}
+	],
+	"reviews": [
+		{
+			"id": 0,
+			"reviewer": "Reviewer",
+			"comment": "Lorem ipsum dolotrum ipsum dolotrum ipsum dolotrumipsum dolotrum ipsum dolotrum",
+			"rate": 9.9,
+			"stars": 5,
+			"client_name": "Client's name",
+			"profession": "profession",
+			"company": "and Company name"
+		},
+		{
+			"id": 23242,
+			"reviewer": "Reviewer",
+			"comment": "Lorem ipsum dolotrum ipsum dolotrum ipsum dolotrumipsum dolotrum ipsum dolotrum",
+			"rate": 9.5,
+			"stars": 3,
+			"client_name": "Client's name",
+			"profession": "profession",
+			"company": "and Company name"
+		},
+		{
+			"id": 23434,
+			"reviewer": "Reviewer",
+			"comment": "Lorem ipsum dolotrum ipsum dolotrum ipsum dolotrumipsum dolotrum ipsum dolotrum",
+			"rate": 9.8,
+			"stars": 4,
+			"client_name": "Client's name",
+			"profession": "profession",
+			"company": "and Company name"
+		},
+		{
+			"id": 23577442,
+			"reviewer": "Reviewer",
+			"comment": "Lorem ipsum dolotrum ipsum dolotrum ipsum dolotrumipsum dolotrum ipsum dolotrum",
+			"rate": 9.9,
+			"stars": 5,
+			"client_name": "Client's name",
+			"profession": "profession",
+			"company": "and Company name"
+		}
+	],
+	"clients_reviews": [
+		{
+			"imgUrl": "https://via.placeholder.com/82x33",
+			"quote": "“ In these lines will be be some quotes from clients that bought software in CatSoft website ”",
+			"name": "Client's name",
+			"profession": "his profession",
+			"company": "and Company"
+		},
+		{
+			"imgUrl": "https://via.placeholder.com/82x33",
+			"quote": "“ In these lines will be be some quotes from clients that bought software in CatSoft website ”",
+			"name": "Client's name",
+			"profession": "his profession",
+			"company": "and Company"
+		},
+		{
+			"imgUrl": "https://via.placeholder.com/82x33",
+			"quote": "“ In these lines will be be some quotes from clients that bought software in CatSoft website ”",
+			"name": "Client's name",
+			"profession": "his profession",
+			"company": "and Company"
+		},
+		{
+			"imgUrl": "https://via.placeholder.com/82x33",
+			"quote": "“ In these lines will be be some quotes from clients that bought software in CatSoft website ”",
+			"name": "Client's name",
+			"profession": "his profession",
+			"company": "and Company"
+		}
+	],
+	"footer": [
+		{
+			"title": "MY ACCOUNT",
+			"links": [
+				{
+					"linkText": "Create Account",
+					"url": "/"
+				},
+				{
+					"linkText": "Login",
+					"url": "/"
+				},
+				{
+					"linkText": "Cart",
+					"url": "/"
+				}
+			]
+		},
+		{
+			"title": "INFO",
+			"links": [
+				{
+					"linkText": "Privacy Policy",
+					"url": "/"
+				},
+				{
+					"linkText": "EULA",
+					"url": "/"
+				},
+				{
+					"linkText": "TERMS OF SERVICE",
+					"url": "/"
+				}
+			]
+		},
+		{
+			"title": "COMPANY",
+			"links": [
+				{
+					"linkText": "ABOUT US",
+					"url": "/"
+				},
+				{
+					"linkText": "ORDERS and RETURNS",
+					"url": "/"
+				}
+			]
+		},
+		{
+			"title": "YOU CAN TRUST US",
+			"links": [
+				{
+					"imgUrl": "https://via.placeholder.com/250x80",
+					"url": "/"
+				}
+			]
+		},
+		{
+			"title": "GET IN TOUCH",
+			"links": [
+				{
+					"linkText": "3/F Comerica Bank Building, 600 B St, San Diego, CA 92101, USA",
+					"url": "/",
+					"icon": "home"
+				},
+				{
+					"linkText": "+1 888-848-9224",
+					"url": "/",
+					"icon": "phone_iphone"
+				},
+				{
+					"linkText": "sales@catsoft.co",
+					"url": "/",
+					"icon": "email"
+				}
+			]
+		}
+	],
+	"shop_by_category": [
+		{
+			"color": "#ffc000",
+			"image": "https://via.placeholder.com/98x144",
+			"imageAlt": "placeholder",
+			"subtitle": "Collection",
+			"title": "Package"
+		},
+		{
+			"color": "#B2D043",
+			"image": "https://via.placeholder.com/98x144",
+			"imageAlt": "placeholder",
+			"subtitle": "Collection",
+			"title": "Package"
+		},
+		{
+			"color": "#ff766b",
+			"image": "https://via.placeholder.com/98x144",
+			"imageAlt": "placeholder",
+			"subtitle": "Collection",
+			"title": "Package"
+		}
+	]
+}
