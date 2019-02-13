@@ -35,7 +35,6 @@
 			"TextLabel": "Office-for-mac"
 		}
 	],
-
 	"releaseCategories": [
 		{
 			"value": "2019",
@@ -138,29 +137,58 @@
 		{
 			"title": "MY ACCOUNT",
 			"links": [
-				{ "linkText": "Create Account", "url": "/" },
-				{ "linkText": "Login", "url": "/" },
-				{ "linkText": "Cart", "url": "/" }
+				{
+					"linkText": "Create Account",
+					"url": "/"
+				},
+				{
+					"linkText": "Login",
+					"url": "/"
+				},
+				{
+					"linkText": "Cart",
+					"url": "/"
+				}
 			]
 		},
 		{
 			"title": "INFO",
 			"links": [
-				{ "linkText": "Privacy Policy", "url": "/" },
-				{ "linkText": "EULA", "url": "/" },
-				{ "linkText": "TERMS OF SERVICE", "url": "/" }
+				{
+					"linkText": "Privacy Policy",
+					"url": "/"
+				},
+				{
+					"linkText": "EULA",
+					"url": "/"
+				},
+				{
+					"linkText": "TERMS OF SERVICE",
+					"url": "/"
+				}
 			]
 		},
 		{
 			"title": "COMPANY",
 			"links": [
-				{ "linkText": "ABOUT US", "url": "/" },
-				{ "linkText": "ORDERS and RETURNS", "url": "/" }
+				{
+					"linkText": "ABOUT US",
+					"url": "/"
+				},
+				{
+					"linkText": "ORDERS and RETURNS",
+					"url": "/"
+				}
 			]
 		},
 		{
 			"title": "YOU CAN TRUST US",
-			"links": [{ "imgUrl": "https://via.placeholder.com/250x80", "url": "/" }]
+			"links": [
+				{
+					"imgUrl": "https://via.placeholder.com/250x80",
+					"url": "/"
+				}
+			]
 		},
 		{
 			"title": "GET IN TOUCH",
@@ -170,9 +198,40 @@
 					"url": "/",
 					"icon": "home"
 				},
-				{ "linkText": "+1 888-848-9224", "url": "/", "icon": "phone_iphone" },
-				{ "linkText": "sales@catsoft.co", "url": "/", "icon": "email" }
+				{
+					"linkText": "+1 888-848-9224",
+					"url": "/",
+					"icon": "phone_iphone"
+				},
+				{
+					"linkText": "sales@catsoft.co",
+					"url": "/",
+					"icon": "email"
+				}
 			]
+		}
+	],
+	"shop_by_category": [
+		{
+			"color": "#ffc000",
+			"image": "https://via.placeholder.com/98x144",
+			"imageAlt": "placeholder",
+			"subtitle": "Collection",
+			"title": "Package"
+		},
+		{
+			"color": "#B2D043",
+			"image": "https://via.placeholder.com/98x144",
+			"imageAlt": "placeholder",
+			"subtitle": "Collection",
+			"title": "Package"
+		},
+		{
+			"color": "#ff766b",
+			"image": "https://via.placeholder.com/98x144",
+			"imageAlt": "placeholder",
+			"subtitle": "Collection",
+			"title": "Package"
 		}
 	]
 }

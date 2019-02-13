@@ -9,3 +9,4 @@ export { default as Header } from './Header';
 export { default as SelectFilter } from './SelectFilter';
 export { default as RadioFilterList } from './RadioFilterList';
 export { default as CategoriesSideBar } from './CategoriesSideBar';
+export { default as Category } from './Category';
