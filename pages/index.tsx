@@ -10,7 +10,8 @@ import {
 	BrandsBannerMob,
 	ReviewSlider,
 	Reviews,
-	HeroWithCta
+	HeroWithCta,
+	Category
 } from '../components';
 
 interface Props {
@@ -33,6 +34,9 @@ class Home extends React.Component<Props> {
 				</Container>
 				<BrandsBannerMob />
 				<Box bg={theme.colors.containerBg2} mt={['0', 3]} py={['30px', '80px']}>
+					<Container>
+						<Category />
+					</Container>
 					<Container>
 						<Reviews />
 						<ReviewSlider />
