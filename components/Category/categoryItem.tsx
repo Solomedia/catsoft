@@ -1,8 +1,8 @@
 import { Box, Flex } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
-import styled, { ThemeProps, breakpoints } from '../../core/theme';
-import { Col, Button } from '../../utils/ui';
+import styled, { ThemeProps, breakpoints } from 'lib/theme';
+import { Col, Button } from 'utils/ui';
 
 interface Props {
 	color: string;
@@ -56,10 +56,7 @@ const CategoryItem: React.SFC<Props> = props => {
 							width: 135px;
 						`}
 					>
-						<Image
-							src={image}
-							alt={imageAlt}
-						/>
+						<Image src={image} alt={imageAlt} />
 					</Box>
 				</Col>
 				<Col

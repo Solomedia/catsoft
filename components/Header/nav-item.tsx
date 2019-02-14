@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { Flex, Box } from '@rebass/grid/emotion';
 import { isMobile } from 'react-device-detect';
 
-import { Col } from '../../utils/ui';
-import styled, { breakpoints } from '../../core/theme';
+import { Col } from 'utils/ui';
+import styled, { breakpoints } from 'lib/theme';
 import SubMenu from './submenu';
 
 const Wrapper: Box = styled(Col)`

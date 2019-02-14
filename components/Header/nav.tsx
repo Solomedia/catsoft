@@ -4,9 +4,9 @@ import { graphql, DataValue } from 'react-apollo';
 import { withTheme } from 'emotion-theming';
 import { Box } from '@rebass/grid/emotion';
 
-import { Container, Row } from '../../utils/ui';
+import { Container, Row } from 'utils/ui';
 import NavItem from './nav-item';
-import styled, { ThemeProps } from '../../core/theme';
+import styled, { ThemeProps } from 'lib/theme';
 
 const Wrapper = styled(Container)`
 	label: wrapper;

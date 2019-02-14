@@ -2,7 +2,7 @@ import Link from 'next/link';
 import AnimateHeight from 'react-animate-height';
 import { Box } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
-import styled, { breakpoints } from '../../core/theme';
+import styled, { breakpoints } from 'lib/theme';
 
 const Wrapper: Box = styled(Box)`
 	label: submenu-wrapper;

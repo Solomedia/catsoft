@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Flex } from '@rebass/grid/emotion';
-import styled, { breakpoints } from '../../core/theme';
+import styled, { breakpoints } from 'lib/theme';
 import Link from 'next/link';
 
 const IconBox: Box = styled(Box)`

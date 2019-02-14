@@ -1,10 +1,10 @@
 import { Flex, Box } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
 // Local modules
-import { breakpoints } from '../../core/theme';
+import { breakpoints } from 'lib/theme';
 import Rate from './rate';
 // TODO: fetch data from API.
-import data from '../../static/mockdata.json';
+import data from 'static/mockdata.json';
 
 const Reviews = () => {
 	const { reviews } = data;

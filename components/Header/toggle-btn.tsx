@@ -2,7 +2,7 @@ import HamburgerMenu from 'react-hamburger-menu';
 
 import { Box } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
-import { breakpoints } from '../../core/theme';
+import { breakpoints } from 'lib/theme';
 
 interface Props {
 	displayMobileMenu: boolean;
