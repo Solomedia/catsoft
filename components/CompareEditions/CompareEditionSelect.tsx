@@ -3,10 +3,8 @@ import { Box } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
 import Dropdown from 'react-dropdown';
 
-import styled, { breakpoints } from 'lib/theme';
-
 // Locals
-// import data from '../static/mockdata.json';
+import styled, { breakpoints } from 'lib/theme';
 
 interface State {
   selectedOption: string;
@@ -37,10 +35,7 @@ class CompareEditionSelect extends React.Component<Props, State> {
         css={css`
           display: flex;
           flex-wrap: wrap;
-					/* @media (max-width: ${breakpoints['sm']}) {
-						display: none;
-					} */
-				`}
+        `}
       >
         <Text>Compare</Text>
         <Box>

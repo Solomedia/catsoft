@@ -2,25 +2,26 @@ import React from 'react';
 import { Box } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
 
+// Locals
 import styled, { breakpoints } from 'lib/theme';
-
 import CompareEditionSelect from './CompareEditionSelect';
+import data from 'static/mockdata.json';
+
+const { description, options } = data.compareEdidions;
 
 const CompareEditions: React.SFC = () => {
   return (
     <Box
       css={css`
-        margin-top: 64px;
+        margin-top: 48px;
+
+        @media (min-width: ${breakpoints['md']}) {
+          margin-top: 64px;
+        }
       `}
     >
-      <CompareEditionSelect options={['Office 2016', 'Office 2013']} />
-      <Description>
-        Microsoft Office is a suite of desktop productivity applications that is
-        designed specifically to be used for office or business use. Microsoft
-        Office is available in 35 different languages and is supported by
-        Windows and Mac. It mainly consists of Word, Excel, PowerPoint, Access,
-        OneNote, Outlook and Publisher applications.
-      </Description>
+      <CompareEditionSelect options={options} />
+      <Description>{description}</Description>
     </Box>
   );
 };
