@@ -4,5 +4,20 @@
 		"@zeit/next-typescript/babel",
 		"@emotion/babel-preset-css-prop"
 	],
-	"plugins": [["emotion", { "inline": true }]]
+	"plugins": [
+		[
+			"module-resolver",
+			{
+				"root": ["./"],
+				"alias": {
+					"components": "./components",
+					"layouts": "./layouts",
+					"lib": "./lib",
+					"static": "./static",
+					"utils": "./utils"
+				}
+			}
+		],
+		["emotion", { "inline": true }]
+	]
 }

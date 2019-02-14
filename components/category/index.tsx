@@ -4,11 +4,11 @@ import { withTheme } from 'emotion-theming';
 import { graphql } from 'react-apollo';
 import { css } from '@emotion/core';
 import { Box, Flex } from '@rebass/grid/emotion';
-import { Container, Col } from '../../utils/ui';
+import { Container, Col } from 'utils/ui';
 import CategoryItem from './CategoryItem';
-import data from '../../static/mockdata.json';
+import data from 'static/mockdata.json';
 
-import styled, { ThemeProps, breakpoints } from '../../lib/theme';
+import styled, { ThemeProps, breakpoints } from 'lib/theme';
 import * as i18Next from '../../i18n';
 
 const { withNamespaces } = i18Next;

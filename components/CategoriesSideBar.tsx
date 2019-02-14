@@ -2,9 +2,9 @@ import React from 'react';
 import { Box } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
 // Locals
-import { breakpoints } from '../lib/theme';
+import { breakpoints } from 'lib/theme';
 import { RadioFilterList } from './';
-import data from '../static/mockdata.json';
+import data from 'static/mockdata.json';
 
 const { releaseCategories, versionCategories, platformCategories } = data;
 

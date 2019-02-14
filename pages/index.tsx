@@ -2,17 +2,16 @@ import React from 'react';
 import { DataValue } from 'react-apollo';
 import { Box } from '@rebass/grid/emotion';
 // Local modules
-import Main from '../layouts/main';
-import { Container } from '../utils/ui';
-import { ThemeProps } from '../lib/theme';
-import { theme } from '../lib/theme';
+import Main from 'layouts/main';
+import { Container } from 'utils/ui';
+import { ThemeProps, theme } from 'lib/theme';
 import {
 	BrandsBannerMob,
 	ReviewSlider,
 	Reviews,
 	HeroWithCta,
 	Category
-} from '../components';
+} from 'components';
 
 interface Props {
 	data: DataValue<{ feed }>;

@@ -1,8 +1,8 @@
 import React from 'react';
-import Main from '../layouts/main';
-import { Container } from '../utils/ui';
+import Main from 'layouts/main';
+import { Container } from 'utils/ui';
 import { Box, Flex } from '@rebass/grid/emotion';
-import { BannerWithTabs, SelectFilter, CategoriesSideBar } from '../components';
+import { BannerWithTabs, SelectFilter, CategoriesSideBar } from 'components';
 
 class Products extends React.Component<{}> {
 	public static async getInitialProps() {

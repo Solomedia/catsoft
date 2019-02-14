@@ -1,6 +1,6 @@
 import React from 'react';
 import Dropdown from 'react-dropdown';
-import styled from '../lib/theme';
+import styled from 'lib/theme';
 
 interface State {
 	selected: string;

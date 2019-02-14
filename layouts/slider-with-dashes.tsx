@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import { css } from '@emotion/core';
 import { Box } from '@rebass/grid/emotion';
 // Local modules
-import { breakpoints } from '../lib/theme';
+import { breakpoints } from 'lib/theme';
 
 const sliderSettings = {
 	dots: true,

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import Helloworld from '../components/helloworld';
-import { Button } from '../utils/ui';
-import { theme } from '../lib/theme';
+import Helloworld from 'components/helloworld';
+import { Button } from 'utils/ui';
+import { theme } from 'lib/theme';
 
 const data = {
 	feed: {

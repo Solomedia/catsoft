@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache } from 'apollo-boost';
 import fetch from 'isomorphic-unfetch';
-import { graphqlEndpoint } from '../utils/constants';
+import { graphqlEndpoint } from 'utils/constants';
 import { createHttpLink } from 'apollo-link-http';
 import { setContext } from 'apollo-link-context';
 
