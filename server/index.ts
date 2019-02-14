@@ -9,27 +9,27 @@ const handle = app.getRequestHandler();
 const port = process.env.PORT || 3000;
 
 app
-	.prepare()
-	.then(() => {
-		const server = express();
-		nextI18NextMiddleware(nextI18next, app, server);
-		server.get('*', (req, res) => {
-			return handle(req, res);
-		});
+  .prepare()
+  .then(() => {
+    const server = express();
+    nextI18NextMiddleware(nextI18next, app, server);
+    server.get('*', (req, res) => {
+      return handle(req, res);
+    });
 
-		server.listen(port, (error: Error) => {
-			if (error) {
-				throw error;
-			}
+    server.listen(port, (error: Error) => {
+      if (error) {
+        throw error;
+      }
 
-			if (dev) {
-				console.log(`http://localhost:${port}/`);
-			} else {
-				console.log(`listening to port: ${port}`);
-			}
-		});
-	})
-	.catch(ex => {
-		console.error(ex.stack);
-		process.exit(1);
-	});
+      if (dev) {
+        console.log(`http://localhost:${port}/`);
+      } else {
+        console.log(`listening to port: ${port}`);
+      }
+    });
+  })
+  .catch(ex => {
+    console.error(ex.stack);
+    process.exit(1);
+  });

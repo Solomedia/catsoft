@@ -9,25 +9,25 @@ import { Footer, Head, Header } from 'components';
 // }
 
 class PageLayout extends React.Component<any> {
-	public static async getInitialProps() {
-		return {
-			namespacesRequired: ['common', 'footer', 'header']
-		};
-	}
+  public static async getInitialProps() {
+    return {
+      namespacesRequired: ['common', 'footer', 'header']
+    };
+  }
 
-	public render() {
-		const { children, title } = this.props;
+  public render() {
+    const { children, title } = this.props;
 
-		return (
-			<React.Fragment>
-				<Global styles={globalStyles} />
-				<Head title={title} />
-				<Header />
-				{children}
-				<Footer />
-			</React.Fragment>
-		);
-	}
+    return (
+      <React.Fragment>
+        <Global styles={globalStyles} />
+        <Head title={title} />
+        <Header />
+        {children}
+        <Footer />
+      </React.Fragment>
+    );
+  }
 }
 
 export default PageLayout;
