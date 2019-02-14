@@ -7,7 +7,7 @@ import styled, { breakpoints } from 'lib/theme';
 import CompareEditionSelect from './CompareEditionSelect';
 import data from 'static/mockdata.json';
 
-const { description, options } = data.compareEdidions;
+const { description, options } = data.compareEditions;
 
 const CompareEditions: React.SFC = () => {
   return (

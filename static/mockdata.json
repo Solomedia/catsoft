@@ -1,5 +1,5 @@
 {
-  "compareEdidions": {
+  "compareEditions": {
     "description": "Microsoft Office is a suite of desktop productivity applications that is designed specifically to be used for office or business use. Microsoft Office is available in 35 different languages and is supported by Windows and Mac. It mainly consists of Word, Excel, PowerPoint, Access, OneNote, Outlook and Publisher applications.",
     "options": ["Office 2016", "Office 2013"]
   },
