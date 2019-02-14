@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box } from '@rebass/grid/emotion';
-import { css } from '@emotion/core';
+import { Flex, Box } from '@rebass/grid/emotion';
 import Dropdown from 'react-dropdown';
 
 // Locals
@@ -31,12 +30,7 @@ class CompareEditionSelect extends React.Component<Props, State> {
     const arrowOpen = <Icon className="material-icons">arrow_drop_up</Icon>;
 
     return (
-      <Box
-        css={css`
-          display: flex;
-          flex-wrap: wrap;
-        `}
-      >
+      <Flex>
         <Text>Compare</Text>
         <Box>
           <DropdownStyled
@@ -50,7 +44,7 @@ class CompareEditionSelect extends React.Component<Props, State> {
         </Box>
 
         <Text>Editions for Windows</Text>
-      </Box>
+      </Flex>
     );
   }
 }
