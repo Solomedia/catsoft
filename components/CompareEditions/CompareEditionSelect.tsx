@@ -65,6 +65,7 @@ const DropdownStyled = styled(Dropdown)`
   width: 174px;
   background-color: #fff;
   padding-left: 10px;
+  cursor: pointer;
 
   @media (min-width: ${breakpoints['md']}) {
     width: 195px;
