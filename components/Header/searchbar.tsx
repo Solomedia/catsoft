@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import styled from '../../core/theme';
+import styled from '../../lib/theme';
 
 const SearchInput = styled.input`
 	width: 100%;

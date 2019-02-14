@@ -1,6 +1,6 @@
 import React from 'react';
 import { Global } from '@emotion/core';
-import { globalStyles } from '../core/styles';
+import { globalStyles } from '../lib/styles';
 import { Footer, Head, Header } from '../components';
 
 // interface Props {

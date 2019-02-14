@@ -5,10 +5,10 @@ import { graphql } from 'react-apollo';
 import { css } from '@emotion/core';
 import { Box, Flex } from '@rebass/grid/emotion';
 import { Container, Col } from '../../utils/ui';
-import CategoryItem from './categoryItem';
+import CategoryItem from './CategoryItem';
 import data from '../../static/mockdata.json';
 
-import styled, { ThemeProps, breakpoints } from '../../core/theme';
+import styled, { ThemeProps, breakpoints } from '../../lib/theme';
 import * as i18Next from '../../i18n';
 
 const { withNamespaces } = i18Next;
@@ -62,9 +62,9 @@ class Category extends React.Component<Props> {
 										width={[1, 1 / 3]}
 										key={i}
 										css={css`
-								align-items: center;
-								display: flex;
-							`}
+											align-items: center;
+											display: flex;
+										`}
 									>
 										<CategoryItem
 											color={color}
@@ -76,7 +76,6 @@ class Category extends React.Component<Props> {
 									</Col>
 								)
 							)}
-
 					</Flex>
 				</Container>
 			</Box>

@@ -6,7 +6,7 @@ import { Box } from '@rebass/grid/emotion';
 
 import { Container, Row } from '../../utils/ui';
 import NavItem from './nav-item';
-import styled, { ThemeProps } from '../../core/theme';
+import styled, { ThemeProps } from '../../lib/theme';
 
 const Wrapper = styled(Container)`
 	label: wrapper;

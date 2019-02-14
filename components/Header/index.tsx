@@ -6,7 +6,7 @@ import { graphql } from 'react-apollo';
 import { css } from '@emotion/core';
 import { Box, Flex } from '@rebass/grid/emotion';
 
-import styled, { ThemeProps, breakpoints } from '../../core/theme';
+import styled, { ThemeProps, breakpoints } from '../../lib/theme';
 import { Col, Container } from '../../utils/ui';
 import TopNav from './top-nav';
 import Nav from './nav';

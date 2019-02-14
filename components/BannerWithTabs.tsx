@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { breakpoints } from '../core/theme';
+import styled, { breakpoints } from '../lib/theme';
 import { Text } from '../utils/ui';
 import { Box, Flex } from '@rebass/grid/emotion';
 

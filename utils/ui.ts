@@ -1,5 +1,5 @@
 import { Flex, Box } from '@rebass/grid/emotion';
-import styled, { breakpoints } from '../core/theme';
+import styled, { breakpoints } from '../lib/theme';
 
 export const Container: Box = styled(Box)`
 	label: container;

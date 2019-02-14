@@ -1,4 +1,4 @@
-import styled from '../core/theme';
+import styled from '../lib/theme';
 
 // interface Feed {
 // 	count: number;

@@ -1,5 +1,5 @@
 import { Box } from '@rebass/grid/emotion';
-import styled from '../core/theme';
+import styled from '../lib/theme';
 
 interface Option {
 	value: string;

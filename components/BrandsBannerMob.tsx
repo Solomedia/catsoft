@@ -1,6 +1,6 @@
 import { css } from '@emotion/core';
 // Local modules
-import { breakpoints } from '../core/theme';
+import { breakpoints } from '../lib/theme';
 import { Container, Text } from '../utils/ui';
 import { Box } from '@rebass/grid/emotion';
 

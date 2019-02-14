@@ -3,16 +3,17 @@
 	"scripts": {
 		"dev": "nodemon server/index.ts",
 		"build": "next build && tsc --project tsconfig.server.json",
-		"start": "npm run build && NODE_ENV=production node .next/production-server/server/index.js",
+		"start": "yarn build && NODE_ENV=production node .next/production-server/server/index.js",
 		"storybook": "start-storybook -p 9001",
 		"lint:ts": "tslint --project .",
+		"lint:tsc": "tsc --noEmit",
 		"lint:css": "stylelint '**/*.ts'",
-		"lint": "npm run lint:css && npm run lint:ts",
+		"lint": "yarn lint:css && yarn lint:ts",
 		"format": "prettier --write **/*.{js,ts,tsx}"
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "npm run format && npm run lint && tsc --noEmit"
+			"pre-commit": "yarn format && yarn lint && tsc --noEmit"
 		}
 	},
 	"description": "Ecommerce website connected to magento 2.",

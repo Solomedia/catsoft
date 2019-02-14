@@ -1,6 +1,6 @@
 import { Button, Row } from '../utils/ui';
 import { Box } from '@rebass/grid/emotion';
-import styled, { breakpoints, theme } from '../core/theme';
+import styled, { breakpoints, theme } from '../lib/theme';
 
 const HeroWithCta = () => (
 	<Wrapper>

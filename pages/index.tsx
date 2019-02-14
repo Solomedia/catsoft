@@ -4,8 +4,8 @@ import { Box } from '@rebass/grid/emotion';
 // Local modules
 import Main from '../layouts/main';
 import { Container } from '../utils/ui';
-import { ThemeProps } from '../core/theme';
-import { theme } from '../core/theme';
+import { ThemeProps } from '../lib/theme';
+import { theme } from '../lib/theme';
 import {
 	BrandsBannerMob,
 	ReviewSlider,

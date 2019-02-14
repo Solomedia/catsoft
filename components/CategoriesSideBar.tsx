@@ -2,7 +2,7 @@ import React from 'react';
 import { Box } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
 // Locals
-import { breakpoints } from '../core/theme';
+import { breakpoints } from '../lib/theme';
 import { RadioFilterList } from './';
 import data from '../static/mockdata.json';
 
