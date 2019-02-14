@@ -30,7 +30,7 @@ class CompareEditionSelect extends React.Component<Props, State> {
     const arrowOpen = <Icon className="material-icons">arrow_drop_up</Icon>;
 
     return (
-      <Flex>
+      <Flex flexWrap="wrap">
         <Text>Compare</Text>
         <Box>
           <DropdownStyled
