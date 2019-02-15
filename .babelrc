@@ -1,23 +1,25 @@
 {
-	"presets": [
-		"next/babel",
-		"@zeit/next-typescript/babel",
-		"@emotion/babel-preset-css-prop"
-	],
-	"plugins": [
-		[
-			"module-resolver",
-			{
-				"root": ["./"],
-				"alias": {
-					"components": "./components",
-					"layouts": "./layouts",
-					"lib": "./lib",
-					"static": "./static",
-					"utils": "./utils"
-				}
-			}
-		],
-		["emotion", { "inline": true }]
-	]
+  "presets": [
+    "next/babel",
+    "@zeit/next-typescript/babel",
+    "@emotion/babel-preset-css-prop"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "components": "./components",
+          "layouts": "./layouts",
+          "lib": "./lib",
+          "static": "./static",
+          "utils": "./utils",
+          "i18n": "./i18n",
+          "hoc": "hoc"
+        }
+      }
+    ],
+    ["emotion", { "inline": true }]
+  ]
 }

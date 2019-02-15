@@ -11,3 +11,4 @@ export { default as RadioFilterList } from './RadioFilterList';
 export { default as CategoriesSideBar } from './CategoriesSideBar';
 export { default as Category } from './Category';
 export { default as ProductDetail } from './ProductDetail';
+export { default as QuantitySelect } from './QuantitySelect';
