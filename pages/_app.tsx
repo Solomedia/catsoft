@@ -3,7 +3,7 @@ import { ApolloProvider } from 'react-apollo';
 import { ThemeProvider } from 'emotion-theming';
 import { theme } from 'lib/theme';
 import withApolloClient from 'lib/withApolloClient';
-import * as i18next from '../i18n';
+import * as i18next from 'i18n';
 const { appWithTranslation } = i18next;
 
 class MyApp extends App<{ apolloClient }> {
