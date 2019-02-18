@@ -4,7 +4,7 @@ import styled, { breakpoints } from 'lib/theme';
 // TODO: fetch data from API.
 import data from 'static/mockdata.json';
 
-const Reviews = () => {
+const ProductAbout = () => {
 	const { product_about } = data;
 	return (
 		<Box>
@@ -35,4 +35,4 @@ const Text = styled.p`
 	text-align: justify;
 `;
 
-export default Reviews;
+export default ProductAbout;
