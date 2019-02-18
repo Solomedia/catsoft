@@ -1,7 +1,7 @@
 import React from 'react';
 import Main from 'layouts/main';
 import { Container } from 'utils/ui';
-import { ProductDetail } from 'components';
+import { ProductDetail, ProductIncluded } from 'components';
 import { default as ProductInt } from 'lib/models/product';
 
 interface State {
@@ -46,6 +46,7 @@ class Products extends React.Component<{}, State> {
       <Main title="Product">
         <Container>
           <ProductDetail data={this.state.productData} />
+          <ProductIncluded />
         </Container>
       </Main>
     );
