@@ -47,7 +47,7 @@ function getPrice(price, specialPrice): PriceInt {
 }
 
 const ProductDetail: React.SFC<Props> = ({ data: product }) => {
-  const price = getPrice(product.price, product.special_price);
+  const price = product && getPrice(product.price, product.special_price);
   let productQuantity = 1;
   return (
     <React.Fragment>
