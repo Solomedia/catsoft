@@ -237,5 +237,9 @@
       "subtitle": "Collection",
       "title": "Package"
     }
-  ]
+  ],
+  "product_about": {
+    "title": "About",
+    "text": "Discover the new and improved version of the world’s favorite productivity suite, with this Microsoft Office Home & Student 2016. Microsoft Word, Excel, PowerPoint, and OneNote have been upgraded and improved with new time saving features and a sleek, new look. Office 2016 is touchscreen optimised, fully cloud capable, and is accessible via Microsoft Web Apps, giving you the freedom to work from anywhere, on any device."
+  }
 }
