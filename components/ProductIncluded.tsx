@@ -7,28 +7,24 @@ import styled, { breakpoints } from 'lib/theme';
 import data from 'static/mockdata.json';
 
 const ProductIncluded = () => {
-    const { products_included } = data;
-    return (
-    <Box 
+  const { products_included } = data;
+  return (
+    <Box
       css={css`
         margin-top: 25px;
       `}
     >
-        <Row>
-            <Col width={[1, 2 / 5]}>
-                <Image src={products_included.image}/>
-            </Col>
-            <Col width={[1]}>
-                <Title>
-                    {products_included.title}
-                </Title>
-                <Text>
-                    {products_included.text}
-                </Text>
-            </Col>
-        </Row>
+      <Row>
+        <Col width={[1, 2 / 5]}>
+          <Image src={products_included.image} />
+        </Col>
+        <Col width={[1]}>
+          <Title>{products_included.title}</Title>
+          <Text>{products_included.text}</Text>
+        </Col>
+      </Row>
     </Box>
-    );
+  );
 };
 
 const Image = styled.img`
