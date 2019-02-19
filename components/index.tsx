@@ -16,3 +16,4 @@ export { default as CompareEditions } from './CompareEditions';
 export { default as ProductDescription } from './ProductDescription';
 export { default as ProductAbout } from './ProductAbout';
 export { default as Breadcrumb } from './Breadcrumb';
+export { default as WhyCatsoft } from './WhyCatsoft';

@@ -10,7 +10,8 @@ import {
   ReviewSlider,
   Reviews,
   HeroWithCta,
-  Category
+  Category,
+  WhyCatsoft
 } from 'components';
 
 interface Props {
@@ -41,6 +42,9 @@ class Home extends React.Component<Props> {
             <ReviewSlider />
           </Container>
         </Box>
+        <Container>
+          <WhyCatsoft />
+        </Container>
       </Main>
     );
   }
