@@ -19,6 +19,8 @@ export interface ThemeProps {
 
 export const theme: ThemeProps = {
   colors: {
+    textColor: '#000032',
+    textColor2: '#7F7F99',
     black: '#000032',
     white: '#FFFFFF',
     primary: '#5C56C8',

@@ -241,5 +241,41 @@
   "product_about": {
     "title": "About",
     "text": "Discover the new and improved version of the world’s favorite productivity suite, with this Microsoft Office Home & Student 2016. Microsoft Word, Excel, PowerPoint, and OneNote have been upgraded and improved with new time saving features and a sleek, new look. Office 2016 is touchscreen optimised, fully cloud capable, and is accessible via Microsoft Web Apps, giving you the freedom to work from anywhere, on any device."
+  },
+  "product": {
+    "name": "Microsoft Access 2010",
+    "sku": "access2010",
+    "image": "https://via.placeholder.com/333x366",
+    "manufacturer": "microsoft",
+    "special_price": 5,
+    "price": {
+      "regularPrice": {
+        "amount": {
+          "value": 109.99,
+          "currency": "USD"
+        }
+      }
+    },
+    "categories": [
+      {
+        "name": "Default Category",
+        "breadcrumbs": null
+      },
+      {
+        "name": "Office Apps",
+        "breadcrumbs": null
+      },
+      {
+        "name": "Access",
+        "breadcrumbs": [
+          {
+            "category_id": 16,
+            "category_name": "Office Apps",
+            "category_level": 2,
+            "category_url_key": "microsoft-office-apps"
+          }
+        ]
+      }
+    ]
   }
 }
