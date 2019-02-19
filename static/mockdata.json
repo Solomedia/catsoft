@@ -248,6 +248,7 @@
     "image": "https://via.placeholder.com/333x366",
     "manufacturer": "microsoft",
     "special_price": 5,
+    "description": "<ul>\r\n<li>Installation guarantee or your money back!</li>\r\n<li>If you find an identical product cheaper than us, we’ll beat it by 5%</li>\r\n<li>24x7 call support & technical help.</li>\r\n<li>100% Genuine Software Downloads.</li>\r\n</ul>",
     "price": {
       "regularPrice": {
         "amount": {
