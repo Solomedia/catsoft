@@ -2,6 +2,7 @@ import React from 'react';
 import Main from 'layouts/main';
 import { Container } from 'utils/ui';
 import { ProductDetail, ProductDescription } from 'components';
+import { ProductDetail, ProductAbout } from 'components';
 import { default as ProductInt } from 'lib/models/product';
 
 interface State {
@@ -53,6 +54,7 @@ class Products extends React.Component<{}, State> {
             mt={4}
             template={productData && productData.description}
           />
+          <ProductAbout />
         </Container>
       </Main>
     );
