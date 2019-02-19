@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box } from '@rebass/grid/emotion';
-import { css } from '@emotion/core';
 import { Row, Col } from 'utils/ui';
 // Local modules
 import styled, { breakpoints } from 'lib/theme';
@@ -10,9 +9,7 @@ const ProductIncluded = () => {
   const { products_included } = data;
   return (
     <Box
-      css={css`
-        margin-top: 25px;
-      `}
+      mt={4}
     >
       <Row>
         <Col width={[1, 2 / 5]}>
@@ -29,10 +26,9 @@ const ProductIncluded = () => {
 
 const Image = styled.img`
   max-height: 192px;
-  height: 100%;
-  width: 100%;
   @media (max-width: ${breakpoints['sm']}) {
-    height: 84px;
+    max-height: 84px;
+    width: 100%;
   }
 `;
 
