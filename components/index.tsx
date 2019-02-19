@@ -13,3 +13,4 @@ export { default as Category } from './Category';
 export { default as ProductDetail } from './ProductDetail';
 export { default as QuantitySelect } from './QuantitySelect';
 export { default as CompareEditions } from './CompareEditions';
+export { default as ProductDescription } from './ProductDescription';
