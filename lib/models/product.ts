@@ -27,6 +27,7 @@ interface Product {
   special_price?: number;
   image?: string;
   sku?: string;
+  description?: string;
 }
 
 export default Product;

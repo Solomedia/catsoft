@@ -1,7 +1,7 @@
 import React from 'react';
 import Main from 'layouts/main';
 import { Container } from 'utils/ui';
-import { ProductDetail, ProductAbout, Breadcrumb } from 'components';
+import { ProductDetail, ProductAbout, Breadcrumb, ProductDescription } from 'components';
 import { default as ProductInt } from 'lib/models/product';
 import mockData from 'static/mockdata.json';
 
@@ -53,12 +53,16 @@ class Products extends React.Component<{}, State> {
 
   public render() {
     const { productData } = this.state;
-
+    
     return (
       <Main title="Product">
         <Container>
           <Breadcrumb mt={3} routes={this.createBreadcrumbRoutes()} />
           <ProductDetail data={productData} />
+          <ProductDescription
+            mt={4}
+            template={productData && productData.description}
+          />
           <ProductAbout />
         </Container>
       </Main>
