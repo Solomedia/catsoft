@@ -8,9 +8,7 @@ import data from 'static/mockdata.json';
 const ProductIncluded = () => {
   const { products_included } = data;
   return (
-    <Box
-      mt={4}
-    >
+    <Box mt={4}>
       <Row>
         <Col width={[1, 2 / 5]}>
           <Image src={products_included.image} />
