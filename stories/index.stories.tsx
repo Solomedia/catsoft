@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import Helloworld from 'components/helloworld';
-import { Button } from 'utils/ui';
+import { Button } from 'lib/ui';
 import { theme } from 'lib/theme';
 
 const data = {

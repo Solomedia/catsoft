@@ -1,7 +1,7 @@
 import styled, { breakpoints } from 'lib/theme';
 import { Box, Flex } from '@rebass/grid/emotion';
 // Local modules
-import { Text } from 'utils/ui';
+import { Text } from 'lib/ui';
 
 interface ReviewType {
 	reviewer: string;

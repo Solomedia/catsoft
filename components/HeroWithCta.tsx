@@ -1,4 +1,4 @@
-import { Button, Row } from 'utils/ui';
+import { Button, Row } from 'lib/ui';
 import { Box } from '@rebass/grid/emotion';
 import styled, { breakpoints, theme } from 'lib/theme';
 

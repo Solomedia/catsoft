@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Flex } from '@rebass/grid/emotion';
-import { Row, Col, Button } from 'utils/ui';
+import { Row, Col, Button } from 'lib/ui';
 import styled, { theme, breakpoints } from 'lib/theme';
 import { default as ProductInt } from 'lib/models/product';
 import { QuantitySelect } from './';

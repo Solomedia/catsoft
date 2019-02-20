@@ -2,7 +2,7 @@ import { Box, Flex } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 import styled, { ThemeProps, breakpoints } from 'lib/theme';
-import { Col, Button } from 'utils/ui';
+import { Col, Button } from 'lib/ui';
 
 interface Props {
 	color: string;

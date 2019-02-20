@@ -1,9 +1,9 @@
 import React from 'react';
-import { DataValue } from 'react-apollo';
 import { Box } from '@rebass/grid/emotion';
+import { DataValue } from 'react-apollo';
 // Local modules
 import Main from 'layouts/main';
-import { Container } from 'utils/ui';
+import { Container } from 'lib/ui';
 import { ThemeProps, theme } from 'lib/theme';
 import {
   BrandsBannerMob,

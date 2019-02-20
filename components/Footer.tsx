@@ -1,7 +1,7 @@
 import { Box, Flex } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
 // locals
-import { Container, Row, Col, Text } from 'utils/ui';
+import { Container, Row, Col, Text } from 'lib/ui';
 import data from 'static/mockdata.json';
 import Link from 'next/link';
 import styled, { breakpoints } from 'lib/theme';
