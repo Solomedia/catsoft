@@ -1,8 +1,10 @@
 import React from 'react';
 import Main from 'layouts/main';
+import { Box } from '@rebass/grid/emotion';
 import { Container } from 'utils/ui';
 import { ProductDetail } from 'components';
 import { default as ProductInt } from 'lib/models/product';
+import ProductSummary from 'components/ProductSummary';
 
 interface State {
   productData: ProductInt | null;
@@ -47,6 +49,11 @@ class Products extends React.Component<{}, State> {
         <Container>
           <ProductDetail data={this.state.productData} />
         </Container>
+        <Box bg="#fafafc">
+          <Container>
+            <ProductSummary />
+          </Container>
+        </Box>
       </Main>
     );
   }

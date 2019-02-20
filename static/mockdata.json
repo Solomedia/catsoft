@@ -237,5 +237,13 @@
       "subtitle": "Collection",
       "title": "Package"
     }
-  ]
+  ],
+  "productSummary": {
+    "Overview": {
+      "mainText": "<p>For students, Microsoft OneNote is a must-have. Collect notes, ideas, photos, audio, video, and web pages in one simplified app. Use it to draw, scribble, or take class notes to refer back to later. Microsoft Word, Excel, and PowerPoint have received a beautiful makeover with distractions removed, allowing you to focus on what matters.</p> <p>Microsoft Office Home & Student 2016 is designed with time-efficient features and a fresh, modern look, to help you create and organize more efficiently. Plus, access your documents when you are not at home by saving them in the cloud on SkyDrive.</p>"
+    },
+    "Requirements": { "mainText": "Requirements" },
+    "FAQs": { "mainText": "FAQs" },
+    "Reviews": { "mainText": "Reviews" }
+  }
 }
