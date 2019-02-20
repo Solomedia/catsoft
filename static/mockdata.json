@@ -277,6 +277,23 @@
           }
         ]
       }
+    ],
+    "included_packages": [
+      {
+        "name": "Microsoft Word",
+        "text": "It has never been easier to take a document from blank page to polished article. Create impressive documents with natural formatting tools designed to customize and bring out the best in your writing. Open and edit PDFs in Microsoft Word, then save them as a PDF or Word document.",
+        "image": "https://via.placeholder.com/318x192"
+      },
+      {
+        "name": "Microsoft Word",
+        "text": "It has never been easier to take a document from blank page to polished article. Create impressive documents with natural formatting tools designed to customize and bring out the best in your writing. Open and edit PDFs in Microsoft Word, then save them as a PDF or Word document.",
+        "image": "https://via.placeholder.com/318x192"
+      },
+      {
+        "name": "Microsoft Word",
+        "text": "It has never been easier to take a document from blank page to polished article. Create impressive documents with natural formatting tools designed to customize and bring out the best in your writing. Open and edit PDFs in Microsoft Word, then save them as a PDF or Word document.",
+        "image": "https://via.placeholder.com/318x192"
+      }
     ]
   }
 }

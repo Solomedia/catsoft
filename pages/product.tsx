@@ -5,7 +5,8 @@ import {
   ProductDetail,
   ProductAbout,
   Breadcrumb,
-  ProductDescription
+  ProductDescription,
+  IncludedProductsList
 } from 'components';
 import { default as ProductInt } from 'lib/models/product';
 import mockData from 'static/mockdata.json';
@@ -69,6 +70,10 @@ class Products extends React.Component<{}, State> {
             template={productData && productData.description}
           />
           <ProductAbout />
+          <IncludedProductsList
+            mt={[5, 11]}
+            data={productData && productData.included_packages}
+          />
         </Container>
       </Main>
     );
