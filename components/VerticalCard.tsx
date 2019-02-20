@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, Box } from '@rebass/grid/emotion';
 import styled from 'lib/theme';
 
-interface ProductIncluded {
+interface Product {
   name: string;
   image: string;
   text: string;
@@ -10,7 +10,7 @@ interface ProductIncluded {
 
 interface Props {
   mt: number | number[] | string | string[];
-  data: ProductIncluded;
+  data: Product;
 }
 
 const VerticalCard: React.SFC<Props> = ({ mt, data: product }) => (

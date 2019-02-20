@@ -2,7 +2,7 @@ import React from 'react';
 import { Box } from '@rebass/grid/emotion';
 import { VerticalCard } from './';
 import styled from 'lib/theme';
-
+// TODO: review ProductIncluded data with BE
 interface ProductIncluded {
   name: string;
   image: string;
