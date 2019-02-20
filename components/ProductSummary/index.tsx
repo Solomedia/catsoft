@@ -64,6 +64,7 @@ const Tabs: any = styled.ul`
   justify-content: center;
   list-style: none;
   padding: 30px 0 40px;
+  margin-top: 40px;
 `;
 
 const Tab: any = styled.li`

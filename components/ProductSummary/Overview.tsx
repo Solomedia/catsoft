@@ -13,13 +13,12 @@ interface Props {
 const Overview: React.SFC<Props> = props => {
   const { mainText } = props.data;
 
-  // TODO: Add product includes
   return (
     <Box
       css={css`
         p {
           line-height: 22px;
-          margin-bottom: 10px;
+          margin-bottom: 15px;
         }
       `}
       fontSize={2}

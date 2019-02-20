@@ -78,14 +78,14 @@ class Products extends React.Component<{}, State> {
             template={productData && productData.description}
           />
           <ProductAbout />
-          <IncludedProductsList
-            mt={[5, 11]}
-            data={productData && productData.included_packages}
-          />
         </Container>
         <Box bg={whisper}>
           <Container>
             <ProductSummary />
+            <IncludedProductsList
+              mt={[5, 11]}
+              data={productData && productData.included_packages}
+            />
           </Container>
         </Box>
         <Box bg={containerBg2} pt={[3, 7]} pb={[4, 10]} mt={5}>
