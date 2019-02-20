@@ -11,7 +11,6 @@ interface Props {
   image: string;
   imageAlt: string;
   theme: ThemeProps;
-  name?: string;
 }
 
 const CategoryItem: React.SFC<Props> = props => {
