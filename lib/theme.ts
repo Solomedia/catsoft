@@ -34,8 +34,7 @@ export const theme: ThemeProps = {
     whisper: '#FAFAFC',
     linkWater: '#EEEFFB',
     mischka: '#D4D5E2',
-    borderColor: 'rgba(152,170,186,0.35)',
-    ebonyClay: '#212B36'
+    borderColor: 'rgba(152,170,186,0.35)'
   },
   space: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60],
   breakpoints: Object.keys(breakpoints).map(key => breakpoints[key]),
