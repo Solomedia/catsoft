@@ -5,7 +5,7 @@ import { graphql } from 'react-apollo';
 import { css } from '@emotion/core';
 import { Box, Flex } from '@rebass/grid/emotion';
 import { Container, Col } from 'lib/ui';
-import CategoryItem from './CategoryItemTest';
+import CategoryItem from './CategoryItem';
 import data from 'static/mockdata.json';
 
 import styled, { ThemeProps, breakpoints } from 'lib/theme';
