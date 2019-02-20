@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box } from '@rebass/grid/emotion';
 import Main from 'layouts/main';
 import { Container } from 'lib/ui';
 import {
@@ -6,10 +7,16 @@ import {
   ProductAbout,
   Breadcrumb,
   ProductDescription,
-  IncludedProductsList
+  IncludedProductsList,
+  Reviews
 } from 'components';
 import { default as ProductInt } from 'lib/models/product';
 import mockData from 'static/mockdata.json';
+import { theme } from 'lib/theme';
+
+const {
+  colors: { containerBg2 }
+} = theme;
 
 interface State {
   productData: ProductInt | null;
@@ -75,6 +82,11 @@ class Products extends React.Component<{}, State> {
             data={productData && productData.included_packages}
           />
         </Container>
+        <Box bg={containerBg2} pt={[3, 7]} pb={[4, 10]} mt={5}>
+          <Container>
+            <Reviews />
+          </Container>
+        </Box>
       </Main>
     );
   }
