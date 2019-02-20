@@ -4,7 +4,7 @@ import { graphql, DataValue } from 'react-apollo';
 import { withTheme } from 'emotion-theming';
 import { Box } from '@rebass/grid/emotion';
 
-import { Container, Row } from 'utils/ui';
+import { Container, Row } from 'lib/ui';
 import NavItem from './nav-item';
 import styled, { ThemeProps } from 'lib/theme';
 

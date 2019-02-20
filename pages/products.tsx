@@ -1,6 +1,6 @@
 import React from 'react';
 import Main from 'layouts/main';
-import { Container } from 'utils/ui';
+import { Container } from 'lib/ui';
 import { Box, Flex } from '@rebass/grid/emotion';
 import {
   BannerWithTabs,

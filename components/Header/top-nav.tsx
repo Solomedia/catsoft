@@ -1,8 +1,8 @@
 import { Box } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
-import { Container, Col } from 'utils/ui';
+import { Container, Col } from 'lib/ui';
 import styled from 'lib/theme';
-import { Row } from 'utils/ui';
+import { Row } from 'lib/ui';
 
 export const A: any = styled.a`
 	color: white;

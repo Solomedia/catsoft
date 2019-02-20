@@ -2,6 +2,10 @@ import css from '@emotion/css';
 import normalize from './stylesNormalizer';
 import { theme } from './theme';
 
+const {
+  colors: { textColor }
+} = theme;
+
 export const globalStyles = css`
   ${normalize}
   button,
@@ -10,7 +14,7 @@ export const globalStyles = css`
 	select,
 	textarea,
 	body {
-    color: ${theme.colors.black};
+    color: ${textColor};
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
   }
