@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache } from 'apollo-boost';
 import fetch from 'isomorphic-unfetch';
-import { graphqlEndpoint } from 'utils/constants';
+import { graphqlEndpoint } from './constants';
 import { createHttpLink } from 'apollo-link-http';
 import { setContext } from 'apollo-link-context';
 
@@ -9,9 +9,6 @@ const isBrowser = typeof window !== 'undefined';
 
 const httpLink = createHttpLink({
   uri: graphqlEndpoint
-  // fetchOptions: {
-  // 	mode: 'no-cors'
-  // }
 });
 
 const authLink = setContext((_, { headers }) => {

@@ -3,7 +3,7 @@ import { css } from '@emotion/core';
 import { Box, Flex } from '@rebass/grid/emotion';
 // Local modules
 import styled from 'lib/theme';
-import { Text } from 'utils/ui';
+import { Text } from 'lib/ui';
 // TODO: fetch data from API.
 import data from 'static/mockdata.json';
 import SliderWithDashes from '../layouts/slider-with-dashes';

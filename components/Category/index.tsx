@@ -4,7 +4,7 @@ import { withTheme } from 'emotion-theming';
 import { graphql } from 'react-apollo';
 import { css } from '@emotion/core';
 import { Box, Flex } from '@rebass/grid/emotion';
-import { Container, Col } from 'utils/ui';
+import { Container, Col } from 'lib/ui';
 import CategoryItem from './CategoryItem';
 import data from 'static/mockdata.json';
 

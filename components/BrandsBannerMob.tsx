@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
 // Local modules
 import { breakpoints } from 'lib/theme';
-import { Container, Text } from 'utils/ui';
+import { Container, Text } from 'lib/ui';
 import { Box } from '@rebass/grid/emotion';
 
 const BrandsBannerMob = () => (
