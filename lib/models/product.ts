@@ -29,7 +29,10 @@ interface Product {
   sku?: string;
   categories?: any[];
   description?: string;
-  included_packages: any[];
+  included_packages?: any[];
+  qty?: number;
+  extension_attributes: any;
+  in_stock?: number;
 }
 
 export default Product;
