@@ -10,12 +10,13 @@ import {
   IncludedProductsList,
   Reviews
 } from 'components';
+import ProductSummary from 'components/ProductSummary';
 import { default as ProductInt } from 'lib/models/product';
 import mockData from 'static/mockdata.json';
 import { theme } from 'lib/theme';
 
 const {
-  colors: { containerBg2 }
+  colors: { containerBg2, whisper }
 } = theme;
 
 interface State {
@@ -77,11 +78,16 @@ class Products extends React.Component<{}, State> {
             template={productData && productData.description}
           />
           <ProductAbout />
-          <IncludedProductsList
-            mt={[5, 11]}
-            data={productData && productData.included_packages}
-          />
         </Container>
+        <Box bg={whisper}>
+          <Container>
+            <ProductSummary />
+            <IncludedProductsList
+              mt={[5, 11]}
+              data={productData && productData.included_packages}
+            />
+          </Container>
+        </Box>
         <Box bg={containerBg2} pt={[3, 7]} pb={[4, 10]} mt={5}>
           <Container>
             <Reviews />
