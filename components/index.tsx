@@ -18,3 +18,5 @@ export { default as ProductAbout } from './ProductAbout';
 export { default as Breadcrumb } from './Breadcrumb';
 export { default as VerticalCard } from './VerticalCard';
 export { default as IncludedProductsList } from './IncludedProductsList';
+export { default as CartItem } from './CartItem';
+export { default as CartList } from './CartList';

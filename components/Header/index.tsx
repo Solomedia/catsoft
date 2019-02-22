@@ -121,8 +121,17 @@ class Header extends React.Component<Props> {
 
               <CtaCol order={[2, 3]}>
                 {/* TODO: set i18n for Cta's text prop. */}
-                <Cta ctaType="persone" text="Hello, log in or sign up" />
-                <Cta ctaType="shopping_cart" text="Your cart" inCard={0} />
+                <Cta
+                  path="/"
+                  ctaType="persone"
+                  text="Hello, log in or sign up"
+                />
+                <Cta
+                  path="/cart"
+                  ctaType="shopping_cart"
+                  text="Your cart"
+                  inCard={0}
+                />
               </CtaCol>
             </Flex>
           </Container>

@@ -3,35 +3,44 @@ import { Box, Flex } from '@rebass/grid/emotion';
 import styled from 'lib/theme';
 
 interface State {
-  quantity: number;
+  quantityCount: number;
 }
 
 interface Props {
   mt?: string;
   onQuantityChange: (arg: number) => any;
+  productQty?: number;
 }
 
 class QuantitySelect extends React.Component<Props, State> {
   public state = {
-    quantity: 1
+    quantityCount: 1
   };
+
+  public componentDidMount() {
+    const { productQty } = this.props;
+
+    this.setState({
+      quantityCount: productQty || 1
+    });
+  }
 
   private async handleDecrement() {
     await this.setState((prevState: State) => {
-      if (prevState.quantity <= 0) {
-        return { quantity: 0 };
+      if (prevState.quantityCount <= 0) {
+        return { quantityCount: 0 };
       }
-      return { quantity: prevState.quantity - 1 };
+      return { quantityCount: prevState.quantityCount - 1 };
     });
 
-    this.props.onQuantityChange(this.state.quantity);
+    this.props.onQuantityChange(this.state.quantityCount);
   }
 
   private async handleIncrement() {
     await this.setState((prevState: State) => {
-      return { quantity: prevState.quantity + 1 };
+      return { quantityCount: prevState.quantityCount + 1 };
     });
-    this.props.onQuantityChange(this.state.quantity);
+    this.props.onQuantityChange(this.state.quantityCount);
   }
 
   public render() {
@@ -43,7 +52,7 @@ class QuantitySelect extends React.Component<Props, State> {
             <Icon>-</Icon>
           </ControllerBtn>
         </Box>
-        <Box> {this.state.quantity}</Box>
+        <Box> {this.state.quantityCount}</Box>
         <Box>
           <ControllerBtn onClick={() => this.handleIncrement()}>
             <Icon plus>+</Icon>
@@ -54,7 +63,7 @@ class QuantitySelect extends React.Component<Props, State> {
   }
 }
 
-const Icon: any = styled.i`
+const Icon: any = styled.div`
   color: ${({ plus }: any) => (!plus ? '#d4d5e2' : '#6d5cff')};
   &:hover {
     cursor: pointer;
