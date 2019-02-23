@@ -19,8 +19,8 @@ const CartList: React.SFC<Props> = ({ data: cartItems, currency, mt }) => (
         }
       `}
     >
-      <Text width="50%">Product</Text>
-      <Flex width="50%">
+      <Text width={1 / 2}>Product</Text>
+      <Flex width={1 / 2}>
         <Col width={1 / 3}>Quantity</Col>
         <Col width={1 / 3}>Price</Col>
         <Col width={1 / 3}>Total</Col>

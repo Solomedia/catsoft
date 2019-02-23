@@ -7,7 +7,7 @@ import { default as ProductInt } from 'lib/models/product';
 import { QuantitySelect } from './';
 import { colors } from 'lib/theme';
 
-const { borderColor, dangerColor } = colors;
+const { borderColor, dangerColor, textColor2 } = colors;
 
 interface Props {
   data: ProductInt;
@@ -141,13 +141,9 @@ class CartItem extends React.Component<Props, State> {
                   </PriceText>
                 </Col>
                 <Col width={[1 / 2, 1 / 3]}>
-                  <PriceText
-                    css={css`
-                      @media (min-width: ${breakpoints['sm']}) {
-                        padding-top: 16px;
-                      }
-                    `}
-                  >{`$${price.totalPrice} ${price.currency}`}</PriceText>
+                  <PriceText pt={['0px', '16px']}>{`$${price.totalPrice} ${
+                    price.currency
+                  }`}</PriceText>
                 </Col>
               </Flex>
               <RemoveBtn hide_sm onClick={e => console.log(e)}>
@@ -174,13 +170,13 @@ const Title = styled.p`
 `;
 
 const OriginalPriceText = styled.div`
-  color: #7f7f99;
+  color: ${textColor2};
   font-weight: 300;
   text-decoration: line-through;
 `;
 
 const DiscountText = styled.div`
-  color: #7f7f99;
+  color: ${textColor2};
   font-weight: 600;
   text-transform: uppercase;
   display: flex;

@@ -1,5 +1,7 @@
 import { Flex, Box } from '@rebass/grid/emotion';
-import styled, { breakpoints } from 'lib/theme';
+import styled, { breakpoints, colors } from 'lib/theme';
+
+const { textColor } = colors;
 
 export const Container: Box = styled(Box)`
   label: container;
@@ -29,6 +31,7 @@ export const Col: Box = styled(Box)`
 `;
 
 export const Text: Box = styled(Box)`
+  color: ${(props: any) => props.color || textColor};
   font-weight: ${(props: any) => props.weight || 400};
 `;
 
