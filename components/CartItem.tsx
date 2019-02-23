@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Flex } from '@rebass/grid/emotion';
-import { Row, Col } from 'lib/ui';
+import { Col, Text } from 'lib/ui';
 import styled, { breakpoints } from 'lib/theme';
 import { css } from '@emotion/core';
 import { default as ProductInt } from 'lib/models/product';
@@ -71,25 +71,32 @@ class CartItem extends React.Component<Props, State> {
     const { data: product, mt, currency } = this.props;
     const price = product && this.getPrice(product, currency, productQuantity);
     return (
-      <Box
-        mt={mt}
-        css={css`
-          border-top: 1px solid ${borderColor};
-          padding-top: 30px;
-        `}
-      >
+      <Box mt={mt}>
         {product ? (
-          <Flex justifyContent={['unset', 'space-between']}>
-            <Box width={['auto', '10%']}>
-              <ImgBox>
-                <img
-                  src={product.image || 'https://via.placeholder.com/104x118'}
-                />
-              </ImgBox>
+          <Flex
+            justifyContent={['unset', 'space-between']}
+            pt={4}
+            css={css`
+              border-top: 1px solid ${borderColor};
+            `}
+          >
+            <Box mr={['0px', 5]} width={['auto', '10%']}>
+              <ProductImg
+                src={product.image || 'https://via.placeholder.com/104x118'}
+              />
             </Box>
 
-            <Row width={['auto', '90%']} pl={[3, '0px']}>
-              <Col>
+            <Flex
+              mt={['0px', 1]}
+              width={[1, '90%']}
+              flexDirection={['column', 'row']}
+              css={css`
+                @media (max-width: ${breakpoints['sm']}) {
+                  max-width: 350px;
+                }
+              `}
+            >
+              <Col width={[1, '40%']}>
                 <Title>{product.name}</Title>
                 <RemoveBtn hide_xs onClick={e => console.log(e)}>
                   <i className="material-icons">delete_outline</i>
@@ -97,8 +104,12 @@ class CartItem extends React.Component<Props, State> {
                 </RemoveBtn>
               </Col>
 
-              <Flex alignItems={['center', 'unset']} mt={[2, '0px']}>
-                <Col>
+              <Flex
+                width={[1, '60%']}
+                alignItems={['center', 'unset']}
+                mt={[2, '0px']}
+              >
+                <Col width={[1 / 2, 1 / 3]}>
                   <QuantitySelect
                     mt="3px"
                     productQty={product.qty}
@@ -110,6 +121,7 @@ class CartItem extends React.Component<Props, State> {
                 </Col>
 
                 <Col
+                  width={1 / 3}
                   css={css`
                     @media (max-width: ${breakpoints['sm']}) {
                       display: none;
@@ -124,15 +136,15 @@ class CartItem extends React.Component<Props, State> {
                       <DiscountText>{price.discount}% off</DiscountText>
                     </Flex>
                   )}
-                  <PriceText>
+                  <PriceText pt={!price.discount && '16px'}>
                     {`$${price.singlePrice} ${price.currency}`}
                   </PriceText>
                 </Col>
-                <Col>
+                <Col width={[1 / 2, 1 / 3]}>
                   <PriceText
                     css={css`
                       @media (min-width: ${breakpoints['sm']}) {
-                        padding-top: 17px;
+                        padding-top: 16px;
                       }
                     `}
                   >{`$${price.totalPrice} ${price.currency}`}</PriceText>
@@ -142,7 +154,7 @@ class CartItem extends React.Component<Props, State> {
                 <i className="material-icons">delete_outline</i>
                 <RemoveText>REMOVE</RemoveText>
               </RemoveBtn>
-            </Row>
+            </Flex>
           </Flex>
         ) : (
           <div />
@@ -152,9 +164,9 @@ class CartItem extends React.Component<Props, State> {
   }
 }
 
-const ImgBox = styled(Box)`
-  label: ImgBox;
-  min-width: 104px;
+const ProductImg = styled.img`
+  label: ProductImg;
+  width: 100%;
 `;
 
 const Title = styled.p`
@@ -175,7 +187,7 @@ const DiscountText = styled.div`
   margin-left: 5px;
 `;
 
-const PriceText = styled.p`
+const PriceText: Box = styled(Text)`
   label: PriceText;
   font-weight: 300;
   @media (min-width: ${breakpoints['sm']}) {
@@ -211,6 +223,7 @@ const InstockText = styled.p`
   line-height: 18px;
   margin-top: 5px;
   text-align: center;
+  width: 123px;
   @media (max-width: ${breakpoints['sm']}) {
     display: none;
   }

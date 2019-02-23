@@ -313,13 +313,14 @@
     "is_virtual": true,
     "items": [
       {
-        "item_id": 0,
+        "item_id": 1,
         "sku": "string",
         "qty": 2,
         "name": "Microsoft Office Home Edition 2016 32/64 bits",
         "price": 300,
         "product_type": "string",
         "quote_id": "string",
+        "in_stock": 10,
         "product_option": {
           "extension_attributes": {
             "custom_options": [
@@ -374,6 +375,126 @@
             "extension_attributes": {}
           }
         }
+      },
+      {
+        "item_id": 2,
+        "sku": "string",
+        "qty": 4,
+        "name": "Microsoft Windows 10 Home",
+        "price": 100,
+        "product_type": "string",
+        "quote_id": "string",
+        "in_stock": 5,
+        "product_option": {
+          "extension_attributes": {
+            "custom_options": [
+              {
+                "option_id": "string",
+                "option_value": "string",
+                "extension_attributes": {
+                  "file_info": {
+                    "base64_encoded_data": "string",
+                    "type": "string",
+                    "name": "string"
+                  }
+                }
+              }
+            ],
+            "bundle_options": [
+              {
+                "option_id": 0,
+                "option_qty": 0,
+                "option_selections": [0],
+                "extension_attributes": {}
+              }
+            ],
+            "downloadable_option": {
+              "downloadable_links": [0]
+            },
+            "giftcard_item_option": {
+              "giftcard_amount": "string",
+              "custom_giftcard_amount": 0,
+              "giftcard_sender_name": "string",
+              "giftcard_recipient_name": "string",
+              "giftcard_sender_email": "string",
+              "giftcard_recipient_email": "string",
+              "giftcard_message": "string",
+              "extension_attributes": {}
+            },
+            "configurable_item_options": [
+              {
+                "option_id": "string",
+                "option_value": 0,
+                "extension_attributes": {}
+              }
+            ]
+          }
+        },
+        "extension_attributes": {
+          "negotiable_quote_item": {
+            "item_id": 0,
+            "original_price": 100,
+            "original_tax_amount": 0,
+            "original_discount_amount": 10,
+            "extension_attributes": {}
+          }
+        }
+      },
+      {
+        "item_id": 3,
+        "sku": "string",
+        "qty": 2,
+        "name": "Microsoft Office Home Edition 2016 32/64 bits",
+        "price": 300,
+        "product_type": "string",
+        "quote_id": "string",
+        "in_stock": 122,
+        "product_option": {
+          "extension_attributes": {
+            "custom_options": [
+              {
+                "option_id": "string",
+                "option_value": "string",
+                "extension_attributes": {
+                  "file_info": {
+                    "base64_encoded_data": "string",
+                    "type": "string",
+                    "name": "string"
+                  }
+                }
+              }
+            ],
+            "bundle_options": [
+              {
+                "option_id": 0,
+                "option_qty": 0,
+                "option_selections": [0],
+                "extension_attributes": {}
+              }
+            ],
+            "downloadable_option": {
+              "downloadable_links": [0]
+            },
+            "giftcard_item_option": {
+              "giftcard_amount": "string",
+              "custom_giftcard_amount": 0,
+              "giftcard_sender_name": "string",
+              "giftcard_recipient_name": "string",
+              "giftcard_sender_email": "string",
+              "giftcard_recipient_email": "string",
+              "giftcard_message": "string",
+              "extension_attributes": {}
+            },
+            "configurable_item_options": [
+              {
+                "option_id": "string",
+                "option_value": 0,
+                "extension_attributes": {}
+              }
+            ]
+          }
+        },
+        "extension_attributes": {}
       }
     ],
     "items_count": 0,
