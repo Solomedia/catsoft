@@ -41,7 +41,7 @@ Text.defaultProps = {
 
 export const Button: Box = styled(Box)`
   label: button;
-  font-weight: 300;
+  font-weight: ${(props: any) => props.weight || 300};
   padding: ${(props: any) => props.px || '7px 10px'};
   border-radius: 37px;
   border: 2px solid;
@@ -88,4 +88,20 @@ export const Button: Box = styled(Box)`
 
 Button.defaultProps = {
   as: 'button'
+};
+
+export const SearchInput: Box = styled(Box)`
+  max-width: ${(props: any) => props.maxWidth || '100%'};
+  border-radius: 25px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid #d4d5e2;
+  font-size: 14px;
+  line-height: 18px;
+  height: 50px;
+  padding-left: 24px;
+  padding-right: 45px;
+`;
+
+SearchInput.defaultProps = {
+  as: 'input'
 };

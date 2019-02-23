@@ -1,37 +1,26 @@
 import { css } from '@emotion/core';
 import styled from 'lib/theme';
-
-const SearchInput = styled.input`
-	width: 100%;
-	border-radius: 25px;
-	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-	border: 1px solid #d4d5e2;
-	font-size: 14px;
-	line-height: 18px;
-	height: 50px;
-	padding-left: 24px;
-	padding-right: 45px;
-`;
+import { SearchInput } from 'lib/ui';
 
 const Icon = styled.i`
-	color: #7f71ff;
-	position: absolute;
-	top: 50%;
-	right: 16px;
-	transform: translateY(-50%);
+  color: #7f71ff;
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
 `;
 
 const SearchBar = () => {
-	return (
-		<div
-			css={css`
-				position: relative;
-			`}
-		>
-			<SearchInput placeholder="Search the entire store here" />
-			<Icon className="material-icons">search</Icon>
-		</div>
-	);
+  return (
+    <div
+      css={css`
+        position: relative;
+      `}
+    >
+      <SearchInput width={1} placeholder="Search the entire store here" />
+      <Icon className="material-icons">search</Icon>
+    </div>
+  );
 };
 
 export default SearchBar;
