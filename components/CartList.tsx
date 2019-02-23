@@ -3,15 +3,23 @@ import { Box, Flex } from '@rebass/grid/emotion';
 import { Col, Text } from 'lib/ui';
 import { breakpoints } from 'lib/theme';
 import { css } from '@emotion/core';
+import { withCartContext } from 'contexts/CartContext';
 
 interface Props {
   data: any[];
   currency: string;
   mt?: number | number[];
+  context?: any;
 }
 
-const CartList: React.SFC<Props> = ({ data: cartItems, currency, mt }) => (
+const CartList: React.SFC<Props> = ({
+  data: cartItems,
+  currency,
+  mt,
+  context
+}) => (
   <Box mt={mt}>
+    <h1>{context.name}</h1>
     <Flex
       css={css`
         @media (max-width: ${breakpoints['sm']}) {
@@ -32,4 +40,4 @@ const CartList: React.SFC<Props> = ({ data: cartItems, currency, mt }) => (
   </Box>
 );
 
-export default CartList;
+export default withCartContext(CartList);
