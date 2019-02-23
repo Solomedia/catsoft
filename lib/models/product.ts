@@ -33,6 +33,8 @@ interface Product {
   qty?: number;
   extension_attributes: any;
   in_stock?: number;
+  currency?: string;
+  meta_description?: string;
 }
 
 export default Product;

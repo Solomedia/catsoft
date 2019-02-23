@@ -2,16 +2,27 @@ import { Flex, Box } from '@rebass/grid/emotion';
 import { colors } from 'lib/theme';
 import { Text } from 'lib/ui';
 import { css } from '@emotion/core';
+import { default as ProductInt } from 'lib/models/product';
 
 const { textColor2 } = colors;
 
 interface Props {
+  data: ProductInt;
   handleAddProduct: (e: React.ChangeEvent<HTMLInputElement>) => any;
+  mt?: number | number[];
 }
 
-const AddProduct: React.SFC<Props> = ({ handleAddProduct }) => (
-  <Flex mt={7}>
-    <input name="isGoing" type="checkbox" onChange={e => handleAddProduct(e)} />
+const AddProduct: React.SFC<Props> = ({
+  data: product,
+  handleAddProduct,
+  mt
+}) => (
+  <Flex mt={mt}>
+    <input
+      name="addProduct"
+      type="checkbox"
+      onChange={e => handleAddProduct(e)}
+    />
     <Box ml={2}>
       <Text weight="600">
         <span
@@ -21,11 +32,13 @@ const AddProduct: React.SFC<Props> = ({ handleAddProduct }) => (
         >
           Add
         </span>
-        Anti-virus
+        {product.name}
       </Text>
-      <Text color={textColor2}>Trend Micro Maximum Security 1 Year 3 Pc</Text>
-      <Text weight="300" fontSize={7}>
-        $24.99 USD
+      <Text mt={0} color={textColor2}>
+        {product.meta_description}
+      </Text>
+      <Text mt={1} weight="300" fontSize={7}>
+        ${product.price} {product.currency}
       </Text>
     </Box>
   </Flex>

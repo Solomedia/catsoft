@@ -8,7 +8,7 @@ import { QuantitySelect } from './';
 import { colors } from 'lib/theme';
 
 const { borderColor, dangerColor, textColor2 } = colors;
-
+// TODO: Create interface for data
 interface Props {
   data: ProductInt;
   mt?: number | number[];
