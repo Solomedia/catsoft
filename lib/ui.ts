@@ -29,7 +29,7 @@ export const Col: Box = styled(Box)`
 `;
 
 export const Text: Box = styled(Box)`
-  font-size: 14px;
+  font-weight: ${(props: any) => props.weight || 400};
 `;
 
 Text.defaultProps = {
