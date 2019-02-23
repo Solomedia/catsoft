@@ -1,7 +1,13 @@
 import React from 'react';
 import Main from 'layouts/main';
 import { Container, Text } from 'lib/ui';
-import { CartList, SuggestProductsList, CartTotal, Reviews } from 'components';
+import {
+  CartList,
+  SuggestProductsList,
+  CartTotal,
+  Reviews,
+  SubscribeForm
+} from 'components';
 import mockData from 'static/mockdata.json';
 import { css } from '@emotion/core';
 import { breakpoints, colors } from 'lib/theme';
@@ -91,6 +97,16 @@ class Cart extends React.Component<{}, State> {
           <Container>
             <Reviews />
           </Container>
+        </Box>
+        <Box
+          css={css`
+            label: SubscribeFormWraper;
+            @media (max-width: ${breakpoints['sm']}) {
+              display: none;
+            }
+          `}
+        >
+          <SubscribeForm />
         </Box>
       </Main>
     );

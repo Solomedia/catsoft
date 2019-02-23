@@ -16,6 +16,7 @@ export const colors = {
   primary: '#5C56C8',
   secondary: '#6D5CFF',
   containerBg2: '#F6F6FA',
+  containerBg3: '#D4D5E2',
   flowerblue: '#7668EE',
   waterloo: '#7F7F99',
   amber: '#FFC000',
