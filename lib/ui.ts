@@ -42,13 +42,13 @@ Text.defaultProps = {
 export const Button: Box = styled(Box)`
   label: button;
   font-weight: 300;
-  padding: 7px 10px;
+  padding: ${(props: any) => props.px || '7px 10px'};
   border-radius: 37px;
   border: 2px solid;
   font-size: ${(props: any) => {
     const { lg } = props;
     if (lg) return '14px';
-    return '10px';
+    return props.fontSize || '10px';
   }};
   background-color: ${({ theme, revert }: any) =>
     !revert ? theme.colors.secondary : '#fff'};
@@ -67,8 +67,8 @@ export const Button: Box = styled(Box)`
     if (sm) return '109px';
     if (md) return '161px';
     if (lg) return '177px';
-    return 'auto';
   }};
+  max-width: ${(props: any) => props.maxWidth || '100%'};
   @media (min-width: ${breakpoints['sm']}) {
     min-height: ${(props: any) => {
       const { lg, md } = props;

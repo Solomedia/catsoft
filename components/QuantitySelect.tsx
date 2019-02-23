@@ -8,7 +8,7 @@ interface State {
 
 interface Props {
   mt?: string;
-  onQuantityChange: (arg: number) => any;
+  onQuantityChange: (arg: number, isAdding: boolean) => any;
   productQty?: number;
 }
 
@@ -33,14 +33,14 @@ class QuantitySelect extends React.Component<Props, State> {
       return { quantityCount: prevState.quantityCount - 1 };
     });
 
-    this.props.onQuantityChange(this.state.quantityCount);
+    this.props.onQuantityChange(this.state.quantityCount, false);
   }
 
   private async handleIncrement() {
     await this.setState((prevState: State) => {
       return { quantityCount: prevState.quantityCount + 1 };
     });
-    this.props.onQuantityChange(this.state.quantityCount);
+    this.props.onQuantityChange(this.state.quantityCount, true);
   }
 
   public render() {
@@ -48,7 +48,11 @@ class QuantitySelect extends React.Component<Props, State> {
     return (
       <Wrapper mt={mt}>
         <Box>
-          <ControllerBtn onClick={() => this.handleDecrement()}>
+          <ControllerBtn
+            onClick={() => {
+              if (this.state.quantityCount > 0) this.handleDecrement();
+            }}
+          >
             <Icon>-</Icon>
           </ControllerBtn>
         </Box>

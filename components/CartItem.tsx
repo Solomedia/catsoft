@@ -6,6 +6,7 @@ import { css } from '@emotion/core';
 import { default as ProductInt } from 'lib/models/product';
 import { QuantitySelect } from './';
 import { colors } from 'lib/theme';
+import { withCartContext } from 'contexts/CartContext';
 
 const { borderColor, dangerColor, textColor2 } = colors;
 // TODO: Create interface for data
@@ -13,6 +14,7 @@ interface Props {
   data: ProductInt;
   mt?: number | number[];
   currency: string;
+  context: any;
 }
 
 interface State {
@@ -68,7 +70,7 @@ class CartItem extends React.Component<Props, State> {
 
   public render() {
     const { productQuantity } = this.state;
-    const { data: product, mt, currency } = this.props;
+    const { data: product, mt, currency, context } = this.props;
     const price = product && this.getPrice(product, currency, productQuantity);
     return (
       <Box mt={mt}>
@@ -113,9 +115,10 @@ class CartItem extends React.Component<Props, State> {
                   <QuantitySelect
                     mt="3px"
                     productQty={product.qty}
-                    onQuantityChange={quantity =>
-                      this.setState({ productQuantity: quantity })
-                    }
+                    onQuantityChange={async (quantity, isAdding) => {
+                      await this.setState({ productQuantity: quantity });
+                      context.updateCartContext(price.singlePrice, isAdding);
+                    }}
                   />
                   <InstockText>{product.in_stock || 12} avaliable</InstockText>
                 </Col>
@@ -225,4 +228,4 @@ const InstockText = styled.p`
   }
 `;
 
-export default CartItem;
+export default withCartContext(CartItem);

@@ -3,25 +3,22 @@ import { colors } from 'lib/theme';
 import { Text } from 'lib/ui';
 import { css } from '@emotion/core';
 import { default as ProductInt } from 'lib/models/product';
+import { withCartContext } from 'contexts/CartContext';
 
 const { textColor2 } = colors;
 
 interface Props {
   data: ProductInt;
-  handleAddProduct: (e: React.ChangeEvent<HTMLInputElement>) => any;
   mt?: number | number[];
+  context: any;
 }
 
-const AddProduct: React.SFC<Props> = ({
-  data: product,
-  handleAddProduct,
-  mt
-}) => (
+const AddProduct: React.SFC<Props> = ({ data: product, mt, context }) => (
   <Flex mt={mt}>
     <input
       name="addProduct"
       type="checkbox"
-      onChange={e => handleAddProduct(e)}
+      onChange={e => context.updateCartContext(product.price, e.target.checked)}
     />
     <Box ml={2}>
       <Text weight="600">
@@ -44,4 +41,4 @@ const AddProduct: React.SFC<Props> = ({
   </Flex>
 );
 
-export default AddProduct;
+export default withCartContext(AddProduct);
