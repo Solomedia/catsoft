@@ -4,28 +4,67 @@ import { css } from '@emotion/core';
 
 // Locals
 import styled, { breakpoints } from 'lib/theme';
-import CompareEditionSelect from './CompareEditionSelect';
+import CompareEditionsSelect from './CompareEditionsSelect';
+import CompareEditionsTable from './CompareEditionsTable';
 import data from 'static/mockdata.json';
 
 // TODO: verify the data from the API
-const { description, options } = data.compareEditions;
+const { description, options, featureList } = data.compareEditions;
 
-const CompareEditions: React.SFC = () => {
-  return (
-    <Box
-      css={css`
-        margin-top: 48px;
+interface State {
+  selectedOption: string;
+  tableData: any;
+}
 
-        @media (min-width: ${breakpoints['md']}) {
-          margin-top: 64px;
-        }
-      `}
-    >
-      <CompareEditionSelect options={options} />
-      <Description>{description}</Description>
-    </Box>
-  );
-};
+class CompareEditions extends React.Component<{}, State> {
+  public state = {
+    selectedOption: '',
+    tableData: {}
+  };
+
+  public onChangehandler = selectedOption => {
+    const releaseYear = selectedOption.value.split(' ')[1];
+    const tableData = data.tableCategories.find(el => el.name === releaseYear)
+      .products;
+
+    this.setState({
+      selectedOption,
+      tableData
+    });
+  };
+
+  public componentDidMount() {
+    const tableData = data.tableCategories[0].products;
+    this.setState({
+      tableData
+    });
+  }
+
+  public render() {
+    return (
+      <Box
+        css={css`
+          margin-top: 48px;
+
+          @media (min-width: ${breakpoints['md']}) {
+            margin-top: 64px;
+          }
+        `}
+      >
+        <CompareEditionsSelect
+          options={options}
+          selectedOption={this.state.selectedOption}
+          onChange={this.onChangehandler}
+        />
+        <Description>{description}</Description>
+        <CompareEditionsTable
+          data={this.state.tableData}
+          featureList={featureList}
+        />
+      </Box>
+    );
+  }
+}
 
 const Description = styled.p`
   font-weight: 500;

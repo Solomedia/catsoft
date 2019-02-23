@@ -1,7 +1,16 @@
 {
   "compareEditions": {
     "description": "Microsoft Office is a suite of desktop productivity applications that is designed specifically to be used for office or business use. Microsoft Office is available in 35 different languages and is supported by Windows and Mac. It mainly consists of Word, Excel, PowerPoint, Access, OneNote, Outlook and Publisher applications.",
-    "options": ["Office 2016", "Office 2013"]
+    "options": ["Office 2016", "Office 2019"],
+    "featureList": [
+      "Microsoft Word",
+      "Microsoft Excel",
+      "Microsoft PowerPoint",
+      "Microsoft OneNote",
+      "Microsoft Outlook",
+      "Microsoft Publisher",
+      "Microsoft Access"
+    ]
   },
   "platformCategories": [
     {
@@ -644,8 +653,8 @@
       "products": [
         {
           "id": 25,
-          "sku": "office2016hs",
           "name": "Microsoft Office 2016 Home and Student",
+          "sku": "office2016hs",
           "price": 79.99,
           "included_products": ["word", "excel", "power_point", "one_note"],
           "license_use": "Personal",
@@ -706,8 +715,8 @@
       "products": [
         {
           "id": 43,
-          "sku": "office2019hs",
           "name": "Microsoft Office 2019 Home and Student",
+          "sku": "office2019hs",
           "price": 98.99,
           "included_products": ["word", "excel", "power_point", "one_note"],
           "license_use": "Personal",

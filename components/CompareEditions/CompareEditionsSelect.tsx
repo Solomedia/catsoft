@@ -5,49 +5,35 @@ import Dropdown from 'react-dropdown';
 // Locals
 import styled, { breakpoints } from 'lib/theme';
 
-interface State {
-  selectedOption: string;
-}
-
 interface Props {
   options: string[];
+  selectedOption: string;
+  onChange: (arg: any) => any;
 }
 
-class CompareEditionSelect extends React.Component<Props, State> {
-  public state = {
-    selectedOption: ''
-  };
+const CompareEditionsSelect: React.SFC<Props> = props => {
+  const { options, selectedOption, onChange } = props;
+  const arrowClosed = <Icon className="material-icons">arrow_drop_down</Icon>;
+  const arrowOpen = <Icon className="material-icons">arrow_drop_up</Icon>;
 
-  public onChangehandler = val =>
-    this.setState({
-      selectedOption: val
-    });
+  return (
+    <Flex flexWrap="wrap">
+      <Text>Compare</Text>
+      <Box>
+        <DropdownStyled
+          options={options}
+          onChange={onChange}
+          placeholder={options[0]}
+          value={selectedOption}
+          arrowClosed={arrowClosed}
+          arrowOpen={arrowOpen}
+        />
+      </Box>
 
-  public render() {
-    const { options } = this.props;
-    const { selectedOption } = this.state;
-    const arrowClosed = <Icon className="material-icons">arrow_drop_down</Icon>;
-    const arrowOpen = <Icon className="material-icons">arrow_drop_up</Icon>;
-
-    return (
-      <Flex flexWrap="wrap">
-        <Text>Compare</Text>
-        <Box>
-          <DropdownStyled
-            options={options}
-            onChange={this.onChangehandler}
-            placeholder={options[0]}
-            value={selectedOption}
-            arrowClosed={arrowClosed}
-            arrowOpen={arrowOpen}
-          />
-        </Box>
-
-        <Text>Editions for Windows</Text>
-      </Flex>
-    );
-  }
-}
+      <Text>Editions for Windows</Text>
+    </Flex>
+  );
+};
 
 const DropdownStyled = styled(Dropdown)`
   height: 32px;
@@ -109,4 +95,4 @@ const Icon = styled.i`
   font-size: 26px;
 `;
 
-export default CompareEditionSelect;
+export default CompareEditionsSelect;
