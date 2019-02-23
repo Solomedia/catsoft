@@ -20,3 +20,5 @@ export { default as VerticalCard } from './VerticalCard';
 export { default as IncludedProductsList } from './IncludedProductsList';
 export { default as CartItem } from './CartItem';
 export { default as CartList } from './CartList';
+export { default as AddProduct } from './AddProduct';
+export { default as SuggestProductsList } from './SuggestProductsList';
