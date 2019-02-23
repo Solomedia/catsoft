@@ -1,12 +1,14 @@
 import React from 'react';
 import Main from 'layouts/main';
 import { Container, Text } from 'lib/ui';
-import { CartList, SuggestProductsList, CartTotal } from 'components';
+import { CartList, SuggestProductsList, CartTotal, Reviews } from 'components';
 import mockData from 'static/mockdata.json';
 import { css } from '@emotion/core';
-import { breakpoints } from 'lib/theme';
+import { breakpoints, colors } from 'lib/theme';
 import { Box } from '@rebass/grid/emotion';
 import { CartContext, CartContextInt } from 'contexts/CartContext';
+
+const { containerBg2 } = colors;
 
 interface State {
   cartContext: CartContextInt;
@@ -85,6 +87,11 @@ class Cart extends React.Component<{}, State> {
             <CartTotal data={cartContext} />
           </Container>
         </CartContext.Provider>
+        <Box bg={containerBg2} pt={[3, 7]} pb={[4, 10]} mt={5}>
+          <Container>
+            <Reviews />
+          </Container>
+        </Box>
       </Main>
     );
   }
