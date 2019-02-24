@@ -4,8 +4,8 @@ import { css } from '@emotion/core';
 
 // Locals
 import { Text } from 'lib/ui';
-import CompareEditionsSelect from './CompareEditionsSelect';
-import CompareEditionsTable from './CompareEditionsTable';
+import Select from './Select';
+import Table from './Table';
 import data from 'static/mockdata.json';
 
 // TODO: verify the data from the API
@@ -26,7 +26,7 @@ interface State {
   tableData: Product[];
 }
 
-class CompareEditions extends React.Component<{}, State> {
+class ProductCompareEditions extends React.Component<{}, State> {
   public state = {
     selectedOption: '',
     tableData: []
@@ -53,7 +53,7 @@ class CompareEditions extends React.Component<{}, State> {
   public render() {
     return (
       <Box mt={[9, 11]}>
-        <CompareEditionsSelect
+        <Select
           options={options}
           selectedOption={this.state.selectedOption}
           onChange={this.onChangehandler}
@@ -67,13 +67,10 @@ class CompareEditions extends React.Component<{}, State> {
         >
           {description}
         </Text>
-        <CompareEditionsTable
-          data={this.state.tableData}
-          featureList={featureList}
-        />
+        <Table data={this.state.tableData} featureList={featureList} />
       </Box>
     );
   }
 }
 
-export default CompareEditions;
+export default ProductCompareEditions;

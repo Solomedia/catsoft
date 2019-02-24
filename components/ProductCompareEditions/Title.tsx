@@ -10,7 +10,7 @@ interface Props {
   stars: number;
 }
 
-const ProductTitle: React.SFC<Props> = props => {
+const Title: React.SFC<Props> = props => {
   const { name, price, stars } = props;
 
   return (
@@ -58,4 +58,4 @@ const StartIcon = styled.i`
   font-size: 14px;
 `;
 
-export default ProductTitle;
+export default Title;

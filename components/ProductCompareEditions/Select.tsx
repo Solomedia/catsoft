@@ -14,7 +14,7 @@ interface Props {
   onChange: (arg: any) => any;
 }
 
-const CompareEditionsSelect: React.SFC<Props> = props => {
+const Select: React.SFC<Props> = props => {
   const { options, selectedOption, onChange } = props;
   const arrowClosed = <Icon className="material-icons">arrow_drop_down</Icon>;
   const arrowOpen = <Icon className="material-icons">arrow_drop_up</Icon>;
@@ -93,4 +93,4 @@ const Icon = styled.i`
   font-size: 26px;
 `;
 
-export default CompareEditionsSelect;
+export default Select;

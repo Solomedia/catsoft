@@ -6,7 +6,7 @@ import {
   BannerWithTabs,
   SelectFilter,
   CategoriesSideBar,
-  CompareEditions
+  ProductCompareEditions
 } from 'components';
 
 class Products extends React.Component<{}> {
@@ -32,7 +32,7 @@ class Products extends React.Component<{}> {
             </Box>
           </Flex>
           <CategoriesSideBar />
-          <CompareEditions />
+          <ProductCompareEditions />
         </Container>
       </Main>
     );
