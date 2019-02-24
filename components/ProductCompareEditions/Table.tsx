@@ -3,7 +3,7 @@ import { css } from '@emotion/core';
 import { Flex } from '@rebass/grid/emotion';
 import styled, { breakpoints, colors } from 'lib/theme';
 import { Text } from 'lib/ui';
-import ProductTitle from './ProductTitle';
+import Title from './Title';
 
 const { containerBg2, mischka } = colors;
 
@@ -22,7 +22,7 @@ interface Props {
   featureList: string[];
 }
 
-const CompareEditionsTable: React.SFC<Props> = ({ data, featureList }) => {
+const Table: React.SFC<Props> = ({ data, featureList }) => {
   return (
     <Flex
       flexDirection={['column', 'row']}
@@ -86,7 +86,7 @@ const CompareEditionsTable: React.SFC<Props> = ({ data, featureList }) => {
                     }
                   `}
                 >
-                  <ProductTitle name={name} price={price} stars={stars} />
+                  <Title name={name} price={price} stars={stars} />
                 </TableTitle>
                 {featureList.map(feature => (
                   <TableCell key={feature}>
@@ -131,7 +131,7 @@ const CompareEditionsTable: React.SFC<Props> = ({ data, featureList }) => {
                     }
                   `}
                 >
-                  <ProductTitle name={name} price={price} stars={stars} />
+                  <Title name={name} price={price} stars={stars} />
                 </TableTitle>
                 {featureList.map((feature, index) => (
                   <TableCell key={feature}>
@@ -193,4 +193,4 @@ const NotIncludeIcon = styled.i`
   font-size: 28px;
 `;
 
-export default CompareEditionsTable;
+export default Table;

@@ -8,7 +8,8 @@ import {
   Breadcrumb,
   ProductDescription,
   IncludedProductsList,
-  Reviews
+  Reviews,
+  ProductCompareEditions
 } from 'components';
 import ProductSummary from 'components/ProductSummary';
 import { default as ProductInt } from 'lib/models/product';
@@ -88,6 +89,9 @@ class Products extends React.Component<{}, State> {
             />
           </Container>
         </Box>
+        <Container>
+          <ProductCompareEditions />
+        </Container>
         <Box bg={containerBg2} pt={[3, 7]} pb={[4, 10]} mt={5}>
           <Container>
             <Reviews />
