@@ -50,7 +50,10 @@ class Cart extends React.Component<{}> {
               <SelectFilter options={['best selling', 'refine']} />
             </Flex>
           </Flex>
-          <ProductsList data={mockData.products_list} />
+          <ProductsList
+            grid={[1, 1 / 2, 1 / 3, 1 / 4]}
+            data={mockData.products_list}
+          />
         </Container>
       </Main>
     );

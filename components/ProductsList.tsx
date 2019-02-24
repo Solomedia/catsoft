@@ -4,13 +4,14 @@ import { Row, Col } from 'lib/ui';
 interface Props {
   mt?: number | number[];
   data: any[];
+  grid?: any[];
 }
 
-const ProductsList: React.SFC<Props> = ({ data: products, mt }) => (
+const ProductsList: React.SFC<Props> = ({ data: products, mt, grid }) => (
   <Row mt={mt} flexWrap="wrap">
     {products &&
       products.map((product, i) => (
-        <Col key={i} mt={7} width={[1, 1 / 2, 1 / 3, 1 / 4]}>
+        <Col key={i} mt={7} width={grid}>
           <ProductCard data={product} />
         </Col>
       ))}

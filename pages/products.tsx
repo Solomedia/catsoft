@@ -6,8 +6,10 @@ import {
   BannerWithTabs,
   SelectFilter,
   CategoriesSideBar,
-  ProductCompareEditions
+  ProductCompareEditions,
+  ProductsList
 } from 'components';
+import mockData from 'static/mockdata.json';
 
 class Products extends React.Component<{}> {
   public static async getInitialProps() {
@@ -31,7 +33,10 @@ class Products extends React.Component<{}> {
               <SelectFilter options={['best selling', 'refine']} />
             </Box>
           </Flex>
-          <CategoriesSideBar />
+          <Flex flexDirection={['column', 'row']}>
+            <CategoriesSideBar />
+            <ProductsList data={mockData.products_list} />
+          </Flex>
           <ProductCompareEditions />
         </Container>
       </Main>
