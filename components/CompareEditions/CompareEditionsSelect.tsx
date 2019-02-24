@@ -1,9 +1,12 @@
 import React from 'react';
 import { Flex, Box } from '@rebass/grid/emotion';
 import Dropdown from 'react-dropdown';
+import { Text } from 'lib/ui';
 
 // Locals
-import styled, { breakpoints } from 'lib/theme';
+import styled, { breakpoints, colors } from 'lib/theme';
+
+const { textColor3 } = colors;
 
 interface Props {
   options: string[];
@@ -18,7 +21,9 @@ const CompareEditionsSelect: React.SFC<Props> = props => {
 
   return (
     <Flex flexWrap="wrap">
-      <Text>Compare</Text>
+      <Text color={textColor3} fontSize={[6, 8]}>
+        Compare
+      </Text>
       <Box>
         <DropdownStyled
           options={options}
@@ -30,7 +35,9 @@ const CompareEditionsSelect: React.SFC<Props> = props => {
         />
       </Box>
 
-      <Text>Editions for Windows</Text>
+      <Text color={textColor3} fontSize={[6, 8]}>
+        Editions for Windows
+      </Text>
     </Flex>
   );
 };
@@ -78,15 +85,6 @@ const DropdownStyled = styled(Dropdown)`
     font-size: 14px;
     line-height: 18px;
     margin-top: 10px;
-  }
-`;
-
-const Text = styled.span`
-  color: #212b36;
-  font-size: 24px;
-  font-weight: 300;
-  @media (min-width: ${breakpoints['md']}) {
-    font-size: 28px;
   }
 `;
 

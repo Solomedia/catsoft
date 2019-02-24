@@ -3,7 +3,7 @@ import { Box } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
 
 // Locals
-import styled, { breakpoints } from 'lib/theme';
+import { Text } from 'lib/ui';
 import CompareEditionsSelect from './CompareEditionsSelect';
 import CompareEditionsTable from './CompareEditionsTable';
 import data from 'static/mockdata.json';
@@ -52,21 +52,21 @@ class CompareEditions extends React.Component<{}, State> {
 
   public render() {
     return (
-      <Box
-        css={css`
-          margin-top: 48px;
-
-          @media (min-width: ${breakpoints['md']}) {
-            margin-top: 64px;
-          }
-        `}
-      >
+      <Box mt={[9, 11]}>
         <CompareEditionsSelect
           options={options}
           selectedOption={this.state.selectedOption}
           onChange={this.onChangehandler}
         />
-        <Description>{description}</Description>
+        <Text
+          weight={500}
+          mt={[2, 4]}
+          css={css`
+            line-height: 22px;
+          `}
+        >
+          {description}
+        </Text>
         <CompareEditionsTable
           data={this.state.tableData}
           featureList={featureList}
@@ -75,14 +75,5 @@ class CompareEditions extends React.Component<{}, State> {
     );
   }
 }
-
-const Description = styled.p`
-  font-weight: 500;
-  margin-top: 13px;
-  line-height: 22px;
-  @media (min-width: ${breakpoints['md']}) {
-    margin-top: 24px;
-  }
-`;
 
 export default CompareEditions;
