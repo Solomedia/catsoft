@@ -59,11 +59,12 @@ const Tab: any = styled.button`
   background-color: inherit;
   color: #212b36;
   font-weight: ${(props: any) => (props.active ? 'bold' : 'normal')};
-  font-size: ${fontSizes[2]}px;
+  font-size: ${fontSizes[1]}px;
   position: relative;
   line-height: 32px;
   margin: 0 8px;
   @media (min-width: ${breakpoints['sm']}) {
+    font-size: ${fontSizes[2]}px;
     margin: 0 46px;
   }
 
