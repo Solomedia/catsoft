@@ -28,7 +28,7 @@ const CompareEditionsTable: React.SFC<Props> = ({ data, featureList }) => {
       flexDirection={['column', 'row']}
       mt={8}
       css={css`
-        @media (min-width: ${breakpoints['md']}) {
+        @media (min-width: ${breakpoints['sm']}) {
           border: 1px solid ${mischka};
         }
       `}
@@ -52,7 +52,7 @@ const CompareEditionsTable: React.SFC<Props> = ({ data, featureList }) => {
               mb={[3, 0]}
               css={css`
                 border: 1px solid ${mischka};
-                @media (min-width: ${breakpoints['md']}) {
+                @media (min-width: ${breakpoints['sm']}) {
                   border: none;
                   width: ${i ? '20%' : '40%'};
                 }
@@ -62,7 +62,7 @@ const CompareEditionsTable: React.SFC<Props> = ({ data, featureList }) => {
                 flexDirection="column"
                 css={css`
                   width: 140%;
-                  @media (min-width: ${breakpoints['md']}) {
+                  @media (min-width: ${breakpoints['sm']}) {
                     width: 100%;
                     display: ${i ? 'none' : 'flex'};
                   }
@@ -70,18 +70,18 @@ const CompareEditionsTable: React.SFC<Props> = ({ data, featureList }) => {
               >
                 <TableTitle
                   css={css`
-                    @media (max-width: ${breakpoints['md']}) {
+                    @media (max-width: ${breakpoints['sm']}) {
                       display: none;
                     }
                   `}
                 >
-                  <Text width="100%" pl={[3, 6]} as="span" fontSize={6}>
+                  <Text width="100%" pl={[3, 2, 6]} as="span" fontSize={6}>
                     Feature
                   </Text>
                 </TableTitle>
                 <TableTitle
                   css={css`
-                    @media (min-width: ${breakpoints['md']}) {
+                    @media (min-width: ${breakpoints['sm']}) {
                       display: none;
                     }
                   `}
@@ -90,18 +90,18 @@ const CompareEditionsTable: React.SFC<Props> = ({ data, featureList }) => {
                 </TableTitle>
                 {featureList.map(feature => (
                   <TableCell key={feature}>
-                    <Text width="100%" pl={[3, 6]} as="span">
+                    <Text width="100%" pl={[3, 2, 6]} as="span">
                       {feature}
                     </Text>
                   </TableCell>
                 ))}
                 <TableCell>
-                  <Text width="100%" pl={[2, 6]} as="span">
+                  <Text width="100%" pl={[3, 2, 6]} as="span">
                     License Use
                   </Text>
                 </TableCell>
                 <TableCell>
-                  <Text width="100%" pl={[3, 6]} as="span">
+                  <Text width="100%" pl={[3, 2, 6]} as="span">
                     License Type
                   </Text>
                 </TableCell>
@@ -115,7 +115,7 @@ const CompareEditionsTable: React.SFC<Props> = ({ data, featureList }) => {
               >
                 <TableTitle
                   css={css`
-                    @media (min-width: ${breakpoints['md']}) {
+                    @media (min-width: ${breakpoints['sm']}) {
                       display: none;
                     }
                   `}
@@ -126,7 +126,7 @@ const CompareEditionsTable: React.SFC<Props> = ({ data, featureList }) => {
                 </TableTitle>
                 <TableTitle
                   css={css`
-                    @media (max-width: ${breakpoints['md']}) {
+                    @media (max-width: ${breakpoints['sm']}) {
                       display: none;
                     }
                   `}
