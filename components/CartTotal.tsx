@@ -29,7 +29,7 @@ const CartTotal = ({ data: { quantity, total } }) => (
     </Text>
     <Button
       maxWidth="340px"
-      px="10px"
+      py={2}
       fontSize="14px"
       mt={1}
       width={['100%', '250px']}

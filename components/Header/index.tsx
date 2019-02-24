@@ -145,25 +145,6 @@ class Header extends React.Component<Props> {
   }
 }
 
-// TODO: Fix CATEGORIES_QUERY calls once server CORS bug is fix
-const CATEGORIES_QUERY = gql`
-  query category {
-    category(id: 2) {
-      children {
-        name
-        id
-        position
-        products {
-          items {
-            name
-            id
-          }
-        }
-      }
-    }
-  }
-`;
-
 const Logo = styled.a`
   label: logo;
   font-size: 20px;
@@ -214,6 +195,25 @@ const CtaCol: Box = styled(Col)`
     min-width: 260px;
     max-width: auto;
     width: 40%;
+  }
+`;
+
+// TODO: Fix CATEGORIES_QUERY calls once server CORS bug is fix
+const CATEGORIES_QUERY = gql`
+  query category {
+    category(id: 2) {
+      children {
+        name
+        id
+        position
+        products {
+          items {
+            name
+            id
+          }
+        }
+      }
+    }
   }
 `;
 

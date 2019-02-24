@@ -24,3 +24,6 @@ export { default as AddProduct } from './AddProduct';
 export { default as SuggestProductsList } from './SuggestProductsList';
 export { default as CartTotal } from './CartTotal';
 export { default as SubscribeForm } from './SubscribeForm';
+export { default as ProductCard } from './ProductCard';
+export { default as ProductsList } from './ProductsList';
+export { default as Stars } from './Stars';

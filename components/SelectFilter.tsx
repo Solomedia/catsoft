@@ -1,6 +1,7 @@
 import React from 'react';
 import Dropdown from 'react-dropdown';
 import styled from 'lib/theme';
+import { css } from '@emotion/core';
 
 interface State {
   selected: string;
@@ -24,7 +25,14 @@ class SelectFilter extends React.Component<Props, State> {
     const arrowOpen = <Icon className="material-icons">expand_less</Icon>;
 
     return (
-      <section>
+      <section
+        css={css`
+          z-index: 1;
+          &:hover {
+            cursor: pointer;
+          }
+        `}
+      >
         <DropdownStyled
           options={options}
           onChange={this.onSelect}

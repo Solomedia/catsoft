@@ -17,8 +17,8 @@ export const ContainerFluid = styled(Box)`
 
 export const Row: Flex = styled(Flex)`
   label: row;
-  margin: 0 -15px;
-  margin-top: ${({ mt }: any) => (mt ? `${mt}px` : 0)};
+  margin-left: -15px;
+  margin-right: -15px;
   flex-direction: column;
   @media (min-width: ${breakpoints['sm']}) {
     flex-direction: row;
@@ -33,6 +33,8 @@ export const Col: Box = styled(Box)`
 export const Text: Box = styled(Box)`
   color: ${(props: any) => props.color || textColor};
   font-weight: ${(props: any) => props.weight || 400};
+  text-align: ${(props: any) => props.align};
+  display: ${(props: any) => props.display};
 `;
 
 Text.defaultProps = {
@@ -42,7 +44,8 @@ Text.defaultProps = {
 export const Button: Box = styled(Box)`
   label: button;
   font-weight: ${(props: any) => props.weight || 300};
-  padding: ${(props: any) => props.px || '7px 10px'};
+  padding-left: 7px;
+  padding-right: 7px;
   border-radius: 37px;
   border: 2px solid;
   font-size: ${(props: any) => {

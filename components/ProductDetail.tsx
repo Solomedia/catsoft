@@ -4,6 +4,7 @@ import { Row, Col, Button } from 'lib/ui';
 import styled, { theme, breakpoints } from 'lib/theme';
 import { default as ProductInt } from 'lib/models/product';
 import { QuantitySelect } from './';
+import Link from 'next/link';
 
 const {
   colors: { borderColor, amber, black }
@@ -91,17 +92,21 @@ const ProductDetail: React.SFC<Props> = ({ data: product }) => {
 
             <Flex mt={3}>
               <Box>
-                <Button md onClick={() => console.log(productQuantity)}>
-                  buy now
-                </Button>
+                <Link href="/cart">
+                  <Button md onClick={() => console.log(productQuantity)}>
+                    buy now
+                  </Button>
+                </Link>
               </Box>
-              <ReverButton
-                revert
-                md
-                onClick={() => console.log(productQuantity)}
-              >
-                add to card
-              </ReverButton>
+              <Link href="/cart">
+                <ReverButton
+                  revert
+                  md
+                  onClick={() => console.log(productQuantity)}
+                >
+                  add to card
+                </ReverButton>
+              </Link>
             </Flex>
             <HelpText>
               Need help? Call Us at <span>800-318-1439</span> or{' '}
