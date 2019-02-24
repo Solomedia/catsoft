@@ -1,92 +1,196 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import { Flex, Box } from '@rebass/grid/emotion';
-import { breakpoints } from 'lib/theme';
+import { Flex } from '@rebass/grid/emotion';
+import styled, { breakpoints, colors } from 'lib/theme';
+import { Text } from 'lib/ui';
+import ProductTitle from './ProductTitle';
+
+const { containerBg2, mischka } = colors;
+
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  stars: number;
+  license_use: string;
+  license_type: string;
+  included_products: string[];
+}
 
 interface Props {
-  data: any;
+  data: Product[];
   featureList: string[];
 }
 
-const CompareEditionsTable: React.SFC<Props> = ({
-  data: includedProducts,
-  featureList
-}) => {
+const CompareEditionsTable: React.SFC<Props> = ({ data, featureList }) => {
   return (
-    <Flex flexDirection={['column', 'row']}>
-      {includedProducts.length &&
-        includedProducts.map((product, i) => (
-          <Flex key={product.id}>
+    <Flex
+      flexDirection={['column', 'row']}
+      mt={8}
+      css={css`
+        @media (min-width: ${breakpoints['md']}) {
+          border: 1px solid ${mischka};
+        }
+      `}
+    >
+      {data.length &&
+        data.map(
+          (
+            {
+              id,
+              name,
+              price,
+              stars,
+              license_use,
+              license_type,
+              included_products
+            },
+            i
+          ) => (
             <Flex
-              flexDirection="column"
-              css={
-                i &&
-                css`
-                  @media (min-width: ${breakpoints['md']}) {
-                    display: none;
-                  }
-                `
-              }
+              key={id}
+              mb={[3, 0]}
+              css={css`
+                border: 1px solid ${mischka};
+                @media (min-width: ${breakpoints['md']}) {
+                  border: none;
+                  width: ${i ? '20%' : '40%'};
+                }
+              `}
             >
-              <Box
+              <Flex
+                flexDirection="column"
                 css={css`
-                  @media (max-width: ${breakpoints['md']}) {
-                    display: none;
-                  }
-                `}
-              >
-                FEATURE
-              </Box>
-              <Box
-                css={css`
+                  width: 140%;
                   @media (min-width: ${breakpoints['md']}) {
-                    display: none;
+                    width: 100%;
+                    display: ${i ? 'none' : 'flex'};
                   }
                 `}
               >
-                {product.name.replace(/Microsoft Office |[0-9]/g, '')}
-              </Box>
-              {featureList.map(feature => (
-                <Flex flexDirection="column" key={feature}>
-                  <Box>{feature}</Box>
-                </Flex>
-              ))}
-              <Box>License Use</Box>
-              <Box>License Type</Box>
-            </Flex>
-            <Flex flexDirection="column">
-              <Box
+                <TableTitle
+                  css={css`
+                    @media (max-width: ${breakpoints['md']}) {
+                      display: none;
+                    }
+                  `}
+                >
+                  <Text width="100%" pl={[3, 6]} as="span" fontSize={6}>
+                    Feature
+                  </Text>
+                </TableTitle>
+                <TableTitle
+                  css={css`
+                    @media (min-width: ${breakpoints['md']}) {
+                      display: none;
+                    }
+                  `}
+                >
+                  <ProductTitle name={name} price={price} stars={stars} />
+                </TableTitle>
+                {featureList.map(feature => (
+                  <TableCell key={feature}>
+                    <Text width="100%" pl={[3, 6]} as="span">
+                      {feature}
+                    </Text>
+                  </TableCell>
+                ))}
+                <TableCell>
+                  <Text width="100%" pl={[2, 6]} as="span">
+                    License Use
+                  </Text>
+                </TableCell>
+                <TableCell>
+                  <Text width="100%" pl={[3, 6]} as="span">
+                    License Type
+                  </Text>
+                </TableCell>
+              </Flex>
+              <Flex
+                flexDirection="column"
                 css={css`
-                  @media (min-width: ${breakpoints['md']}) {
-                    display: none;
-                  }
+                  border-left: 1px solid ${mischka};
+                  width: 100%;
                 `}
               >
-                INCLUDED
-              </Box>
-              <Box
-                css={css`
-                  @media (max-width: ${breakpoints['md']}) {
-                    display: none;
-                  }
-                `}
-              >
-                {product.name.replace(/Microsoft Office |[0-9]/g, '')}
-              </Box>
-              {featureList.map((feature, index) => (
-                <Flex flexDirection="column" key={feature}>
-                  <Box>
-                    {product.included_products.length >= index ? 'yes' : 'no'}
-                  </Box>
-                </Flex>
-              ))}
-              <Box>{product.license_use}</Box>
-              <Box>{product.license_type}</Box>
+                <TableTitle
+                  css={css`
+                    @media (min-width: ${breakpoints['md']}) {
+                      display: none;
+                    }
+                  `}
+                >
+                  <Text as="span" weight="700">
+                    Included
+                  </Text>
+                </TableTitle>
+                <TableTitle
+                  css={css`
+                    @media (max-width: ${breakpoints['md']}) {
+                      display: none;
+                    }
+                  `}
+                >
+                  <ProductTitle name={name} price={price} stars={stars} />
+                </TableTitle>
+                {featureList.map((feature, index) => (
+                  <TableCell key={feature}>
+                    {included_products.length > index ? (
+                      <IncludeIcon className="material-icons">
+                        check
+                      </IncludeIcon>
+                    ) : (
+                      <NotIncludeIcon className="material-icons">
+                        close
+                      </NotIncludeIcon>
+                    )}
+                  </TableCell>
+                ))}
+                <TableCell>
+                  <Text as="span">{license_use}</Text>
+                </TableCell>
+                <TableCell>
+                  <Text as="span">{license_type}</Text>
+                </TableCell>
+              </Flex>
             </Flex>
-          </Flex>
-        ))}
+          )
+        )}
     </Flex>
   );
 };
+
+const TableTitle: Flex = styled(Flex)`
+  border-bottom: 1px solid ${mischka};
+  background-color: ${containerBg2};
+  height: 135px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
+
+const TableCell = styled(Flex)`
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+
+  &:nth-of-type(2n) {
+    background-color: ${containerBg2};
+  }
+`;
+
+const IncludeIcon = styled.i`
+  label: IncludeIcon;
+  color: #b2d043;
+  width: 22px;
+  font-size: 28px;
+`;
+
+const NotIncludeIcon = styled.i`
+  label: NotIncludeIcon;
+  color: #ff766b;
+  width: 22px;
+  font-size: 28px;
+`;
 
 export default CompareEditionsTable;

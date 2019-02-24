@@ -11,15 +11,25 @@ import data from 'static/mockdata.json';
 // TODO: verify the data from the API
 const { description, options, featureList } = data.compareEditions;
 
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  stars: number;
+  license_use: string;
+  license_type: string;
+  included_products: string[];
+}
+
 interface State {
   selectedOption: string;
-  tableData: any;
+  tableData: Product[];
 }
 
 class CompareEditions extends React.Component<{}, State> {
   public state = {
     selectedOption: '',
-    tableData: {}
+    tableData: []
   };
 
   public onChangehandler = selectedOption => {

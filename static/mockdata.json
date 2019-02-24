@@ -777,6 +777,7 @@
           "name": "Microsoft Office 2016 Home and Student",
           "sku": "office2016hs",
           "price": 79.99,
+          "stars": 5,
           "included_products": ["word", "excel", "power_point", "one_note"],
           "license_use": "Personal",
           "license_type": "Personal"
@@ -786,6 +787,7 @@
           "name": "Microsoft Office 2016 Home and Business",
           "sku": "office2016hb",
           "price": 199,
+          "stars": 5,
           "included_products": [
             "word",
             "excel",
@@ -801,6 +803,7 @@
           "name": "Microsoft Office 2016 Professional",
           "sku": "office2016pro",
           "price": 249,
+          "stars": 5,
           "included_products": [
             "word",
             "excel",
@@ -817,6 +820,7 @@
           "name": "Microsoft Office 2016 Professional Plus",
           "sku": "office2016proplus",
           "price": 399,
+          "stars": 5,
           "included_products": [
             "word",
             "excel",
@@ -839,6 +843,7 @@
           "name": "Microsoft Office 2019 Home and Student",
           "sku": "office2019hs",
           "price": 98.99,
+          "stars": 5,
           "included_products": ["word", "excel", "power_point", "one_note"],
           "license_use": "Personal",
           "license_type": "Personal"
@@ -848,6 +853,7 @@
           "name": "Microsoft Office 2019 Home and Business",
           "sku": "office2019hb",
           "price": 155.99,
+          "stars": 4,
           "included_products": [
             "word",
             "excel",
@@ -863,6 +869,7 @@
           "name": "Microsoft Office 2019 Professional",
           "sku": "office2019pro",
           "price": 409,
+          "stars": 5,
           "included_products": [
             "word",
             "excel",
@@ -879,6 +886,7 @@
           "name": "Microsoft Office 2019 Professional Plus",
           "sku": "office2019proplus",
           "price": 599,
+          "stars": 5,
           "included_products": [
             "word",
             "excel",
