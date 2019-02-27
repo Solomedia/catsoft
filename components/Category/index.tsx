@@ -3,8 +3,8 @@ import gql from 'graphql-tag';
 import { withTheme } from 'emotion-theming';
 import { graphql } from 'react-apollo';
 import { css } from '@emotion/core';
-import { Box, Flex } from '@rebass/grid/emotion';
-import { Container, Col } from 'lib/ui';
+import { Box } from '@rebass/grid/emotion';
+import { Container, Col, Row } from 'lib/ui';
 import CategoryItem from './CategoryItem';
 import data from 'static/mockdata.json';
 
@@ -36,17 +36,16 @@ class Category extends React.Component<Props> {
             display: flex;
             flex-direction: column;
             min-height: ${displayMobileMenu ? '100vh' : 'auto'};
-            padding-bottom: ${displayMobileMenu ? '100px' : 'auto'};
+            padding-bottom: ${displayMobileMenu ? '100px' : '0'};
             position: relative;
           }
         `}
       >
         <Container>
           <Title>Shop by category</Title>
-          <Flex
+          <Row
             css={css`
               align-items: center;
-              margin: 0 -15px;
               @media (max-width: ${breakpoints['sm']}) {
                 flex-wrap: wrap;
                 justify-content: space-between;
@@ -58,7 +57,6 @@ class Category extends React.Component<Props> {
               data.shop_by_category.map(
                 ({ color, image, imageAlt, subtitle, title }, i) => (
                   <Col
-                    order={1}
                     width={[1, 1 / 3]}
                     key={i}
                     css={css`
@@ -76,7 +74,7 @@ class Category extends React.Component<Props> {
                   </Col>
                 )
               )}
-          </Flex>
+          </Row>
         </Container>
       </Box>
     );
