@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache } from 'apollo-boost';
 import fetch from 'isomorphic-unfetch';
-import { graphqlEndpoint } from './constants';
+import { magentoGraphqlEndpoint } from './constants';
 import { createHttpLink } from 'apollo-link-http';
 import { setContext } from 'apollo-link-context';
 
@@ -8,7 +8,7 @@ let apolloClient = null;
 const isBrowser = typeof window !== 'undefined';
 
 const httpLink = createHttpLink({
-  uri: graphqlEndpoint
+  uri: magentoGraphqlEndpoint
 });
 
 const authLink = setContext((_, { headers }) => {
