@@ -57,8 +57,11 @@ const CategoryItem: React.SFC<Props> = props => {
           weight={300}
           color={theme.colors.black}
           css={css`
-            line-height: 27px;
+            line-height: 19px;
             text-transform: uppercase;
+            @media (min-width: ${breakpoints['md']}) {
+              line-height: 27px;
+            }
           `}
         >
           {title} <br />
