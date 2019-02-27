@@ -23,9 +23,12 @@ const CategoryItem: React.SFC<Props> = props => {
       width={1}
       css={css`
         border-radius: 1.4px;
-        height: 181.3px;
+        height: 131px;
         max-width: 384px;
         min-width: 266px;
+        @media (min-width: ${breakpoints['md']}) {
+          height: 181.3px;
+        }
       `}
     >
       <Flex
