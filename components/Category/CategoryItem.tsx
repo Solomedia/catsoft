@@ -53,7 +53,7 @@ const CategoryItem: React.SFC<Props> = props => {
       <Box ml={[1, 2]}>
         <Text
           as="h2"
-          fontSize={[1, 5]}
+          fontSize={[1, 1, 5]}
           weight={300}
           color={theme.colors.black}
           css={css`
