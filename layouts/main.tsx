@@ -3,31 +3,20 @@ import { Global } from '@emotion/core';
 import { globalStyles } from 'lib/styles';
 import { Footer, Head, Header } from 'components';
 
-// interface Props {
-// 	children: React.ReactNode;
-// 	title?: string;
-// }
-
-class PageLayout extends React.Component<any> {
-  public static async getInitialProps() {
-    return {
-      namespacesRequired: ['common', 'footer', 'header']
-    };
-  }
-
-  public render() {
-    const { children, title } = this.props;
-
-    return (
-      <React.Fragment>
-        <Global styles={globalStyles} />
-        <Head title={title} />
-        <Header />
-        {children}
-        <Footer />
-      </React.Fragment>
-    );
-  }
+interface Props {
+  children: React.ReactNode;
+  title?: string;
+  categoriesData: any;
 }
+
+const PageLayout: React.SFC<Props> = ({ children, title, categoriesData }) => (
+  <>
+    <Global styles={globalStyles} />
+    <Head title={title} />
+    <Header categoriesData={categoriesData} />
+    {children}
+    <Footer />
+  </>
+);
 
 export default PageLayout;

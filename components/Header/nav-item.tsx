@@ -3,9 +3,80 @@ import Link from 'next/link';
 import { Flex, Box } from '@rebass/grid/emotion';
 import { isMobile } from 'react-device-detect';
 
-import { Col } from 'lib/ui';
+import { Col, Text } from 'lib/ui';
 import styled, { breakpoints } from 'lib/theme';
 import SubMenu from './submenu';
+
+interface State {
+  showSubmenu: boolean;
+}
+
+interface Props {
+  product: any;
+}
+
+class NavItem extends React.Component<Props> {
+  public state: State = {
+    showSubmenu: false
+  };
+
+  public render() {
+    const { product } = this.props;
+    const { showSubmenu } = this.state;
+
+    const LinkContent = product && product.children_data && (
+      <Flex alignItems="center" justifyContent="center">
+        <LinkStyled
+          color="#fff"
+          weight="600"
+          fontSize={[4, 0]}
+          show={showSubmenu}
+          as="a"
+        >
+          {product.name}
+        </LinkStyled>
+        <LinkIcon
+          className="material-icons"
+          withProducts={product.children_data.length}
+        >
+          {isMobile && showSubmenu ? 'expand_less' : 'expand_more'}
+        </LinkIcon>
+      </Flex>
+    );
+
+    if (product && product.children_data) {
+      return (
+        <Wrapper
+          onMouseEnter={() => !isMobile && this.setState({ showSubmenu: true })}
+          onMouseLeave={() =>
+            !isMobile && this.setState({ showSubmenu: false })
+          }
+          onClick={() => {
+            if (isMobile && product.children_data.length) {
+              this.setState((state: any) => ({
+                showSubmenu: !state.showSubmenu
+              }));
+              document.querySelector('body').style.overflowY = 'auto';
+            }
+          }}
+        >
+          {!isMobile || !product.children_data.length ? (
+            <Link prefetch href="/products">
+              {LinkContent}
+            </Link>
+          ) : (
+            LinkContent
+          )}
+          {product.children_data.length > 0 && (
+            <SubMenu show={showSubmenu} data={product.children_data} />
+          )}
+        </Wrapper>
+      );
+    } else {
+      return <div />;
+    }
+  }
+}
 
 const Wrapper: Box = styled(Col)`
   padding: 0;
@@ -17,15 +88,9 @@ const Wrapper: Box = styled(Col)`
   }
 `;
 
-const LinkStyled: any = styled.a`
-  color: #fff;
-  font-weight: 700;
-  font-size: 20px;
+const LinkStyled: any = styled(Text)`
   position: relative;
   text-transform: uppercase;
-  @media (min-width: ${breakpoints['sm']}) {
-    font-size: 14px;
-  }
   &:before {
     content: '';
     width: 0px;
@@ -56,73 +121,5 @@ const LinkIcon: any = styled.i`
     font-size: 20px;
   }
 `;
-
-interface State {
-  showSubmenu: boolean;
-}
-
-interface Product {
-  name: string;
-  products: any;
-}
-
-interface Props {
-  product: Product;
-}
-
-class NavItem extends React.Component<Props> {
-  public state: State = {
-    showSubmenu: false
-  };
-
-  public render() {
-    const { product } = this.props;
-    const { showSubmenu } = this.state;
-
-    const LinkContent = product && product.products && (
-      <Flex alignItems="center" justifyContent="center">
-        <LinkStyled show={showSubmenu}>{product.name}</LinkStyled>
-        <LinkIcon
-          className="material-icons"
-          withProducts={product.products.items.length}
-        >
-          {isMobile && showSubmenu ? 'expand_less' : 'expand_more'}
-        </LinkIcon>
-      </Flex>
-    );
-
-    if (product && product.products) {
-      return (
-        <Wrapper
-          onMouseEnter={() => !isMobile && this.setState({ showSubmenu: true })}
-          onMouseLeave={() =>
-            !isMobile && this.setState({ showSubmenu: false })
-          }
-          onClick={() => {
-            if (isMobile && product.products.items.length) {
-              this.setState((state: any) => ({
-                showSubmenu: !state.showSubmenu
-              }));
-              document.querySelector('body').style.overflowY = 'auto';
-            }
-          }}
-        >
-          {!isMobile || !product.products.items.length ? (
-            <Link prefetch href="/products">
-              {LinkContent}
-            </Link>
-          ) : (
-            LinkContent
-          )}
-          {product.products.items.length > 0 && (
-            <SubMenu show={showSubmenu} data={product.products.items} />
-          )}
-        </Wrapper>
-      );
-    } else {
-      return <div />;
-    }
-  }
-}
 
 export default NavItem;

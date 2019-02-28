@@ -4,6 +4,58 @@ import { Box } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
 import styled, { breakpoints } from 'lib/theme';
 
+interface Product {
+  id: string;
+  name: string;
+  sku: string;
+}
+
+interface Props {
+  show: boolean;
+  data: Product[];
+}
+
+const SubMenu: React.SFC<Props> = props => {
+  const { data: products, show } = props;
+
+  return (
+    <AnimateHeight duration={300} height={show ? 'auto' : 0}>
+      <Wrapper show={show}>
+        {products &&
+          products.map((product, index) => {
+            if (index <= 7) {
+              return (
+                <Link key={product.id} href={`/product?id=${product.id}`}>
+                  <Box
+                    mt={1}
+                    css={css`
+                      @media (max-width: ${breakpoints['sm']}) {
+                        text-align: center;
+                      }
+                    `}
+                  >
+                    <LinkStyled>
+                      {product.name
+                        .split(' ')
+                        .slice(0, 3)
+                        .join(' ')}
+                    </LinkStyled>
+                  </Box>
+                </Link>
+              );
+            } else if (index === 8) {
+              return (
+                <Link key={product.id} href={`/product?id=${product.id}`}>
+                  <SeeAllLink>See all</SeeAllLink>
+                </Link>
+              );
+            }
+          })}
+      </Wrapper>
+    </AnimateHeight>
+  );
+};
+
 const Wrapper: Box = styled(Box)`
   label: submenu-wrapper;
   background-color: ${(props: any) => props.theme.colors.primary};
@@ -70,56 +122,5 @@ const SeeAllLink = styled.a`
     text-align: left;
   }
 `;
-
-interface Product {
-  id: string;
-  name: string;
-}
-
-interface Props {
-  show: boolean;
-  data: Product[];
-}
-
-const SubMenu: React.SFC<Props> = props => {
-  const { data: products, show } = props;
-
-  return (
-    <AnimateHeight duration={300} height={show ? 'auto' : 0}>
-      <Wrapper show={show}>
-        {products &&
-          products.map((product, index) => {
-            if (index <= 7) {
-              return (
-                <Link key={product.id} href="/product">
-                  <Box
-                    mt={1}
-                    css={css`
-                      @media (max-width: ${breakpoints['sm']}) {
-                        text-align: center;
-                      }
-                    `}
-                  >
-                    <LinkStyled>
-                      {product.name
-                        .split(' ')
-                        .slice(0, 3)
-                        .join(' ')}
-                    </LinkStyled>
-                  </Box>
-                </Link>
-              );
-            } else if (index === 8) {
-              return (
-                <Link key={product.id} href="/products">
-                  <SeeAllLink>See all</SeeAllLink>
-                </Link>
-              );
-            }
-          })}
-      </Wrapper>
-    </AnimateHeight>
-  );
-};
 
 export default SubMenu;

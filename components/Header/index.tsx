@@ -1,8 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import gql from 'graphql-tag';
 import { withTheme } from 'emotion-theming';
-import { graphql } from 'react-apollo';
 import { css } from '@emotion/core';
 import { Box, Flex } from '@rebass/grid/emotion';
 
@@ -20,6 +18,7 @@ const { withNamespaces } = i18Next;
 interface Props {
   t: (arg: string) => string;
   theme: ThemeProps;
+  categoriesData: any;
 }
 
 class Header extends React.Component<Props> {
@@ -37,7 +36,7 @@ class Header extends React.Component<Props> {
   }
 
   public render() {
-    const { t, theme } = this.props;
+    const { t, theme, categoriesData } = this.props;
     const { displayMobileMenu } = this.state;
 
     return (
@@ -138,7 +137,7 @@ class Header extends React.Component<Props> {
         </Box>
 
         <ToggleBox displayMobileMenu={displayMobileMenu} order={2}>
-          <Nav />
+          <Nav data={categoriesData} />
         </ToggleBox>
       </Box>
     );
@@ -198,25 +197,4 @@ const CtaCol: Box = styled(Col)`
   }
 `;
 
-// TODO: Fix CATEGORIES_QUERY calls once server CORS bug is fix
-const CATEGORIES_QUERY = gql`
-  query category {
-    category(id: 2) {
-      children {
-        name
-        id
-        position
-        products {
-          items {
-            name
-            id
-          }
-        }
-      }
-    }
-  }
-`;
-
-export default graphql(CATEGORIES_QUERY)(
-  withNamespaces('header')(withTheme(Header))
-);
+export default withNamespaces('header')(withTheme(Header));
