@@ -16,7 +16,7 @@
           "static": "./static",
           "utils": "./utils",
           "i18n": "./i18n",
-          "hoc": "hoc",
+          "hoc": "./hoc",
           "contexts": "./contexts",
           "services": "./lib/services"
         }

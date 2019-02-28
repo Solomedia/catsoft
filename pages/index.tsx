@@ -12,38 +12,31 @@ import {
   HeroWithCta,
   Category
 } from 'components';
+import defaultPage from 'hoc/defaultPage';
 
 interface Props {
   data: DataValue<{ feed }>;
   theme: ThemeProps;
 }
 
-class Home extends React.Component<Props> {
-  public static async getInitialProps() {
-    return {
-      namespacesRequired: ['common', 'footer', 'header']
-    };
-  }
-
-  public render() {
-    return (
-      <Main title="Home Page">
+const Home: React.SFC<Props> = () => {
+  return (
+    <Main title="Home Page">
+      <Container>
+        <HeroWithCta />
+      </Container>
+      <BrandsBannerMob />
+      <Box bg={theme.colors.containerBg2} mt={['0', 3]} py={['30px', '80px']}>
         <Container>
-          <HeroWithCta />
+          <Category />
         </Container>
-        <BrandsBannerMob />
-        <Box bg={theme.colors.containerBg2} mt={['0', 3]} py={['30px', '80px']}>
-          <Container>
-            <Category />
-          </Container>
-          <Container>
-            <Reviews />
-            <ReviewSlider />
-          </Container>
-        </Box>
-      </Main>
-    );
-  }
-}
+        <Container>
+          <Reviews />
+          <ReviewSlider />
+        </Container>
+      </Box>
+    </Main>
+  );
+};
 
-export default Home;
+export default defaultPage(Home);
