@@ -6,7 +6,7 @@ import {
   BannerWithTabs,
   SelectFilter,
   CategoriesSideBar,
-  ProductCompareEditions,
+  CompareTable,
   ProductsList
 } from 'components';
 import mockData from 'static/mockdata.json';
@@ -37,7 +37,7 @@ class Products extends React.Component<{}> {
             <CategoriesSideBar />
             <ProductsList data={mockData.products_list} />
           </Flex>
-          <ProductCompareEditions />
+          <CompareTable />
         </Container>
       </Main>
     );

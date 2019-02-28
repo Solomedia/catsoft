@@ -12,7 +12,7 @@ export { default as CategoriesSideBar } from './CategoriesSideBar';
 export { default as Category } from './Category';
 export { default as ProductDetail } from './ProductDetail';
 export { default as QuantitySelect } from './QuantitySelect';
-export { default as ProductCompareEditions } from './ProductCompareEditions';
+export { default as CompareTable } from './CompareTable';
 export { default as ProductDescription } from './ProductDescription';
 export { default as ProductAbout } from './ProductAbout';
 export { default as Breadcrumb } from './Breadcrumb';
