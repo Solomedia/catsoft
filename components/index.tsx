@@ -27,3 +27,4 @@ export { default as SubscribeForm } from './SubscribeForm';
 export { default as ProductCard } from './ProductCard';
 export { default as ProductsList } from './ProductsList';
 export { default as Stars } from './Stars';
+export { default as ProductCompare } from './ProductCompare';
