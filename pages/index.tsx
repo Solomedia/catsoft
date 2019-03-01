@@ -1,10 +1,10 @@
 import React from 'react';
+import { NextFunctionComponent } from 'next';
 import { Box } from '@rebass/grid/emotion';
 import { DataValue } from 'react-apollo';
 // Local modules
-import Main from 'layouts/main';
 import { Container } from 'lib/ui';
-import { ThemeProps, theme } from 'lib/theme';
+import { theme } from 'lib/theme';
 import {
   BrandsBannerMob,
   ReviewSlider,
@@ -16,12 +16,11 @@ import defaultPage from 'hoc/defaultPage';
 
 interface Props {
   data: DataValue<{ feed }>;
-  theme: ThemeProps;
 }
 
-const Home: React.SFC<Props> = () => {
+const Home: NextFunctionComponent<Props> = () => {
   return (
-    <Main title="Home Page">
+    <>
       <Container>
         <HeroWithCta />
       </Container>
@@ -35,7 +34,7 @@ const Home: React.SFC<Props> = () => {
           <ReviewSlider />
         </Container>
       </Box>
-    </Main>
+    </>
   );
 };
 
