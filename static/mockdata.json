@@ -2085,5 +2085,137 @@
         }
       ]
     }
+  ],
+  "compareCategories": [
+    {
+      "id": 3,
+      "name": "Microsoft Office",
+      "products": {
+        "items": [
+          {
+            "id": 25,
+            "name": "Microsoft Office 2016 Home and Student",
+            "sku": "office2016hs",
+            "price": 79.99,
+            "stars": 5,
+            "included_products": ["word", "excel", "power_point", "one_note"],
+            "license_use": "Personal",
+            "license_type": "Personal"
+          },
+          {
+            "id": 26,
+            "name": "Microsoft Office 2016 Home and Business",
+            "sku": "office2016hb",
+            "price": 199,
+            "stars": 5,
+            "included_products": [
+              "word",
+              "excel",
+              "power_point",
+              "one_note",
+              "outlook"
+            ],
+            "license_use": "Comercial",
+            "license_type": "Open License"
+          },
+          {
+            "id": 29,
+            "name": "Microsoft Office 2016 Professional",
+            "sku": "office2016pro",
+            "price": 249,
+            "stars": 5,
+            "included_products": [
+              "word",
+              "excel",
+              "power_point",
+              "one_note",
+              "outlook",
+              "publisher"
+            ],
+            "license_use": "Comercial",
+            "license_type": "Comercial"
+          },
+          {
+            "id": 30,
+            "name": "Microsoft Office 2016 Professional Plus",
+            "sku": "office2016proplus",
+            "price": 399,
+            "stars": 5,
+            "included_products": [
+              "word",
+              "excel",
+              "power_point",
+              "one_note",
+              "outlook",
+              "publisher",
+              "access"
+            ],
+            "license_use": "Comercial",
+            "license_type": "Comercial"
+          },
+          {
+            "id": 43,
+            "name": "Microsoft Office 2019 Home and Student",
+            "sku": "office2019hs",
+            "price": 98.99,
+            "stars": 5,
+            "included_products": ["word", "excel", "power_point", "one_note"],
+            "license_use": "Personal",
+            "license_type": "Personal"
+          },
+          {
+            "id": 45,
+            "name": "Microsoft Office 2019 Home and Business",
+            "sku": "office2019hb",
+            "price": 155.99,
+            "stars": 4,
+            "included_products": [
+              "word",
+              "excel",
+              "power_point",
+              "one_note",
+              "outlook"
+            ],
+            "license_use": "Comercial",
+            "license_type": "Open License"
+          },
+          {
+            "id": 47,
+            "name": "Microsoft Office 2019 Professional",
+            "sku": "office2019pro",
+            "price": 409,
+            "stars": 5,
+            "included_products": [
+              "word",
+              "excel",
+              "power_point",
+              "one_note",
+              "outlook",
+              "publisher"
+            ],
+            "license_use": "Comercial",
+            "license_type": "Comercial"
+          },
+          {
+            "id": 48,
+            "name": "Microsoft Office 2019 Professional Plus",
+            "sku": "office2019proplus",
+            "price": 599,
+            "stars": 5,
+            "included_products": [
+              "word",
+              "excel",
+              "power_point",
+              "one_note",
+              "outlook",
+              "publisher",
+              "access"
+            ],
+            "license_use": "Comercial",
+            "license_type": "Comercial"
+          }
+        ]
+      }
+    }
   ]
 }

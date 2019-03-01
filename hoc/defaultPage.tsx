@@ -20,6 +20,7 @@ export default (Page, title = 'Catsoft') =>
 
     public render() {
       const { categoriesData } = this.props;
+
       return (
         <Main categoriesData={categoriesData} title={title}>
           <Page {...this.props} />

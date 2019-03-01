@@ -5,7 +5,7 @@ import {
   BannerWithTabs,
   SelectFilter,
   CategoriesSideBar,
-  ProductCompareEditions,
+  CompareTable,
   ProductsList
 } from 'components';
 import mockData from 'static/mockdata.json';
@@ -29,9 +29,8 @@ const Products: React.SFC<{}> = () => (
         <CategoriesSideBar />
         <ProductsList data={mockData.products_list} />
       </Flex>
-      <ProductCompareEditions />
+      <CompareTable />
     </Container>
   </>
 );
-
 export default defaultPage(Products);
