@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box } from '@rebass/grid/emotion';
-import Main from 'layouts/main';
 import { Container } from 'lib/ui';
 import {
   ProductDetail,
@@ -15,6 +14,7 @@ import ProductSummary from 'components/ProductSummary';
 import { default as ProductInt } from 'lib/models/product';
 import mockData from 'static/mockdata.json';
 import { theme } from 'lib/theme';
+import defaultPage from 'hoc/defaultPage';
 
 const {
   colors: { containerBg2, whisper }
@@ -24,13 +24,7 @@ interface State {
   productData: ProductInt | null;
 }
 
-class Products extends React.Component<{}, State> {
-  public static async getInitialProps() {
-    return {
-      namespacesRequired: ['common', 'footer', 'header']
-    };
-  }
-
+class Product extends React.Component<{}, State> {
   public state = {
     productData: null
   };
@@ -70,7 +64,7 @@ class Products extends React.Component<{}, State> {
     const { productData } = this.state;
 
     return (
-      <Main title="Product">
+      <>
         <Container>
           <Breadcrumb mt={3} routes={this.createBreadcrumbRoutes()} />
           <ProductDetail data={productData} />
@@ -97,9 +91,9 @@ class Products extends React.Component<{}, State> {
             <Reviews />
           </Container>
         </Box>
-      </Main>
+      </>
     );
   }
 }
 
-export default Products;
+export default defaultPage(Product);

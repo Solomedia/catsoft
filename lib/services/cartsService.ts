@@ -1,7 +1,7 @@
-import api from './magentoApi';
+import { customerApi } from './magentoApi';
 
 function getCartsMine() {
-  return api({
+  return customerApi({
     url: '/carts/mine'
   }).then(res => res.data);
 }

@@ -1,4 +1,4 @@
-import api from './magentoApi';
+import { customerApi } from './magentoApi';
 
 interface Customer {
   email: string;
@@ -12,7 +12,7 @@ interface CustomerSignUpInt {
 }
 
 function createCustomer(body: CustomerSignUpInt): Promise<string> {
-  return api.post('/customers', { body }).then(res => res.data);
+  return customerApi.post('/customers', { body }).then(res => res.data);
 }
 
 export { createCustomer, CustomerSignUpInt };

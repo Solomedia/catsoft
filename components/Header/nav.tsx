@@ -1,6 +1,4 @@
 import React from 'react';
-import gql from 'graphql-tag';
-import { graphql, DataValue } from 'react-apollo';
 import { withTheme } from 'emotion-theming';
 import { Box } from '@rebass/grid/emotion';
 
@@ -9,52 +7,42 @@ import NavItem from './nav-item';
 import styled, { ThemeProps } from 'lib/theme';
 
 const Wrapper = styled(Container)`
-	label: wrapper;
-	max-width: 931px;
+  label: wrapper;
+  max-width: 931px;
 `;
 
 interface Props {
-	data: DataValue<{ category }>;
-	theme: ThemeProps;
+  data: any;
+  theme: ThemeProps;
 }
 
-const Nav: React.SFC<Props> = props => {
-	const {
-		data: { category },
-		theme
-	} = props;
+const Nav: React.SFC<Props> = ({ data: category, theme }) => {
+  const NavItems = () => {
+    const comparisons = {
+      name: 'comparisons',
+      children_data: [],
+      id: category.children_data.length
+    };
+    const categories = category.children_data.map(product => {
+      comparisons.children_data.push({
+        id: product.id,
+        name: product.name
+      });
+      return <NavItem key={product.id} product={product} />;
+    });
 
-	const NavItems =
-		category &&
-		category.children.map(product => (
-			<NavItem key={product.id} product={product} />
-		));
+    categories.push(<NavItem key={comparisons.id} product={comparisons} />);
 
-	return (
-		<Box bg={[theme.colors.secondary, theme.colors.primary]}>
-			<Wrapper>
-				<Row justifyContent="space-between">{NavItems}</Row>
-			</Wrapper>
-		</Box>
-	);
+    return categories;
+  };
+
+  return (
+    <Box bg={[theme.colors.secondary, theme.colors.primary]}>
+      <Wrapper>
+        <Row justifyContent="space-between">{NavItems()}</Row>
+      </Wrapper>
+    </Box>
+  );
 };
 
-const CATEGORIES_QUERY = gql`
-	query category {
-		category(id: 2) {
-			children {
-				name
-				id
-				position
-				products {
-					items {
-						name
-						id
-					}
-				}
-			}
-		}
-	}
-`;
-
-export default graphql(CATEGORIES_QUERY)(withTheme(Nav));
+export default withTheme(Nav);

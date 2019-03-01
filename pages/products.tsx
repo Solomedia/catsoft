@@ -1,5 +1,4 @@
 import React from 'react';
-import Main from 'layouts/main';
 import { Container } from 'lib/ui';
 import { Box, Flex } from '@rebass/grid/emotion';
 import {
@@ -10,38 +9,28 @@ import {
   ProductsList
 } from 'components';
 import mockData from 'static/mockdata.json';
+import defaultPage from 'hoc/defaultPage';
 
-class Products extends React.Component<{}> {
-  public static async getInitialProps() {
-    return {
-      namespacesRequired: ['common', 'footer', 'header']
-    };
-  }
-
-  public render() {
-    return (
-      <Main title="Products">
-        <Container>
-          <BannerWithTabs
-            title="Microsoft"
-            subTitle="office"
-            tabs={['windows', 'tabs']}
-            mt={[2, 6]}
-          />
-          <Flex justifyContent="flex-end" mt={4}>
-            <Box>
-              <SelectFilter options={['best selling', 'refine']} />
-            </Box>
-          </Flex>
-          <Flex flexDirection={['column', 'row']}>
-            <CategoriesSideBar />
-            <ProductsList data={mockData.products_list} />
-          </Flex>
-          <CompareTable />
-        </Container>
-      </Main>
-    );
-  }
-}
-
-export default Products;
+const Products: React.SFC<{}> = () => (
+  <>
+    <Container>
+      <BannerWithTabs
+        title="Microsoft"
+        subTitle="office"
+        tabs={['windows', 'tabs']}
+        mt={[2, 6]}
+      />
+      <Flex justifyContent="flex-end" mt={4}>
+        <Box>
+          <SelectFilter options={['best selling', 'refine']} />
+        </Box>
+      </Flex>
+      <Flex flexDirection={['column', 'row']}>
+        <CategoriesSideBar />
+        <ProductsList data={mockData.products_list} />
+      </Flex>
+      <CompareTable />
+    </Container>
+  </>
+);
+export default defaultPage(Products);

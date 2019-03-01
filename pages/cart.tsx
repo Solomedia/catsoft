@@ -1,5 +1,4 @@
 import React from 'react';
-import Main from 'layouts/main';
 import { Container, Text } from 'lib/ui';
 import {
   CartList,
@@ -13,6 +12,7 @@ import { css } from '@emotion/core';
 import { breakpoints, colors } from 'lib/theme';
 import { Box } from '@rebass/grid/emotion';
 import { CartContext, CartContextInt } from 'contexts/CartContext';
+import defaultPage from 'hoc/defaultPage';
 
 const { containerBg2 } = colors;
 
@@ -21,12 +21,6 @@ interface State {
 }
 
 class Cart extends React.Component<{}, State> {
-  public static async getInitialProps() {
-    return {
-      namespacesRequired: ['common', 'footer', 'header']
-    };
-  }
-
   private handleUpdateCartContext = (itemPrice: any, isAdding: boolean) =>
     this.setState(prevState => {
       if (!isAdding) {
@@ -70,7 +64,7 @@ class Cart extends React.Component<{}, State> {
     const { cartContext } = this.state;
 
     return (
-      <Main title="Cart">
+      <>
         <CartContext.Provider value={cartContext}>
           <Container>
             <Text mt={6} fontSize={7} weight={300}>
@@ -108,9 +102,9 @@ class Cart extends React.Component<{}, State> {
         >
           <SubscribeForm />
         </Box>
-      </Main>
+      </>
     );
   }
 }
 
-export default Cart;
+export default defaultPage(Cart);

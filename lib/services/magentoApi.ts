@@ -1,11 +1,26 @@
 import axios from 'axios';
-import { magentoRestUrl, costumerTokenName } from '../constants';
+import {
+  magentoRestUrl,
+  customerTokenName,
+  magentoAdminToken
+} from '../constants';
 
-const magentoApi = axios.create({
+const isBrowser = typeof window !== 'undefined';
+
+const customerToken =
+  (isBrowser && localStorage.getItem(customerTokenName)) ||
+  'no customer token set';
+
+export const customerApi = axios.create({
   baseURL: magentoRestUrl,
   headers: {
-    Authorization: `Bearer ${localStorage.getItem(costumerTokenName)}`
+    Authorization: `Bearer ${customerToken}`
   }
 });
 
-export default magentoApi;
+export const adminApi = axios.create({
+  baseURL: magentoRestUrl,
+  headers: {
+    Authorization: `Bearer ${magentoAdminToken}`
+  }
+});
