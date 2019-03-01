@@ -13,7 +13,7 @@ interface Props {
 }
 
 const ProductCompare: React.SFC<Props> = ({ categoryToCompare }) => {
-  const { name } = categoryToCompare;
+  const name = categoryToCompare && categoryToCompare.name;
   return (
     <>
       <Text as="h1" mt={8} fontSize={10} weight={300} align="center">

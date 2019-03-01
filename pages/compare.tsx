@@ -1,41 +1,59 @@
 import React from 'react';
-// import { Box } from '@rebass/grid/emotion';
 import { Container } from 'lib/ui';
 import { Breadcrumb, ProductCompare } from 'components';
-import { default as ProductInt } from 'lib/models/product';
-import mockData from 'static/mockdata.json';
 import defaultPage from 'hoc/defaultPage';
+import mockData from 'static/mockdata.json';
 
-// import { theme } from 'lib/theme';
-
-// const {
-//   colors: { containerBg2, whisper }
-// } = theme;
-
-interface State {
-  productData: ProductInt | null;
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  stars: number;
+  license_use: string;
+  license_type: string;
+  included_products: string[];
 }
 
-class Compare extends React.Component<{}, State> {
-  public static async getInitialProps() {
-    return {
-      namespacesRequired: ['common', 'footer', 'header']
-    };
-  }
+interface Products {
+  items: Product[];
+}
+
+interface Category {
+  id: number;
+  name: string;
+  Products: Products;
+}
+
+interface Props {
+  categoryToCompareId: number;
+}
+
+interface State {
+  compareCategoryData: Category;
+}
+
+class Compare extends React.Component<Props, State> {
+  public static defaultProps = {
+    categoryToCompareId: 3
+  };
 
   public state = {
-    productData: null
+    compareCategoryData: null
   };
 
   public componentDidMount() {
     // TODO: Fetch data from api
-    setTimeout(() => this.setState({ productData: mockData.product }), 300);
+    const { categoryToCompareId: id } = this.props;
+    const compareCategoryData = mockData.compareCategories.find(
+      item => item.id === id
+    );
+    setTimeout(() => this.setState({ compareCategoryData }), 300);
   }
 
   private createBreadcrumbRoutes() {
-    const { productData } = this.state;
+    const { compareCategoryData } = this.state;
     return (
-      productData && [
+      compareCategoryData && [
         {
           name: 'Home',
           path: '/'
@@ -45,7 +63,7 @@ class Compare extends React.Component<{}, State> {
           path: '/'
         },
         {
-          name: `${productData.name}`,
+          name: `${compareCategoryData.name}`,
           path: '#'
         }
       ]
@@ -53,15 +71,17 @@ class Compare extends React.Component<{}, State> {
   }
 
   public render() {
-    // const { productData } = this.state;
+    const { compareCategoryData } = this.state;
 
     return (
-      <Container>
-        <Breadcrumb mt={3} routes={this.createBreadcrumbRoutes()} />
-        <ProductCompare categoryToCompare={{ name: 'Microsoft Office' }} />
-      </Container>
+      <>
+        <Container>
+          <Breadcrumb mt={3} routes={this.createBreadcrumbRoutes()} />
+          <ProductCompare categoryToCompare={compareCategoryData} />
+        </Container>
+      </>
     );
   }
 }
 
-export default defaultPage(Compare);
+export default defaultPage(Compare, 'Compare');

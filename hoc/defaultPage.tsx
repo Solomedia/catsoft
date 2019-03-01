@@ -11,6 +11,7 @@ export default (Page, title = 'Catsoft') =>
     public static async getInitialProps(ctx) {
       if (Page.getInitialProps) return Page.getInitialProps(ctx);
       const categoriesData = await getCategories();
+      console.log(categoriesData);
 
       return {
         namespacesRequired: ['common', 'footer', 'header'],
@@ -20,6 +21,8 @@ export default (Page, title = 'Catsoft') =>
 
     public render() {
       const { categoriesData } = this.props;
+      console.log(categoriesData);
+
       return (
         <Main categoriesData={categoriesData} title={title}>
           <Page {...this.props} />
