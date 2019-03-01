@@ -1,7 +1,4 @@
 import React from 'react';
-// import { css } from '@emotion/core';
-// import { Flex } from '@rebass/grid/emotion';
-// import styled from 'lib/theme';
 import { Text } from 'lib/ui';
 
 interface Category {
