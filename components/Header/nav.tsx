@@ -39,7 +39,7 @@ const Nav: React.SFC<Props> = ({ data: category, theme }) => {
   return (
     <Box bg={[theme.colors.secondary, theme.colors.primary]}>
       <Wrapper>
-        <Row justifyContent="space-between">{NavItems()}</Row>
+        <Row justifyContent="space-between">{category && NavItems()}</Row>
       </Wrapper>
     </Box>
   );

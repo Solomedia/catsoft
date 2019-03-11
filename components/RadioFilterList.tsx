@@ -2,8 +2,9 @@ import { Box } from '@rebass/grid/emotion';
 import styled from 'lib/theme';
 
 interface Option {
-  value: string;
-  TextLabel: string;
+  id: string;
+  parent_id: string;
+  name: string;
 }
 
 interface Props {
@@ -23,16 +24,16 @@ const RadioFilterList: React.SFC<Props> = ({
     <Title>{title}</Title>
     <Box>
       {options &&
-        options.map(({ value, TextLabel }, i) => (
+        options.map(({ id, parent_id, name }, i) => (
           <Box key={i} mt={2}>
-            <LabelStyled active={selectedOption === value}>
+            <LabelStyled active={Number(selectedOption) === Number(id)}>
               <InputStyled
                 type="radio"
-                value={value}
-                checked={selectedOption === value}
-                onChange={() => onChangehandler(value)}
+                value={parent_id}
+                checked={selectedOption === id}
+                onChange={() => onChangehandler({ id, parentId: parent_id })}
               />
-              {TextLabel}
+              {name}
             </LabelStyled>
           </Box>
         ))}
