@@ -18,6 +18,7 @@ export default (Page, title = 'Catsoft') =>
       if (!isBrowser) {
         categoriesData = await getCategories();
       } else {
+        // Save all necessary data in localStorage here to avoid unnecessary calls that may affect performance during navigation or page rendering
         if (!localStorage.getItem('categoriesData')) {
           categoriesData = await getCategories();
           localStorage.setItem(
@@ -39,6 +40,7 @@ export default (Page, title = 'Catsoft') =>
     }
 
     public async componentDidMount() {
+      // Update data in localStorage here
       const categoriesData = await getCategories();
       localStorage.setItem('categoriesData', JSON.stringify(categoriesData));
     }
