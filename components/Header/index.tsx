@@ -121,7 +121,7 @@ class Header extends React.Component<Props> {
               <CtaCol order={[2, 3]}>
                 {/* TODO: set i18n for Cta's text prop. */}
                 <Cta
-                  path="/auth/sign-up"
+                  path="/"
                   ctaType="persone"
                   text="Hello, log in or sign up"
                 />
