@@ -8,6 +8,7 @@ interface Product {
   id: string;
   name: string;
   sku: string;
+  parent_id: string;
 }
 
 interface Props {
@@ -25,7 +26,12 @@ const SubMenu: React.SFC<Props> = props => {
           products.map((product, index) => {
             if (index <= 7) {
               return (
-                <Link key={product.id} href={`/product?id=${product.id}`}>
+                <Link
+                  key={product.id}
+                  href={`/products?id=${product.id}&parent_id=${
+                    product.parent_id
+                  }`}
+                >
                   <Box
                     mt={1}
                     css={css`
@@ -45,7 +51,10 @@ const SubMenu: React.SFC<Props> = props => {
               );
             } else if (index === 8) {
               return (
-                <Link key={product.id} href={`/product?id=${product.id}`}>
+                <Link
+                  key={product.id}
+                  href={`/products?id=${product.parent_id}`}
+                >
                   <SeeAllLink>See all</SeeAllLink>
                 </Link>
               );

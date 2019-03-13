@@ -15,11 +15,11 @@
   "platformCategories": [
     {
       "value": "windows",
-      "TextLabel": "Windows"
+      "name": "Windows"
     },
     {
       "value": "max",
-      "TextLabel": "Mac"
+      "name": "Mac"
     }
   ],
   "versionCategories": [

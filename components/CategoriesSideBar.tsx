@@ -1,29 +1,42 @@
 import React from 'react';
 import { Box } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
+import Router from 'next/router';
 // Locals
 import { breakpoints } from 'lib/theme';
 import { RadioFilterList } from './';
-import data from 'static/mockdata.json';
-
-const { releaseCategories, versionCategories, platformCategories } = data;
 
 interface State {
-  selectedOption: string;
+  categoryId: string;
 }
 
-class CategoriesSideBar extends React.Component<{}, State> {
+interface Props {
+  versionCategories: any[];
+  queryId: string;
+}
+
+class CategoriesSideBar extends React.Component<Props, State> {
   public state = {
-    selectedOption: ''
+    categoryId: this.props.queryId
   };
 
-  public onChangehandler = val =>
+  public static getDerivedStateFromProps(nextProps) {
+    return {
+      categoryId: nextProps.queryId
+    };
+  }
+
+  public onSelectProduct = ({ id, parentId }) => {
     this.setState({
-      selectedOption: val
+      categoryId: id
     });
 
+    Router.push(`/products?id=${id}&parent_id=${parentId}`);
+  };
+
   public render() {
-    const { selectedOption } = this.state;
+    const { categoryId } = this.state;
+    const { versionCategories } = this.props;
     return (
       <Box
         css={css`
@@ -44,30 +57,13 @@ class CategoriesSideBar extends React.Component<{}, State> {
         >
           Categories
         </h3>
-        <Box mt={5}>
-          <RadioFilterList
-            title="Release"
-            options={releaseCategories}
-            onChangehandler={this.onChangehandler}
-            selectedOption={selectedOption}
-          />
-        </Box>
 
         <Box mt={5}>
           <RadioFilterList
             title="Versions"
             options={versionCategories}
-            onChangehandler={this.onChangehandler}
-            selectedOption={selectedOption}
-          />
-        </Box>
-
-        <Box mt={5}>
-          <RadioFilterList
-            title="Platform"
-            options={platformCategories}
-            onChangehandler={this.onChangehandler}
-            selectedOption={selectedOption}
+            onChangehandler={this.onSelectProduct}
+            selectedOption={categoryId}
           />
         </Box>
       </Box>

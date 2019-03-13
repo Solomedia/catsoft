@@ -9,8 +9,8 @@ import {
   BrandsBannerMob,
   ReviewSlider,
   Reviews,
-  HeroWithCta,
-  Category
+  HeroWithCta
+  // Category
 } from 'components';
 import defaultPage from 'hoc/defaultPage';
 
@@ -26,9 +26,10 @@ const Home: NextFunctionComponent<Props> = () => {
       </Container>
       <BrandsBannerMob />
       <Box bg={theme.colors.containerBg2} mt={['0', 3]} py={['30px', '80px']}>
-        <Container>
+        {/* // TODO: implement categories banner */}
+        {/* <Container>
           <Category />
-        </Container>
+        </Container> */}
         <Container>
           <Reviews />
           <ReviewSlider />
