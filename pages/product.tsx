@@ -11,89 +11,86 @@ import {
   CompareTable
 } from 'components';
 import ProductSummary from 'components/ProductSummary';
-import { default as ProductInt } from 'lib/models/product';
 import mockData from 'static/mockdata.json';
 import { theme } from 'lib/theme';
 import defaultPage from 'hoc/defaultPage';
+import { getProductBySku } from 'lib/services/productsService';
+import { NextFunctionComponent } from 'next';
 
 const {
   colors: { containerBg2, whisper }
 } = theme;
 
-interface State {
-  productData: ProductInt | null;
-}
+const Product: NextFunctionComponent<any> = ({ pageProps, categoriesData }) => {
+  const productData = mockData.product;
 
-class Product extends React.Component<{}, State> {
-  public state = {
-    productData: null
+  const breadcrumbData = () => {
+    const parentCategoryId = pageProps.product.custom_attributes.find(
+      atr => atr.attribute_code === 'category_ids'
+    ).value[1];
+
+    const parentCategory =
+      parentCategoryId &&
+      categoriesData.children_data.find(
+        item => item.id === Number(parentCategoryId)
+      );
+
+    return [
+      {
+        name: 'Home',
+        path: '/'
+      },
+      {
+        name: `${parentCategory.name}`,
+        path: `/products?id=${parentCategoryId}`
+      },
+      {
+        name: `${pageProps.product.name}`,
+        path: '#'
+      }
+    ];
   };
 
-  public componentDidMount() {
-    // TODO: Fetch data from api
-    setTimeout(() => this.setState({ productData: mockData.product }), 300);
-  }
-
-  private createBreadcrumbRoutes() {
-    const { productData } = this.state;
-    // TODO: Review fix for product-categories data structure with BE
-    const breadcrumb =
-      productData &&
-      productData.categories[2].breadcrumbs &&
-      productData.categories[2].breadcrumbs[0];
-
-    return (
-      breadcrumb && [
-        {
-          name: 'Home',
-          path: '/'
-        },
-        {
-          name: `${breadcrumb.category_name}`,
-          path: '/'
-        },
-        {
-          name: `${productData.name}`,
-          path: '#'
-        }
-      ]
+  const description =
+    pageProps.product &&
+    pageProps.product.custom_attributes.find(
+      atr => atr.attribute_code === 'description'
     );
-  }
 
-  public render() {
-    const { productData } = this.state;
-
-    return (
-      <>
+  return (
+    <>
+      <Container>
+        <Breadcrumb mt={3} routes={breadcrumbData()} />
+        <ProductDetail data={pageProps.product} />
+        <ProductDescription mt={4} template={description.value} />
+        <ProductAbout />
+      </Container>
+      <Box bg={whisper}>
         <Container>
-          <Breadcrumb mt={3} routes={this.createBreadcrumbRoutes()} />
-          <ProductDetail data={productData} />
-          <ProductDescription
-            mt={4}
-            template={productData && productData.description}
+          <ProductSummary />
+          <IncludedProductsList
+            mt={[5, 11]}
+            data={productData && productData.included_packages}
           />
-          <ProductAbout />
         </Container>
-        <Box bg={whisper}>
-          <Container>
-            <ProductSummary />
-            <IncludedProductsList
-              mt={[5, 11]}
-              data={productData && productData.included_packages}
-            />
-          </Container>
-        </Box>
+      </Box>
+      <Container>
+        <CompareTable />
+      </Container>
+      <Box bg={containerBg2} pt={[3, 7]} pb={[4, 10]} mt={5}>
         <Container>
-          <CompareTable />
+          <Reviews />
         </Container>
-        <Box bg={containerBg2} pt={[3, 7]} pb={[4, 10]} mt={5}>
-          <Container>
-            <Reviews />
-          </Container>
-        </Box>
-      </>
-    );
-  }
-}
+      </Box>
+    </>
+  );
+};
+
+Product.getInitialProps = async ctx => {
+  const product = await getProductBySku(ctx.query.sku);
+  return {
+    product
+  };
+};
 
 export default defaultPage(Product);

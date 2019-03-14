@@ -22,11 +22,8 @@ interface PriceInt {
 }
 
 function getPrice(price, specialPrice): PriceInt {
-  const {
-    regularPrice: {
-      amount: { value, currency }
-    }
-  } = price;
+  const value = price;
+  const currency = 'usd';
 
   if (!specialPrice) {
     return {
@@ -50,74 +47,67 @@ function getPrice(price, specialPrice): PriceInt {
 const ProductDetail: React.SFC<Props> = ({ data: product }) => {
   const price = product && getPrice(product.price, product.special_price);
   let productQuantity = 1;
+
+  if (!product) return <div>No product data fetch</div>;
+
   return (
-    <React.Fragment>
-      {product ? (
-        <Row mt="20">
-          <Col width={[1, 1 / 2]}>
-            <ImgBox>
-              <img src={product.image} />
-            </ImgBox>
-          </Col>
-          <Flex
-            flexDirection="column"
-            justifyContent="flex-start"
-            width={[1, 1 / 2]}
-            px={'15px'}
-            mt={[2, '0']}
-          >
-            <SubTitle>
-              from:
-              <span>&nbsp;{product.manufacturer}</span>
-            </SubTitle>
-            <Title>{product.name}</Title>
+    <Row mt={4}>
+      <Col width={[1, 1 / 2]}>
+        <ImgBox>
+          <img src={product.image || 'https://via.placeholder.com/333x366'} />
+        </ImgBox>
+      </Col>
+      <Flex
+        flexDirection="column"
+        justifyContent="flex-start"
+        width={[1, 1 / 2]}
+        px={'15px'}
+        mt={[2, '0']}
+      >
+        <SubTitle>
+          from:
+          <span>&nbsp;{product.manufacturer}</span>
+        </SubTitle>
+        <Title>{product.name}</Title>
 
-            <SelectTitle>Quantity:</SelectTitle>
-            <QuantitySelect
-              mt="3px"
-              onQuantityChange={quantity => (productQuantity = quantity)}
-            />
+        <SelectTitle>Quantity:</SelectTitle>
+        <QuantitySelect
+          mt="3px"
+          onQuantityChange={quantity => (productQuantity = quantity)}
+        />
 
-            {price.discount && (
-              <Flex mt={3}>
-                <OriginalPriceText>
-                  Usually at {price.originalPrice}
-                </OriginalPriceText>
-                <DiscountText>{price.discount}% off</DiscountText>
-              </Flex>
-            )}
-            <PriceTotalText>
-              {`$${price.totalPrice} ${price.currency}`}
-            </PriceTotalText>
-
-            <Flex mt={3}>
-              <Box>
-                <Link href="/cart">
-                  <Button md onClick={() => console.log(productQuantity)}>
-                    buy now
-                  </Button>
-                </Link>
-              </Box>
-              <Link href="/cart">
-                <ReverButton
-                  revert
-                  md
-                  onClick={() => console.log(productQuantity)}
-                >
-                  add to card
-                </ReverButton>
-              </Link>
-            </Flex>
-            <HelpText>
-              Need help? Call Us at <span>800-318-1439</span> or{' '}
-              <a href="#">click here</a> for live chat
-            </HelpText>
+        {price.discount && (
+          <Flex mt={3}>
+            <OriginalPriceText>
+              Usually at {price.originalPrice}
+            </OriginalPriceText>
+            <DiscountText>{price.discount}% off</DiscountText>
           </Flex>
-        </Row>
-      ) : (
-        <div>No product data fetch</div>
-      )}
-    </React.Fragment>
+        )}
+        <PriceTotalText>
+          {`$${price.totalPrice} ${price.currency}`}
+        </PriceTotalText>
+
+        <Flex mt={3}>
+          <Box>
+            <Link href="/cart">
+              <Button md onClick={() => console.log(productQuantity)}>
+                buy now
+              </Button>
+            </Link>
+          </Box>
+          <Link href="/cart">
+            <ReverButton revert md onClick={() => console.log(productQuantity)}>
+              add to card
+            </ReverButton>
+          </Link>
+        </Flex>
+        <HelpText>
+          Need help? Call Us at <span>800-318-1439</span> or{' '}
+          <a href="#">click here</a> for live chat
+        </HelpText>
+      </Flex>
+    </Row>
   );
 };
 
@@ -159,6 +149,7 @@ const PriceTotalText = styled.p`
   font-weight: 600;
   line-height: 54px;
   margin-top: 5px;
+  text-transform: uppercase;
 `;
 
 const OriginalPriceText = styled.p`

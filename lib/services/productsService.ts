@@ -7,3 +7,7 @@ export function searchProductsByField(field, value) {
     )
     .then(res => res.data);
 }
+
+export function getProductBySku(sku) {
+  return adminApi.get(`/products/${sku}`).then(res => res.data);
+}
