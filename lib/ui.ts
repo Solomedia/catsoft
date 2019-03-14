@@ -43,6 +43,9 @@ Text.defaultProps = {
 
 export const Button: Box = styled(Box)`
   label: button;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: ${(props: any) => props.weight || 300};
   padding-left: 7px;
   padding-right: 7px;
@@ -90,7 +93,7 @@ export const Button: Box = styled(Box)`
 `;
 
 Button.defaultProps = {
-  as: 'button'
+  as: 'a'
 };
 
 export const SearchInput: Box = styled(Box)`
