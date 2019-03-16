@@ -28,9 +28,13 @@ const SubMenu: React.SFC<Props> = props => {
               return (
                 <Link
                   key={product.id}
-                  href={`/products?id=${product.id}&parent_id=${
-                    product.parent_id
-                  }`}
+                  href={
+                    `${product.parent_id}` === '99'
+                      ? `/compare?id=${product.id}`
+                      : `/products?id=${product.id}&parent_id=${
+                          product.parent_id
+                        }`
+                  }
                 >
                   <Box
                     mt={1}

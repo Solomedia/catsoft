@@ -60,7 +60,7 @@ class NavItem extends React.Component<Props> {
             }
           }}
         >
-          {!isMobile || !product.children_data.length ? (
+          {!isMobile || product.children_data.length <= 0 ? (
             <Link prefetch href={`/products?id=${product.id}`}>
               {LinkContent}
             </Link>
@@ -82,9 +82,15 @@ const Wrapper: Box = styled(Col)`
   padding: 0;
   margin-top: 15px;
   position: relative;
+  &:last-child {
+    display: none;
+  }
   @media (min-width: ${breakpoints['sm']}) {
     padding: 16px 15px;
     margin-top: 0;
+    &:last-child {
+      display: flex;
+    }
   }
 `;
 

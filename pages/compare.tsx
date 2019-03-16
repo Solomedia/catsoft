@@ -1,59 +1,27 @@
 import React from 'react';
+import { NextFunctionComponent } from 'next';
 import { Container } from 'lib/ui';
 import { Breadcrumb, ProductCompare } from 'components';
 import defaultPage from 'hoc/defaultPage';
-import mockData from 'static/mockdata.json';
+// import mockData from 'static/mockdata.json';
+import { searchProductsByField } from 'lib/services/productsService';
 
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  stars: number;
-  license_use: string;
-  license_type: string;
-  included_products: string[];
-}
+const Compare: NextFunctionComponent<any> = ({
+  pageProps,
+  categoriesData,
+  routeQuery
+}) => {
+  const queryId = pageProps.parentId || routeQuery.id;
 
-interface Products {
-  items: Product[];
-}
-
-interface Category {
-  id: number;
-  name: string;
-  Products: Products;
-}
-
-interface Props {
-  categoryToCompareId: number;
-}
-
-interface State {
-  compareCategoryData: Category;
-}
-
-class Compare extends React.Component<Props, State> {
-  public static defaultProps = {
-    categoryToCompareId: 3
-  };
-
-  public state = {
-    compareCategoryData: null
-  };
-
-  public componentDidMount() {
-    // TODO: Fetch data from api
-    const { categoryToCompareId: id } = this.props;
-    const compareCategoryData = mockData.compareCategories.find(
-      item => item.id === id
+  const category =
+    categoriesData.children_data &&
+    categoriesData.children_data.find(
+      item => Number(item.id) === Number(queryId)
     );
-    setTimeout(() => this.setState({ compareCategoryData }), 300);
-  }
 
-  private createBreadcrumbRoutes() {
-    const { compareCategoryData } = this.state;
+  const breadcrumbData = () => {
     return (
-      compareCategoryData && [
+      categoriesData && [
         {
           name: 'Home',
           path: '/'
@@ -63,25 +31,32 @@ class Compare extends React.Component<Props, State> {
           path: '/'
         },
         {
-          name: `${compareCategoryData.name}`,
+          name: `${category.name}`,
           path: '#'
         }
       ]
     );
-  }
+  };
 
-  public render() {
-    const { compareCategoryData } = this.state;
+  return (
+    <>
+      <Container>
+        <Breadcrumb mt={3} routes={breadcrumbData()} />
+        <ProductCompare
+          key={category.name}
+          categoryName={category.name}
+          products={pageProps.products.items}
+        />
+      </Container>
+    </>
+  );
+};
 
-    return (
-      <>
-        <Container>
-          <Breadcrumb mt={3} routes={this.createBreadcrumbRoutes()} />
-          <ProductCompare categoryToCompare={compareCategoryData} />
-        </Container>
-      </>
-    );
-  }
-}
+Compare.getInitialProps = async ctx => {
+  const products = await searchProductsByField('category_id', ctx.query.id);
+  return {
+    products
+  };
+};
 
 export default defaultPage(Compare, 'Compare');
