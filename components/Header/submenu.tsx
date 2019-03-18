@@ -4,6 +4,8 @@ import { Box } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
 import styled, { breakpoints } from 'lib/theme';
 
+const comparisonsLinkId = '99';
+
 interface Product {
   id: string;
   name: string;
@@ -29,7 +31,7 @@ const SubMenu: React.SFC<Props> = props => {
                 <Link
                   key={product.id}
                   href={
-                    `${product.parent_id}` === '99'
+                    `${product.parent_id}` === comparisonsLinkId
                       ? `/compare?id=${product.id}`
                       : `/products?id=${product.id}&parent_id=${
                           product.parent_id
