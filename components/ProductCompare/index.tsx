@@ -1,6 +1,7 @@
 import React from 'react';
-import { Text, Row, Col } from 'lib/ui';
+import { Row, Col } from 'lib/ui';
 import Select from './Select';
+import Title from './Title';
 
 interface Product {
   id: number;
@@ -12,17 +13,9 @@ interface Product {
   included_products: string[];
 }
 
-interface Products {
-  items: Product[];
-}
-
-interface Category {
-  name: string;
-  products: Products;
-}
-
 interface Props {
-  categoryToCompare: Category;
+  categoryName: string;
+  products: Product[];
 }
 interface State {
   productsToCompare: Product[];
@@ -36,43 +29,28 @@ class ProductCompare extends React.Component<Props, State> {
   };
 
   private onSelectChange = (selectPosition: number, option: string) => {
-    const { productsToCompare, activeProducts } = this.state;
+    const { products: productsToCompare } = this.props;
+
+    const { activeProducts } = this.state;
     activeProducts[selectPosition] = productsToCompare.find(({ name }) =>
       name.includes(option)
     );
     this.setState({ activeProducts });
   };
 
-  public componentDidUpdate() {
-    const { productsToCompare } = this.state;
-
-    if (!productsToCompare.length) {
-      const { categoryToCompare } = this.props;
-      const products = categoryToCompare && categoryToCompare.products;
-      const items = products && products.items;
-      this.setState({ productsToCompare: items });
-    }
-  }
-
   public render() {
-    const { categoryToCompare } = this.props;
-    const { activeProducts, productsToCompare } = this.state;
-    const categoryName = categoryToCompare && categoryToCompare.name;
+    const { categoryName, products: productsToCompare } = this.props;
+    const { activeProducts } = this.state;
     const options = productsToCompare.reduce((result, { name }) => {
       const productExist = activeProducts.some(prod => prod.name === name);
-      if (!productExist) result.push(name.replace(/Microsoft Office /g, ''));
+      if (!productExist)
+        result.push(name.replace(/Microsoft |Office |Windows /g, ''));
       return result;
     }, []);
 
     return (
       <>
-        <Text as="h1" mt={8} fontSize={10} weight={300} align="center">
-          Compare {categoryName} Products
-        </Text>
-        <Text mt={3} weight={500} align="center">
-          Select the softwares below that you want to compare. You can add up to
-          4 softwares.
-        </Text>
+        <Title categoryName={categoryName} />
         <Row justifyContent="center" mt={7}>
           <Col width={[1 / 4]}>
             <Select
@@ -84,7 +62,7 @@ class ProductCompare extends React.Component<Props, State> {
           </Col>
           {activeProducts.map(
             (_, index) =>
-              index > -1 &&
+              index >= 0 &&
               index < 3 && (
                 <Col key={index} width={[1 / 4]}>
                   <Select

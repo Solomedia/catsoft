@@ -21,12 +21,13 @@ const Nav: React.SFC<Props> = ({ data: category, theme }) => {
     const comparisons = {
       name: 'comparisons',
       children_data: [],
-      id: category.children_data.length
+      id: 99
     };
     const categories = category.children_data.map(product => {
       comparisons.children_data.push({
         id: product.id,
-        name: product.name
+        name: product.name,
+        parent_id: comparisons.id
       });
       return <NavItem key={product.id} product={product} />;
     });
