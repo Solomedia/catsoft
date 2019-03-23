@@ -12,6 +12,7 @@ import Cta from './cta';
 import SearchBar from './searchbar';
 import * as i18Next from 'i18n';
 import ToggleBtn from './toggle-btn';
+import { isBrowser, guestCartIdKeyName } from 'lib/constants';
 
 const { withNamespaces } = i18Next;
 
@@ -34,6 +35,12 @@ class Header extends React.Component<Props> {
       ? (document.querySelector('body').style.overflowY = 'hidden')
       : (document.querySelector('body').style.overflowY = 'auto');
   }
+
+  private cartPath = () => {
+    if (isBrowser && localStorage.getItem(guestCartIdKeyName))
+      return `/cart?id=${localStorage.getItem(guestCartIdKeyName)}`;
+    else return '/';
+  };
 
   public render() {
     const { t, theme, categoriesData } = this.props;
@@ -126,7 +133,7 @@ class Header extends React.Component<Props> {
                   text="Hello, log in or sign up"
                 />
                 <Cta
-                  path="/cart"
+                  path={this.cartPath()}
                   ctaType="shopping_cart"
                   text="Your cart"
                   inCard={0}

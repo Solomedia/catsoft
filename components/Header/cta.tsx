@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Flex } from '@rebass/grid/emotion';
 import styled, { breakpoints } from 'lib/theme';
 import Link from 'next/link';
+import { withCartContext, CartContextInt } from 'contexts/CartContext';
 
 const IconBox: Box = styled(Box)`
   border: 1px solid #fff;
@@ -39,13 +40,13 @@ const CartItems = styled.p`
 
 interface Props {
   ctaType: string;
-  inCard?: number;
+  context: CartContextInt;
   text?: string;
   path: string;
 }
 
 const Cta: React.SFC<Props> = props => {
-  const { ctaType, inCard, text, path } = props;
+  const { ctaType, text, path, context } = props;
   return (
     <Link prefetch href={path}>
       <a>
@@ -56,7 +57,7 @@ const Cta: React.SFC<Props> = props => {
           <TextBox>
             <Text>{text}</Text>
             {ctaType === 'shopping_cart' && (
-              <CartItems> {inCard} items</CartItems>
+              <CartItems> {context.quantity || 0} items</CartItems>
             )}
           </TextBox>
         </Flex>
@@ -65,4 +66,4 @@ const Cta: React.SFC<Props> = props => {
   );
 };
 
-export default Cta;
+export default withCartContext(Cta);
