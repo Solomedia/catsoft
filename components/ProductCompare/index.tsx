@@ -2,6 +2,9 @@ import React from 'react';
 import { Row, Col } from 'lib/ui';
 import Select from './Select';
 import Title from './Title';
+import data from 'static/mockdata.json';
+
+const { compareCategories } = data;
 
 interface Product {
   id: number;
@@ -18,23 +21,35 @@ interface Props {
   products: Product[];
 }
 interface State {
-  productsToCompare: Product[];
   activeProducts?: Product[];
 }
 
 class ProductCompare extends React.Component<Props, State> {
   public state = {
-    productsToCompare: [],
     activeProducts: []
   };
 
   private onSelectChange = (selectPosition: number, option: string) => {
-    const { products: productsToCompare } = this.props;
-
+    const { products: productsToCompare, categoryName } = this.props;
     const { activeProducts } = this.state;
+
     activeProducts[selectPosition] = productsToCompare.find(({ name }) =>
       name.includes(option)
     );
+
+    if (categoryName === compareCategories[0].name) {
+      const selectedProduct = activeProducts[selectPosition];
+      compareCategories[0].products.items.forEach(
+        ({ sku, included_products, license_use }) => {
+          if (selectedProduct.sku === sku) {
+            selectedProduct.included_products = included_products;
+            selectedProduct.license_use = license_use;
+            activeProducts[selectPosition] = selectedProduct;
+          }
+        }
+      );
+    }
+
     this.setState({ activeProducts });
   };
 

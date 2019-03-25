@@ -2094,6 +2094,67 @@
         "items": [
           {
             "id": 25,
+            "name": "Microsoft Office 2010 Home and Student",
+            "sku": "office2010hs",
+            "price": 59,
+            "stars": 5,
+            "included_products": ["word", "excel", "power_point", "one_note"],
+            "license_use": "Personal",
+            "license_type": "Personal"
+          },
+          {
+            "id": 26,
+            "name": "Microsoft Office 2010 Home and Business",
+            "sku": "office2010hb",
+            "price": 98.99,
+            "stars": 5,
+            "included_products": [
+              "word",
+              "excel",
+              "power_point",
+              "one_note",
+              "outlook"
+            ],
+            "license_use": "Comercial",
+            "license_type": "Open License"
+          },
+          {
+            "id": 29,
+            "name": "Microsoft Office 2010 Professional",
+            "sku": "office2010pro",
+            "price": 129.99,
+            "stars": 5,
+            "included_products": [
+              "word",
+              "excel",
+              "power_point",
+              "one_note",
+              "outlook",
+              "publisher"
+            ],
+            "license_use": "Comercial",
+            "license_type": "Comercial"
+          },
+          {
+            "id": 30,
+            "name": "Microsoft Office 2010 Professional Plus",
+            "sku": "office2010proplus",
+            "price": 139,
+            "stars": 5,
+            "included_products": [
+              "word",
+              "excel",
+              "power_point",
+              "one_note",
+              "outlook",
+              "publisher",
+              "access"
+            ],
+            "license_use": "Comercial",
+            "license_type": "Comercial"
+          },
+          {
+            "id": 25,
             "name": "Microsoft Office 2016 Home and Student",
             "sku": "office2016hs",
             "price": 79.99,
