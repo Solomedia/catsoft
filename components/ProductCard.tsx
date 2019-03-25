@@ -22,7 +22,7 @@ const ProductCard: React.SFC<Props> = ({ data: product, width }) => {
       flexDirection={['row', 'column']}
       justifyContent={['center', 'unset']}
       css={css`
-        @media (max-width: ${breakpoints['sm']}) {
+        @media (max-width: 766px) {
           width: 100%;
           margin-left: auto;
           margin-right: auto;

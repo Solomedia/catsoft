@@ -1,3 +1,4 @@
+import { NextFunctionComponent } from 'next';
 import { CartItem } from './';
 import { Box, Flex } from '@rebass/grid/emotion';
 import { Col, Text } from 'lib/ui';
@@ -10,13 +11,15 @@ interface Props {
   currency: string;
   mt?: number | number[];
   context?: any;
+  updateCartData: () => any;
 }
 
-const CartList: React.SFC<Props> = ({
+const CartList: NextFunctionComponent<Props> = ({
   data: cartItems,
   currency,
   mt,
-  context
+  context,
+  updateCartData
 }) => (
   <Box mt={mt}>
     <h1>{context.name}</h1>
@@ -35,7 +38,13 @@ const CartList: React.SFC<Props> = ({
       </Flex>
     </Flex>
     {cartItems.map(item => (
-      <CartItem key={item.item_id} data={item} currency={currency} mt={2} />
+      <CartItem
+        key={item.item_id}
+        updateCartData={updateCartData}
+        data={item}
+        currency={currency}
+        mt={2}
+      />
     ))}
   </Box>
 );

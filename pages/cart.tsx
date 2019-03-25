@@ -11,82 +11,82 @@ import mockData from 'static/mockdata.json';
 import { css } from '@emotion/core';
 import { breakpoints, colors } from 'lib/theme';
 import { Box } from '@rebass/grid/emotion';
-import { CartContext, CartContextInt } from 'contexts/CartContext';
 import defaultPage from 'hoc/defaultPage';
+import {
+  getGuestCartPaymentInformation,
+  getGuestCart
+} from 'lib/services/cartsService';
+import { withCartContext } from 'contexts/CartContext';
 
 const { containerBg2 } = colors;
 
-interface State {
-  cartContext: CartContextInt;
+interface PageProps {
+  cartData: any;
 }
 
-class Cart extends React.Component<{}, State> {
-  private handleUpdateCartContext = (itemPrice: any, isAdding: boolean) =>
-    this.setState(prevState => {
-      if (!isAdding) {
-        return {
-          cartContext: {
-            ...this.state.cartContext,
-            total: Number(prevState.cartContext.total) - Number(itemPrice),
-            quantity: Number(prevState.cartContext.quantity) - 1
-          }
-        };
-      } else {
-        return {
-          cartContext: {
-            ...this.state.cartContext,
-            total: Number(prevState.cartContext.total) + Number(itemPrice),
-            quantity: Number(prevState.cartContext.quantity) + 1
-          }
-        };
-      }
-    });
+interface Props {
+  pageProps: PageProps;
+  routeQuery: any;
+  context: any;
+}
 
-  public state = {
-    cartContext: {
-      total: '',
-      quantity: '',
-      updateCartContext: this.handleUpdateCartContext
-    }
-  };
-
-  public componentDidMount() {
-    this.setState({
-      cartContext: {
-        ...this.state.cartContext,
-        total: mockData.carts_mine.items_count,
-        quantity: mockData.carts_mine.items_qty
-      }
-    });
+class Cart extends React.Component<Props, any> {
+  public async componentDidMount() {
+    this.updateCartData();
   }
 
+  private updateCartData = async () => {
+    const cartPaymentInfo = await getGuestCartPaymentInformation(
+      this.props.routeQuery.id
+    );
+
+    this.props.context.initCartContext(
+      cartPaymentInfo.totals.subtotal,
+      cartPaymentInfo.totals.grand_total,
+      cartPaymentInfo.totals.items_qty
+    );
+
+    const cartData = await getGuestCart(this.props.routeQuery.id);
+
+    this.setState({
+      cartData
+    });
+  };
+
+  public state = {
+    cartData: null
+  };
+
   public render() {
-    const { cartContext } = this.state;
+    const { cartData } = this.state;
 
     return (
       <>
-        <CartContext.Provider value={cartContext}>
-          <Container>
-            <Text mt={6} fontSize={7} weight={300}>
-              My Cart
-            </Text>
+        <Container>
+          <Text mt={6} fontSize={7} weight={300}>
+            My Cart
+          </Text>
+          {cartData && (
             <CartList
               mt={[1, 5]}
-              currency={mockData.carts_mine.currency.global_currency_code}
-              data={mockData.carts_mine.items}
+              currency={cartData.base_currency_code || 'USD'}
+              data={cartData.items}
+              updateCartData={() => this.updateCartData()}
             />
-            <Box
-              css={css`
-                @media (max-width: ${breakpoints['sm']}) {
-                  display: none;
-                }
-              `}
-            >
-              <SuggestProductsList data={mockData.suggest_products_list} />
-            </Box>
-            <CartTotal data={cartContext} />
-          </Container>
-        </CartContext.Provider>
+          )}
+
+          <Box
+            css={css`
+              @media (max-width: ${breakpoints['sm']}) {
+                display: none;
+              }
+            `}
+          >
+            <SuggestProductsList data={mockData.suggest_products_list} />
+          </Box>
+          <CartTotal />
+        </Container>
+
         <Box bg={containerBg2} pt={[3, 7]} pb={[4, 10]} mt={5}>
           <Container>
             <Reviews />
@@ -107,4 +107,4 @@ class Cart extends React.Component<{}, State> {
   }
 }
 
-export default defaultPage(Cart);
+export default defaultPage(withCartContext(Cart));

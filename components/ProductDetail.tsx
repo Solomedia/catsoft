@@ -5,6 +5,8 @@ import styled, { theme, breakpoints } from 'lib/theme';
 import { default as ProductInt } from 'lib/models/product';
 import { QuantitySelect } from './';
 import Link from 'next/link';
+import { addGuestCartItem } from 'lib/services/cartsService';
+import Router from 'next/router';
 
 const {
   colors: { borderColor, amber, black }
@@ -12,6 +14,7 @@ const {
 
 interface Props {
   data: ProductInt;
+  guestCartId: string;
 }
 
 interface PriceInt {
@@ -44,7 +47,20 @@ function getPrice(price, specialPrice): PriceInt {
   };
 }
 
-const ProductDetail: React.SFC<Props> = ({ data: product }) => {
+async function addToCartHandler(guestCartId, product, productQuantity) {
+  const body = {
+    cartItem: {
+      sku: product.sku,
+      qty: productQuantity,
+      quote_id: guestCartId
+    }
+  };
+
+  await addGuestCartItem(guestCartId, body);
+  Router.push(`/cart?id=${guestCartId}`);
+}
+
+const ProductDetail: React.SFC<Props> = ({ data: product, guestCartId }) => {
   const price = product && getPrice(product.price, product.special_price);
   let productQuantity = 1;
 
@@ -96,11 +112,16 @@ const ProductDetail: React.SFC<Props> = ({ data: product }) => {
               </Button>
             </Link>
           </Box>
-          <Link href="/cart">
-            <ReverButton revert md onClick={() => console.log(productQuantity)}>
-              add to card
-            </ReverButton>
-          </Link>
+
+          <ReverButton
+            revert
+            md
+            onClick={() =>
+              addToCartHandler(guestCartId, product, productQuantity)
+            }
+          >
+            add to card
+          </ReverButton>
         </Flex>
         <HelpText>
           Need help? Call Us at <span>800-318-1439</span> or{' '}
