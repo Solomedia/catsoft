@@ -2,10 +2,11 @@ import { Box } from '@rebass/grid/emotion';
 import { Text, Button } from 'lib/ui';
 import { colors } from 'lib/theme';
 import { css } from '@emotion/core';
+import { withCartContext } from 'contexts/CartContext';
 
 const { textColor3, textColor4 } = colors;
 
-const CartTotal = ({ data: { quantity, total } }) => (
+const CartTotal = ({ context: { quantity, subTotal } }) => (
   <Box
     mt={7}
     css={css`
@@ -22,7 +23,7 @@ const CartTotal = ({ data: { quantity, total } }) => (
       Subtotal:
     </Text>
     <Text mt={0} weight="600" fontSize={9}>
-      ${total} USD
+      ${subTotal} USD
     </Text>
     <Text mt={2} fontSize={0} weight={500} color={textColor4}>
       Shipping & taxes calculated at checkout
@@ -39,4 +40,4 @@ const CartTotal = ({ data: { quantity, total } }) => (
   </Box>
 );
 
-export default CartTotal;
+export default withCartContext(CartTotal);

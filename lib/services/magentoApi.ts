@@ -24,3 +24,7 @@ export const adminApi = axios.create({
     Authorization: `Bearer ${magentoAdminToken}`
   }
 });
+
+export const guestApi = axios.create({
+  baseURL: magentoRestUrl,
+});
