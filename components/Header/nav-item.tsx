@@ -60,7 +60,7 @@ class NavItem extends React.Component<Props> {
             }
           }}
         >
-          {!isMobile || product.children_data.length <= 0 ? (
+          {!product.children_data.length ? (
             <Link prefetch href={`/products?id=${product.id}`}>
               {LinkContent}
             </Link>

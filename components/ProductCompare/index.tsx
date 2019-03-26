@@ -3,10 +3,11 @@ import { Row, Col } from 'lib/ui';
 import Select from './Select';
 import Title from './Title';
 import Details from './Details';
-
+import SectionTitle from './SectionTitle';
+import SoftwareIncluded from './SoftwareIncluded';
 import data from 'static/mockdata.json';
 
-const { compareCategories, genericText } = data;
+const { compareCategories, genericText, standarOfficeApps } = data;
 
 interface Product {
   id: number;
@@ -41,6 +42,7 @@ class ProductCompare extends React.Component<Props, State> {
 
     if (categoryName === compareCategories[0].name) {
       const selectedProduct = activeProducts[selectPosition];
+
       compareCategories[0].products.items.forEach(
         ({ sku, included_products, license_use }) => {
           if (selectedProduct.sku === sku) {
@@ -109,6 +111,31 @@ class ProductCompare extends React.Component<Props, State> {
             <Col width={[1 / 4]} />
           )}
         </Row>
+        {categoryName === compareCategories[0].name && (
+          <>
+            <SectionTitle>Softwares included</SectionTitle>
+            <Row justifyContent="center" mt={9}>
+              {activeProducts.map(
+                ({ included_products }, index) =>
+                  index >= 0 &&
+                  index < 4 &&
+                  (included_products ? (
+                    <Col key={index} width={[1 / 4]}>
+                      <SoftwareIncluded
+                        allApps={standarOfficeApps}
+                        products={included_products}
+                      />
+                    </Col>
+                  ) : (
+                    <Col key={index} width={[1 / 4]} />
+                  ))
+              )}
+              {!!activeProducts.length && activeProducts.length < 4 && (
+                <Col width={[1 / 4]} />
+              )}
+            </Row>
+          </>
+        )}
       </>
     );
   }
