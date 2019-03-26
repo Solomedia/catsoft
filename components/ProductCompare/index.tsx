@@ -6,6 +6,7 @@ import Details from './Details';
 import SectionTitle from './SectionTitle';
 import SoftwareIncluded from './SoftwareIncluded';
 import data from 'static/mockdata.json';
+import License from './License';
 
 const { compareCategories, genericText, standarOfficeApps } = data;
 
@@ -114,7 +115,7 @@ class ProductCompare extends React.Component<Props, State> {
         {categoryName === compareCategories[0].name && (
           <>
             <SectionTitle>Softwares included</SectionTitle>
-            <Row justifyContent="center" mt={9}>
+            <Row justifyContent="center" mt={4}>
               {activeProducts.map(
                 ({ included_products }, index) =>
                   index >= 0 &&
@@ -125,6 +126,28 @@ class ProductCompare extends React.Component<Props, State> {
                         allApps={standarOfficeApps}
                         products={included_products}
                       />
+                    </Col>
+                  ) : (
+                    <Col key={index} width={[1 / 4]} />
+                  ))
+              )}
+              {!!activeProducts.length && activeProducts.length < 4 && (
+                <Col width={[1 / 4]} />
+              )}
+            </Row>
+          </>
+        )}
+        {categoryName === compareCategories[0].name && (
+          <>
+            <SectionTitle>License and Instalations</SectionTitle>
+            <Row justifyContent="center" mt={4}>
+              {activeProducts.map(
+                ({ license_use }, index) =>
+                  index >= 0 &&
+                  index < 4 &&
+                  (license_use ? (
+                    <Col key={index} width={[1 / 4]}>
+                      <License license={license_use} />
                     </Col>
                   ) : (
                     <Col key={index} width={[1 / 4]} />

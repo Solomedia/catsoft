@@ -10,7 +10,7 @@ interface Props {
 const SectionTitle: React.SFC<Props> = ({ children }) => (
   <>
     <Text
-      stlye={css`
+      css={css`
         line-height: 32px;
       `}
       as="h2"
