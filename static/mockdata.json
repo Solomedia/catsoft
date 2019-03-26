@@ -2279,5 +2279,14 @@
       }
     }
   ],
-  "genericText": "Take your business productivity and efficiency to the next level with <name>. Packed with new features, plus a fresh, modern look, <name> is more responsive than ever before, allowing you to work smarter, and reduce your workload."
+  "genericText": "Take your business productivity and efficiency to the next level with <name>. Packed with new features, plus a fresh, modern look, <name> is more responsive than ever before, allowing you to work smarter, and reduce your workload.",
+  "standarOfficeApps": [
+    "word",
+    "excel",
+    "power_point",
+    "one_note",
+    "outlook",
+    "publisher",
+    "access"
+  ]
 }
