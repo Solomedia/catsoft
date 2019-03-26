@@ -1,4 +1,5 @@
 import React from 'react';
+import { NextFunctionComponent } from 'next';
 import { Container, Text } from 'lib/ui';
 import { ProductsList, SelectFilter } from 'components';
 import mockData from 'static/mockdata.json';
@@ -6,10 +7,11 @@ import { css } from '@emotion/core';
 import styled, { colors } from 'lib/theme';
 import { Flex, Box } from '@rebass/grid/emotion';
 import defaultPage from 'hoc/defaultPage';
+import { searchProductsByName } from 'lib/services/productsService';
 
 const { textColor2, textColor4 } = colors;
 
-const Cart = () => (
+const Search: NextFunctionComponent<any> = () => (
   <>
     <Container>
       <Flex
@@ -55,4 +57,13 @@ const QuoteStyled = styled.span`
   color: ${textColor4};
 `;
 
-export default defaultPage(Cart);
+Search.getInitialProps = async ctx => {
+  const data = await searchProductsByName(ctx.query.value, 6, 1);
+  // TODO: pass data to components
+  console.log(data);
+  return {
+    data
+  };
+};
+
+export default defaultPage(Search);
