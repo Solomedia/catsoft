@@ -2,9 +2,11 @@ import React from 'react';
 import { Row, Col } from 'lib/ui';
 import Select from './Select';
 import Title from './Title';
+import Details from './Details';
+
 import data from 'static/mockdata.json';
 
-const { compareCategories } = data;
+const { compareCategories, genericText } = data;
 
 interface Product {
   id: number;
@@ -88,6 +90,23 @@ class ProductCompare extends React.Component<Props, State> {
                   />
                 </Col>
               )
+          )}
+        </Row>
+        <Row justifyContent="center" mt={9}>
+          {activeProducts.map(
+            ({ name }, index) =>
+              index >= 0 &&
+              index < 4 && (
+                <Col key={index} width={[1 / 4]}>
+                  <Details
+                    productTitle={name}
+                    description={genericText.replace(/<name>/g, name)}
+                  />
+                </Col>
+              )
+          )}
+          {!!activeProducts.length && activeProducts.length < 4 && (
+            <Col width={[1 / 4]} />
           )}
         </Row>
       </>
