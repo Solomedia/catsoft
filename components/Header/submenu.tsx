@@ -4,7 +4,7 @@ import { Box } from '@rebass/grid/emotion';
 import { css } from '@emotion/core';
 import styled, { breakpoints } from 'lib/theme';
 
-const comparisonsLinkId = '99';
+const comparisonsLinkId = 'compare';
 
 interface Product {
   id: string;
