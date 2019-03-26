@@ -18,7 +18,7 @@ const Title: React.SFC<Props> = props => {
     <>
       <Image src={image || 'https://via.placeholder.com/234x252'} />
       <Text
-        stlye={css`
+        css={css`
           line-height: 19px;
         `}
         as="h4"
@@ -30,7 +30,7 @@ const Title: React.SFC<Props> = props => {
         {productTitle}
       </Text>
       <Text
-        stlye={css`
+        css={css`
           line-height: 22px;
         `}
         as="h4"

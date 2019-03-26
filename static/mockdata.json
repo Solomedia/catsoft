@@ -2100,7 +2100,11 @@
             "stars": 5,
             "included_products": ["word", "excel", "power_point", "one_note"],
             "license_use": "Personal",
-            "license_type": "Personal"
+            "license_type": "Personal",
+            "platform": {
+              "name": "Windows PC",
+              "description": "Need Windows 7 or later, Windows Server 2008 R2, or Windows Server 2012."
+            }
           },
           {
             "id": 26,
@@ -2116,7 +2120,11 @@
               "outlook"
             ],
             "license_use": "Comercial",
-            "license_type": "Open License"
+            "license_type": "Open License",
+            "platform": {
+              "name": "Windows PC",
+              "description": "Need Windows 7 or later, Windows Server 2008 R2, or Windows Server 2012."
+            }
           },
           {
             "id": 29,
@@ -2133,7 +2141,11 @@
               "publisher"
             ],
             "license_use": "Comercial",
-            "license_type": "Comercial"
+            "license_type": "Comercial",
+            "platform": {
+              "name": "Windows PC",
+              "description": "Need Windows 7 or later, Windows Server 2008 R2, or Windows Server 2012."
+            }
           },
           {
             "id": 30,
@@ -2151,7 +2163,11 @@
               "access"
             ],
             "license_use": "Comercial",
-            "license_type": "Comercial"
+            "license_type": "Comercial",
+            "platform": {
+              "name": "Windows PC",
+              "description": "Need Windows 7 or later, Windows Server 2008 R2, or Windows Server 2012."
+            }
           },
           {
             "id": 25,
@@ -2161,7 +2177,11 @@
             "stars": 5,
             "included_products": ["word", "excel", "power_point", "one_note"],
             "license_use": "Personal",
-            "license_type": "Personal"
+            "license_type": "Personal",
+            "platform": {
+              "name": "Windows PC",
+              "description": "Need Windows 7 or later, Windows Server 2008 R2, or Windows Server 2012."
+            }
           },
           {
             "id": 26,
@@ -2177,7 +2197,11 @@
               "outlook"
             ],
             "license_use": "Comercial",
-            "license_type": "Open License"
+            "license_type": "Open License",
+            "platform": {
+              "name": "Windows PC",
+              "description": "Need Windows 7 or later, Windows Server 2008 R2, or Windows Server 2012."
+            }
           },
           {
             "id": 29,
@@ -2194,7 +2218,11 @@
               "publisher"
             ],
             "license_use": "Comercial",
-            "license_type": "Comercial"
+            "license_type": "Comercial",
+            "platform": {
+              "name": "Windows PC",
+              "description": "Need Windows 7 or later, Windows Server 2008 R2, or Windows Server 2012."
+            }
           },
           {
             "id": 30,
@@ -2212,7 +2240,11 @@
               "access"
             ],
             "license_use": "Comercial",
-            "license_type": "Comercial"
+            "license_type": "Comercial",
+            "platform": {
+              "name": "Windows PC",
+              "description": "Need Windows 7 or later, Windows Server 2008 R2, or Windows Server 2012."
+            }
           },
           {
             "id": 43,
@@ -2222,7 +2254,11 @@
             "stars": 5,
             "included_products": ["word", "excel", "power_point", "one_note"],
             "license_use": "Personal",
-            "license_type": "Personal"
+            "license_type": "Personal",
+            "platform": {
+              "name": "Windows PC",
+              "description": "Need Windows 7 or later, Windows Server 2008 R2, or Windows Server 2012."
+            }
           },
           {
             "id": 45,
@@ -2238,7 +2274,11 @@
               "outlook"
             ],
             "license_use": "Comercial",
-            "license_type": "Open License"
+            "license_type": "Open License",
+            "platform": {
+              "name": "Windows PC",
+              "description": "Need Windows 7 or later, Windows Server 2008 R2, or Windows Server 2012."
+            }
           },
           {
             "id": 47,
@@ -2255,7 +2295,11 @@
               "publisher"
             ],
             "license_use": "Comercial",
-            "license_type": "Comercial"
+            "license_type": "Comercial",
+            "platform": {
+              "name": "Windows PC",
+              "description": "Need Windows 7 or later, Windows Server 2008 R2, or Windows Server 2012."
+            }
           },
           {
             "id": 48,
@@ -2273,7 +2317,11 @@
               "access"
             ],
             "license_use": "Comercial",
-            "license_type": "Comercial"
+            "license_type": "Comercial",
+            "platform": {
+              "name": "Windows PC",
+              "description": "Need Windows 7 or later, Windows Server 2008 R2, or Windows Server 2012."
+            }
           }
         ]
       }
