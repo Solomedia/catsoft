@@ -10,7 +10,7 @@ import { createGuestCart } from 'lib/services/cartsService';
 import { guestCartIdKeyName } from 'lib/constants';
 
 interface Props {
-  price: string;
+  price: number;
   sku: string;
 }
 
@@ -41,7 +41,7 @@ const Title: React.SFC<Props> = ({ price, sku }) => (
       text-align: center;
     `}
   >
-    <PriceTotalText>${price} usd</PriceTotalText>
+    <PriceTotalText>${price.toFixed(2)} usd</PriceTotalText>
     <Flex mt={3} flexDirection="column" alignItems="center">
       <Box>
         <Link href={`/product?sku=${sku}`}>

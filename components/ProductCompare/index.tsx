@@ -183,7 +183,7 @@ class ProductCompare extends React.Component<Props, State> {
                   index >= 0 &&
                   index < 4 && (
                     <Col key={index} width={[1 / 4]}>
-                      <Price price={price.toFixed(2)} sku={sku} />
+                      <Price price={price} sku={sku} />
                     </Col>
                   )
               )}
