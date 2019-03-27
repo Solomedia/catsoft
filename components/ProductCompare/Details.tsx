@@ -11,39 +11,35 @@ interface Props {
   description: string;
 }
 
-const Title: React.SFC<Props> = props => {
-  const { productTitle, image, description } = props;
-
-  return (
-    <>
-      <Image src={image || 'https://via.placeholder.com/234x252'} />
-      <Text
-        css={css`
-          line-height: 19px;
-        `}
-        as="h4"
-        mt={4}
-        fontSize={2}
-        weight={500}
-        color={textColor3}
-      >
-        {productTitle}
-      </Text>
-      <Text
-        css={css`
-          line-height: 22px;
-        `}
-        as="h4"
-        mt={3}
-        fontSize={1}
-        weight={500}
-        color={textColor2}
-      >
-        {description}
-      </Text>
-    </>
-  );
-};
+const Title: React.SFC<Props> = ({ productTitle, image, description }) => (
+  <>
+    <Image src={image || 'https://via.placeholder.com/234x252'} />
+    <Text
+      css={css`
+        line-height: 19px;
+      `}
+      as="h4"
+      mt={4}
+      fontSize={2}
+      weight={500}
+      color={textColor3}
+    >
+      {productTitle}
+    </Text>
+    <Text
+      css={css`
+        line-height: 22px;
+      `}
+      as="h4"
+      mt={3}
+      fontSize={1}
+      weight={500}
+      color={textColor2}
+    >
+      {description}
+    </Text>
+  </>
+);
 
 const Image = styled.img`
   display: block;
