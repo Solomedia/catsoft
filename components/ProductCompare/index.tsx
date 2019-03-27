@@ -5,9 +5,10 @@ import Title from './Title';
 import Details from './Details';
 import SectionTitle from './SectionTitle';
 import SoftwareIncluded from './SoftwareIncluded';
-import data from 'static/mockdata.json';
 import License from './License';
 import Platform from './Platform';
+import Price from './Price';
+import data from 'static/mockdata.json';
 
 const { compareCategories, genericText, standarOfficeApps } = data;
 
@@ -15,9 +16,7 @@ interface Product {
   id: number;
   name: string;
   price: number;
-  stars: number;
   license_use: string;
-  license_type: string;
   included_products: string[];
 }
 
@@ -97,85 +96,96 @@ class ProductCompare extends React.Component<Props, State> {
               )
           )}
         </Row>
-        <Row justifyContent="center" mt={9}>
-          {activeProducts.map(
-            ({ name }, index) =>
-              index >= 0 &&
-              index < 4 && (
-                <Col key={index} width={[1 / 4]}>
-                  <Details
-                    productTitle={name}
-                    description={genericText.replace(/<name>/g, name)}
-                  />
-                </Col>
-              )
-          )}
-          {!!activeProducts.length && activeProducts.length < 4 && (
-            <Col width={[1 / 4]} />
-          )}
-        </Row>
-        {categoryName === compareCategories[0].name && (
+        {!!activeProducts.length && (
           <>
-            <SectionTitle>Softwares included</SectionTitle>
-            <Row justifyContent="center" mt={5}>
+            <Row justifyContent="center" mt={9}>
               {activeProducts.map(
-                ({ included_products }, index) =>
+                ({ name }, index) =>
                   index >= 0 &&
-                  index < 4 &&
-                  (included_products ? (
+                  index < 4 && (
                     <Col key={index} width={[1 / 4]}>
-                      <SoftwareIncluded
-                        allApps={standarOfficeApps}
-                        products={included_products}
+                      <Details
+                        productTitle={name}
+                        description={genericText.replace(/<name>/g, name)}
                       />
                     </Col>
-                  ) : (
-                    <Col key={index} width={[1 / 4]} />
-                  ))
+                  )
               )}
               {!!activeProducts.length && activeProducts.length < 4 && (
                 <Col width={[1 / 4]} />
               )}
             </Row>
-          </>
-        )}
-        {categoryName === compareCategories[0].name && (
-          <>
-            <SectionTitle>License and Instalations</SectionTitle>
+            {categoryName === compareCategories[0].name && (
+              <>
+                <SectionTitle>Softwares included</SectionTitle>
+                <Row justifyContent="center" mt={5}>
+                  {activeProducts.map(
+                    ({ included_products }, index) =>
+                      index >= 0 &&
+                      index < 4 &&
+                      (included_products ? (
+                        <Col key={index} width={[1 / 4]}>
+                          <SoftwareIncluded
+                            allApps={standarOfficeApps}
+                            products={included_products}
+                          />
+                        </Col>
+                      ) : (
+                        <Col key={index} width={[1 / 4]} />
+                      ))
+                  )}
+                  {!!activeProducts.length && activeProducts.length < 4 && (
+                    <Col width={[1 / 4]} />
+                  )}
+                </Row>
+                <SectionTitle>License and Instalations</SectionTitle>
+                <Row justifyContent="center" mt={5}>
+                  {activeProducts.map(
+                    ({ license_use }, index) =>
+                      index >= 0 &&
+                      index < 4 &&
+                      (license_use ? (
+                        <Col key={index} width={[1 / 4]}>
+                          <License license={license_use} />
+                        </Col>
+                      ) : (
+                        <Col key={index} width={[1 / 4]} />
+                      ))
+                  )}
+                  {!!activeProducts.length && activeProducts.length < 4 && (
+                    <Col width={[1 / 4]} />
+                  )}
+                </Row>
+                <SectionTitle>Platform</SectionTitle>
+                <Row justifyContent="center" mt={5}>
+                  {activeProducts.map(
+                    ({ platform }, index) =>
+                      index >= 0 &&
+                      index < 4 &&
+                      (platform ? (
+                        <Col key={index} width={[1 / 4]}>
+                          <Platform platform={platform} />
+                        </Col>
+                      ) : (
+                        <Col key={index} width={[1 / 4]} />
+                      ))
+                  )}
+                  {!!activeProducts.length && activeProducts.length < 4 && (
+                    <Col width={[1 / 4]} />
+                  )}
+                </Row>
+              </>
+            )}
+            <SectionTitle>Price</SectionTitle>
             <Row justifyContent="center" mt={5}>
               {activeProducts.map(
-                ({ license_use }, index) =>
+                ({ price, sku }, index) =>
                   index >= 0 &&
-                  index < 4 &&
-                  (license_use ? (
+                  index < 4 && (
                     <Col key={index} width={[1 / 4]}>
-                      <License license={license_use} />
+                      <Price price={price} sku={sku} />
                     </Col>
-                  ) : (
-                    <Col key={index} width={[1 / 4]} />
-                  ))
-              )}
-              {!!activeProducts.length && activeProducts.length < 4 && (
-                <Col width={[1 / 4]} />
-              )}
-            </Row>
-          </>
-        )}
-        {categoryName === compareCategories[0].name && (
-          <>
-            <SectionTitle>Platform</SectionTitle>
-            <Row justifyContent="center" mt={5}>
-              {activeProducts.map(
-                ({ platform }, index) =>
-                  index >= 0 &&
-                  index < 4 &&
-                  (platform ? (
-                    <Col key={index} width={[1 / 4]}>
-                      <Platform platform={platform} />
-                    </Col>
-                  ) : (
-                    <Col key={index} width={[1 / 4]} />
-                  ))
+                  )
               )}
               {!!activeProducts.length && activeProducts.length < 4 && (
                 <Col width={[1 / 4]} />
