@@ -7,6 +7,7 @@ import SectionTitle from './SectionTitle';
 import SoftwareIncluded from './SoftwareIncluded';
 import data from 'static/mockdata.json';
 import License from './License';
+import Platform from './Platform';
 
 const { compareCategories, genericText, standarOfficeApps } = data;
 
@@ -45,10 +46,11 @@ class ProductCompare extends React.Component<Props, State> {
       const selectedProduct = activeProducts[selectPosition];
 
       compareCategories[0].products.items.forEach(
-        ({ sku, included_products, license_use }) => {
+        ({ sku, included_products, license_use, platform }) => {
           if (selectedProduct.sku === sku) {
             selectedProduct.included_products = included_products;
             selectedProduct.license_use = license_use;
+            selectedProduct.platform = platform;
             activeProducts[selectPosition] = selectedProduct;
           }
         }
@@ -115,7 +117,7 @@ class ProductCompare extends React.Component<Props, State> {
         {categoryName === compareCategories[0].name && (
           <>
             <SectionTitle>Softwares included</SectionTitle>
-            <Row justifyContent="center" mt={4}>
+            <Row justifyContent="center" mt={5}>
               {activeProducts.map(
                 ({ included_products }, index) =>
                   index >= 0 &&
@@ -140,7 +142,7 @@ class ProductCompare extends React.Component<Props, State> {
         {categoryName === compareCategories[0].name && (
           <>
             <SectionTitle>License and Instalations</SectionTitle>
-            <Row justifyContent="center" mt={4}>
+            <Row justifyContent="center" mt={5}>
               {activeProducts.map(
                 ({ license_use }, index) =>
                   index >= 0 &&
@@ -148,6 +150,28 @@ class ProductCompare extends React.Component<Props, State> {
                   (license_use ? (
                     <Col key={index} width={[1 / 4]}>
                       <License license={license_use} />
+                    </Col>
+                  ) : (
+                    <Col key={index} width={[1 / 4]} />
+                  ))
+              )}
+              {!!activeProducts.length && activeProducts.length < 4 && (
+                <Col width={[1 / 4]} />
+              )}
+            </Row>
+          </>
+        )}
+        {categoryName === compareCategories[0].name && (
+          <>
+            <SectionTitle>Platform</SectionTitle>
+            <Row justifyContent="center" mt={5}>
+              {activeProducts.map(
+                ({ platform }, index) =>
+                  index >= 0 &&
+                  index < 4 &&
+                  (platform ? (
+                    <Col key={index} width={[1 / 4]}>
+                      <Platform platform={platform} />
                     </Col>
                   ) : (
                     <Col key={index} width={[1 / 4]} />
