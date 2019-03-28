@@ -4,7 +4,7 @@ import { Row, Text, Button } from 'lib/ui';
 import { css } from '@emotion/core';
 import styled from 'lib/theme';
 
-const Basic = () => {
+const PlaceOrderForm = () => {
   function validation() {
     const errors: any = {};
 
@@ -317,4 +317,4 @@ const SubmitBtn: Box = styled(Button)`
   width: 100%;
 `;
 
-export default Basic;
+export default PlaceOrderForm;
