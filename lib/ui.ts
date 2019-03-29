@@ -35,6 +35,7 @@ export const Text: Box = styled(Box)`
   font-weight: ${(props: any) => props.weight || 400};
   text-align: ${(props: any) => props.align};
   display: ${(props: any) => props.display};
+  line-height: ${(props: any) => props.lineHeight};
 `;
 
 Text.defaultProps = {

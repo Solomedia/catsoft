@@ -20,7 +20,7 @@
       {
         "name": "typescript-styled-plugin",
         "lint": {
-          "validProperties": "label"
+          "validProperties": ["label"]
         }
       }
     ]
