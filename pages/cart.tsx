@@ -3,7 +3,7 @@ import { Container, Text } from 'lib/ui';
 import {
   CartList,
   SuggestProductsList,
-  CartTotal,
+  CartSubtotal,
   Reviews,
   SubscribeForm
 } from 'components';
@@ -59,6 +59,7 @@ class Cart extends React.Component<Props, any> {
 
   public render() {
     const { cartData } = this.state;
+    const { routeQuery } = this.props;
 
     return (
       <>
@@ -84,7 +85,7 @@ class Cart extends React.Component<Props, any> {
           >
             <SuggestProductsList data={mockData.suggest_products_list} />
           </Box>
-          <CartTotal />
+          <CartSubtotal cartId={routeQuery.id} />
         </Container>
 
         <Box bg={containerBg2} pt={[3, 7]} pb={[4, 10]} mt={5}>
