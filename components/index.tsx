@@ -29,6 +29,7 @@ export { default as ProductsList } from './ProductsList';
 export { default as Stars } from './Stars';
 export { default as ProductCompare } from './ProductCompare';
 export { default as PlaceOrderForm } from './PlaceOrderForm';
+export { default as CheckoutChoose } from './CheckoutChoose';
 export { default as ApplyCodeForm } from './ApplyCodeForm';
 export { default as CartTotal } from './CartTotal';
 export { default as OrderSucess } from './OrderSucess';

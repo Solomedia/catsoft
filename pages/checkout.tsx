@@ -5,6 +5,7 @@ import {
   PlaceOrderForm,
   ApplyCodeForm,
   CartTotal,
+  CheckoutChoose,
   OrderSucess
 } from 'components';
 import { theme } from 'lib/theme';
@@ -72,6 +73,7 @@ class Checkout extends React.Component<Props, State> {
       <Box>
         <Box pb="72px" bg={whisper}>
           <Container>
+            <CheckoutChoose checkoutHandler={this.checkoutHandler} />
             <PlaceOrderForm checkoutHandler={this.checkoutHandler} />
           </Container>
         </Box>
