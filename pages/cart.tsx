@@ -40,6 +40,8 @@ class Cart extends React.Component<Props, any> {
       this.props.routeQuery.id
     );
 
+    if (!cartPaymentInfo.totals) return false;
+
     this.props.context.initCartContext(
       cartPaymentInfo.totals.subtotal,
       cartPaymentInfo.totals.grand_total,

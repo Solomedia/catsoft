@@ -36,6 +36,7 @@ class Checkout extends React.Component<Props, State> {
       this.props.routeQuery.id
     );
 
+    if (!cartPaymentInfo.totals) return {};
     this.props.context.initCartContext(
       cartPaymentInfo.totals.subtotal,
       cartPaymentInfo.totals.grand_total,
