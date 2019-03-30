@@ -36,6 +36,7 @@ export const Text: Box = styled(Box)`
   text-align: ${(props: any) => props.align};
   display: ${(props: any) => props.display};
   line-height: ${(props: any) => props.lineHeight};
+  max-width: ${(props: any) => props.maxWidth};
 `;
 
 Text.defaultProps = {
@@ -52,17 +53,18 @@ export const Button: Box = styled(Box)`
   padding-right: 7px;
   border-radius: 37px;
   border: 2px solid;
+  border-width: ${(props: any) => props.borderWidth};
   font-size: ${(props: any) => {
     const { lg } = props;
     if (lg) return '14px';
     return props.fontSize || '10px';
   }};
-  background-color: ${({ theme, revert }: any) =>
-    !revert ? theme.colors.secondary : '#fff'};
-  color: ${({ theme, revert }: any) =>
-    !revert ? '#fff' : theme.colors.secondary};
-  border-color: ${({ theme, revert }: any) =>
-    !revert ? 'transparent' : theme.colors.secondary};
+  background-color: ${({ theme, revert, backgroundColor }: any) =>
+    !revert ? theme.colors.secondary : backgroundColor || '#fff'};
+  color: ${({ theme, revert, color }: any) =>
+    !revert ? '#fff' : color || theme.colors.secondary};
+  border-color: ${({ theme, revert, borderColor }: any) =>
+    !revert ? 'transparent' : borderColor || theme.colors.secondary};
   text-transform: uppercase;
   min-height: ${(props: any) => {
     const { lg } = props;

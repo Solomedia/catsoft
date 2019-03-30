@@ -4,6 +4,7 @@ interface CartContextInt {
   total: string | number;
   quantity: string | number;
   subTotal: string | number;
+  checkout: boolean;
   updateCartContext: (
     qty: number,
     product: any,
@@ -13,7 +14,8 @@ interface CartContextInt {
   initCartContext: (
     subTotal: string | number,
     total: string | number,
-    quantity: boolean
+    quantity: boolean,
+    checkout: boolean
   ) => any;
 }
 
@@ -21,11 +23,13 @@ const cartContextValues: CartContextInt = {
   subTotal: '',
   total: '',
   quantity: '',
+  checkout: false,
   updateCartContext: (subTotal, isAdding) => ({ subTotal, isAdding }),
-  initCartContext: (subTotal, total, quantity) => ({
+  initCartContext: (subTotal, total, quantity, checkout) => ({
     subTotal,
     total,
-    quantity
+    quantity,
+    checkout
   })
 };
 

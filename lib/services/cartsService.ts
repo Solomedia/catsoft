@@ -11,6 +11,30 @@ interface GuestCartItemBody {
   cartItem: CartItem;
 }
 
+interface BillingAddress {
+  region: string;
+  region_id: number;
+  region_code: string;
+  country_id: string;
+  street: string[];
+  telephone: string;
+  postcode: string;
+  city: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+}
+
+interface PaymentMethod {
+  method: string;
+}
+
+interface PaymentInfo {
+  billingAddress: BillingAddress;
+  email: string;
+  paymentMethod: PaymentMethod;
+}
+
 export function getCartsMine() {
   return customerApi({
     url: '/carts/mine'
@@ -64,4 +88,10 @@ export function getGuestCartPaymentInformation(cartId: string) {
   return guestApi(`/guest-carts/${cartId}/payment-information`)
     .then(res => res.data)
     .catch(error => error);
+}
+
+export function placeOrderWithPaymentInfo(cartId: string, body: PaymentInfo) {
+  return guestApi
+    .post(`/guest-carts/${cartId}/payment-information`, body)
+    .then(res => res.data);
 }

@@ -47,7 +47,7 @@ const CheckoutChoose = ({ context }) => (
         >
           Credit Card
         </Text>
-        <SubmitBtn href="#card-info" py="17px" mt={4}>
+        <SubmitBtn href="#placeOrderForm" py="17px" mt={4}>
           PLACE YOUR ORDER
         </SubmitBtn>
       </Container>

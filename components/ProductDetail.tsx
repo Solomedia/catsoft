@@ -4,7 +4,6 @@ import { Row, Col, Button } from 'lib/ui';
 import styled, { theme, breakpoints } from 'lib/theme';
 import { default as ProductInt } from 'lib/models/product';
 import { QuantitySelect } from './';
-import Link from 'next/link';
 import { addGuestCartItem } from 'lib/services/cartsService';
 import Router from 'next/router';
 
@@ -47,7 +46,7 @@ function getPrice(price, specialPrice): PriceInt {
   };
 }
 
-async function addToCartHandler(guestCartId, product, productQuantity) {
+async function addToCartHandler(guestCartId, product, productQuantity, path) {
   const body = {
     cartItem: {
       sku: product.sku,
@@ -57,7 +56,11 @@ async function addToCartHandler(guestCartId, product, productQuantity) {
   };
 
   await addGuestCartItem(guestCartId, body);
-  Router.push(`/cart?id=${guestCartId}`);
+  Router.push(`/${path}?id=${guestCartId}`);
+}
+
+function buyNowHandler(guestCartId, product, productQuantity) {
+  addToCartHandler(guestCartId, product, productQuantity, 'checkout');
 }
 
 const ProductDetail: React.SFC<Props> = ({ data: product, guestCartId }) => {
@@ -106,18 +109,21 @@ const ProductDetail: React.SFC<Props> = ({ data: product, guestCartId }) => {
 
         <Flex mt={3}>
           <Box>
-            <Link href="/cart">
-              <Button md onClick={() => console.log(productQuantity)}>
-                buy now
-              </Button>
-            </Link>
+            <Button
+              md
+              onClick={() =>
+                buyNowHandler(guestCartId, product, productQuantity)
+              }
+            >
+              buy now
+            </Button>
           </Box>
 
           <ReverButton
             revert
             md
             onClick={() =>
-              addToCartHandler(guestCartId, product, productQuantity)
+              addToCartHandler(guestCartId, product, productQuantity, 'cart')
             }
           >
             add to card

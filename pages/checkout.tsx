@@ -5,7 +5,8 @@ import {
   PlaceOrderForm,
   ApplyCodeForm,
   CartTotal,
-  CheckoutChoose
+  CheckoutChoose,
+  OrderSucess
 } from 'components';
 import { theme } from 'lib/theme';
 import defaultPage from 'hoc/defaultPage';
@@ -17,7 +18,7 @@ const {
 } = theme;
 
 interface State {
-  guestCartId: string;
+  orderNumber: string;
 }
 
 interface CategoriesData {
@@ -41,10 +42,12 @@ class Checkout extends React.Component<Props, State> {
       this.props.routeQuery.id
     );
 
+    if (!cartPaymentInfo.totals) return {};
     this.props.context.initCartContext(
       cartPaymentInfo.totals.subtotal,
       cartPaymentInfo.totals.grand_total,
-      cartPaymentInfo.totals.items_qty
+      cartPaymentInfo.totals.items_qty,
+      true
     );
 
     return {
@@ -54,13 +57,24 @@ class Checkout extends React.Component<Props, State> {
 
   public applyCodeHandler = (promoCode: string) => console.log(promoCode);
 
+  public state = {
+    orderNumber: ''
+  };
+
+  public checkoutHandler = (order: string) =>
+    this.setState({ orderNumber: order });
+
   public render() {
+    const { orderNumber } = this.state;
+
+    if (orderNumber) return <OrderSucess />;
+
     return (
       <Box>
         <Box pb="72px" bg={whisper}>
           <Container>
             <CheckoutChoose />
-            <PlaceOrderForm />
+            <PlaceOrderForm checkoutHandler={this.checkoutHandler} />
           </Container>
         </Box>
         <Container>

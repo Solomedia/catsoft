@@ -30,10 +30,12 @@ const CartSubtotal = ({ cartId, context: { quantity, subTotal } }) => (
       Shipping & taxes calculated at checkout
     </Text>
     <Button
+      as="button"
       maxWidth="340px"
       py={2}
       fontSize="14px"
       mt={1}
+      ml="auto"
       width={['100%', '250px']}
       onClick={() => Router.push(`/checkout?id=${cartId}`)}
     >
