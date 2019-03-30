@@ -36,6 +36,7 @@ export const Text: Box = styled(Box)`
   text-align: ${(props: any) => props.align};
   display: ${(props: any) => props.display};
   line-height: ${(props: any) => props.lineHeight};
+  max-width: ${(props: any) => props.maxWidth};
 `;
 
 Text.defaultProps = {

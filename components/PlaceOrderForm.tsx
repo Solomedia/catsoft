@@ -6,7 +6,7 @@ import styled from 'lib/theme';
 import { placeOrderWithPaymentInfo } from 'lib/services/cartsService';
 import { guestCartIdKeyName } from 'lib/constants';
 
-const PlaceOrderForm = () => {
+const PlaceOrderForm = ({ checkoutHandler }) => {
   function validation() {
     const errors: any = {};
 
@@ -65,7 +65,7 @@ const PlaceOrderForm = () => {
             .then(res => {
               localStorage.removeItem(guestCartIdKeyName);
               setSubmitting(false);
-              alert(`Order: ${res}`);
+              checkoutHandler(res);
             })
             .catch(error =>
               console.log('placeOrderWithPaymentInfo service', error)
