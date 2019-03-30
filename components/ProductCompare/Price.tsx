@@ -18,7 +18,7 @@ async function addToCartHandler(sku) {
   let guestCartId: string;
 
   if (!localStorage.getItem(guestCartIdKeyName))
-    createGuestCart().then(data => {
+    await createGuestCart().then(data => {
       guestCartId = data;
     });
   else guestCartId = localStorage.getItem(guestCartIdKeyName);
