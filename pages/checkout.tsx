@@ -45,7 +45,8 @@ class Checkout extends React.Component<Props, State> {
     this.props.context.initCartContext(
       cartPaymentInfo.totals.subtotal,
       cartPaymentInfo.totals.grand_total,
-      cartPaymentInfo.totals.items_qty
+      cartPaymentInfo.totals.items_qty,
+      true
     );
 
     return {

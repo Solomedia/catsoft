@@ -14,7 +14,7 @@ const PlaceOrderForm = ({ checkoutHandler }) => {
   }
 
   return (
-    <Box mt={5}>
+    <Box mt={5} id="placeOrderForm">
       <Flex>
         <LockIcon className="material-icons">lock</LockIcon>
         <Text color="#212B36" weight="300" fontSize={8}>
@@ -156,6 +156,7 @@ const PlaceOrderForm = ({ checkoutHandler }) => {
                     name="fullName"
                     value={values.fullName}
                     placeholder="Full Name"
+                    required
                   />
                 </FieldBox>
                 {errors.fullName && touched.fullName && errors.fullName}
@@ -167,6 +168,7 @@ const PlaceOrderForm = ({ checkoutHandler }) => {
                     name="email"
                     value={values.email}
                     placeholder="E-Mail-Address"
+                    required
                   />
                 </FieldBox>
                 {errors.email && touched.email && errors.email}
@@ -178,6 +180,7 @@ const PlaceOrderForm = ({ checkoutHandler }) => {
                     name="telephone"
                     value={values.telephone}
                     placeholder="Telephone"
+                    required
                   />
                 </FieldBox>
                 {errors.telephone && touched.telephone && errors.telephone}
@@ -191,6 +194,7 @@ const PlaceOrderForm = ({ checkoutHandler }) => {
                   name="address"
                   value={values.address}
                   placeholder="Address"
+                  required
                 />
               </FieldBox>
               {errors.address && touched.address && errors.address}
@@ -209,6 +213,7 @@ const PlaceOrderForm = ({ checkoutHandler }) => {
                     name="country"
                     value={values.country}
                     placeholder="Country"
+                    required
                   />
                 </FieldBox>
                 {errors.country && touched.country && errors.country}
@@ -220,6 +225,7 @@ const PlaceOrderForm = ({ checkoutHandler }) => {
                     name="city"
                     value={values.city}
                     placeholder="City"
+                    required
                   />
                 </FieldBox>
                 {errors.city && touched.city && errors.city}
@@ -231,6 +237,7 @@ const PlaceOrderForm = ({ checkoutHandler }) => {
                     name="postcode"
                     value={values.postcode}
                     placeholder="Zip Code"
+                    required
                   />
                 </FieldBox>
                 {errors.postcode && touched.postcode && errors.postcode}

@@ -93,13 +93,14 @@ export default (Page, title = 'Catsoft') =>
       updateGuestCartItem(guestCartId, product.item_id, cartItemBody);
     };
 
-    private initCartContext = (subTotal, total, quantity) => {
+    private initCartContext = (subTotal, total, quantity, checkout = false) => {
       this.setState({
         cartContext: {
           ...this.state.cartContext,
           subTotal,
           total,
-          quantity
+          quantity,
+          checkout
         }
       });
     };
@@ -109,6 +110,7 @@ export default (Page, title = 'Catsoft') =>
         subTotal: '',
         total: '',
         quantity: '',
+        checkout: false,
         updateCartContext: this.updateCartContext,
         initCartContext: this.initCartContext
       }
