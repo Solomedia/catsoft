@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@rebass/grid/emotion';
 import { Container } from 'lib/ui';
-import { PlaceOrderForm } from 'components';
+import { PlaceOrderForm, CheckoutChoose } from 'components';
 import { theme } from 'lib/theme';
 import defaultPage from 'hoc/defaultPage';
 
@@ -31,6 +31,7 @@ class Checkout extends React.Component<Props, State> {
     return (
       <Box bg={whisper}>
         <Container>
+          <CheckoutChoose total={200} />
           <PlaceOrderForm />
         </Container>
       </Box>

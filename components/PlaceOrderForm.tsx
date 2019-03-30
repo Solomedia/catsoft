@@ -63,6 +63,7 @@ const PlaceOrderForm = () => {
               >
                 <FieldBox>
                   <Field
+                    id="card-info"
                     type="text"
                     name="card"
                     onChange={handleChange}
