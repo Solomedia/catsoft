@@ -73,7 +73,7 @@ class Checkout extends React.Component<Props, State> {
       <Box>
         <Box pb="72px" bg={whisper}>
           <Container>
-            <CheckoutChoose />
+            <CheckoutChoose checkoutHandler={this.checkoutHandler} />
             <PlaceOrderForm checkoutHandler={this.checkoutHandler} />
           </Container>
         </Box>
