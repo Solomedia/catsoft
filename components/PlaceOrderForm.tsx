@@ -164,7 +164,7 @@ const PlaceOrderForm = ({ checkoutHandler }) => {
               <Flex width={[1, 1 / 3]} px={2} flexDirection="column">
                 <FieldBox>
                   <Field
-                    type="text"
+                    type="email"
                     name="email"
                     value={values.email}
                     placeholder="E-Mail-Address"
