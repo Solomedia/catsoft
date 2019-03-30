@@ -3,6 +3,8 @@ import { Flex, Box } from '@rebass/grid/emotion';
 import { Row, Text, Button } from 'lib/ui';
 import { css } from '@emotion/core';
 import styled from 'lib/theme';
+import { placeOrderWithPaymentInfo } from 'lib/services/cartsService';
+import { guestCartIdKeyName } from 'lib/constants';
 
 const PlaceOrderForm = () => {
   function validation() {
@@ -25,30 +27,55 @@ const PlaceOrderForm = () => {
           card_number: '',
           expiration_date: '',
           cvc: '',
-          name: '',
+          fullName: '',
           email: '',
-          phone: '',
+          telephone: '',
           address: '',
           country: '',
           city: '',
-          zip: '',
+          postcode: '',
           createAccount: false,
           subscribe: false
         }}
         validate={() => validation()}
         onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+          const cartId = localStorage.getItem(guestCartIdKeyName);
+
+          const body = {
+            billingAddress: {
+              region: values.city,
+              region_id: 1,
+              region_code: values.city,
+              country_id: 'US',
+              street: [values.address],
+              telephone: values.telephone,
+              postcode: values.postcode,
+              city: values.city,
+              firstname: values.fullName,
+              lastname: 'n/a',
+              email: values.email
+            },
+            email: values.email,
+            paymentMethod: {
+              method: 'checkmo'
+            }
+          };
+
+          placeOrderWithPaymentInfo(cartId, body)
+            .then(res => {
+              localStorage.removeItem(guestCartIdKeyName);
+              setSubmitting(false);
+              alert(`Order: ${res}`);
+            })
+            .catch(error =>
+              console.log('placeOrderWithPaymentInfo service', error)
+            );
         }}
       >
         {({
           values,
           errors,
           touched,
-          handleChange,
-          handleBlur,
           handleSubmit,
           isSubmitting
           /* and other goodies */
@@ -62,14 +89,7 @@ const PlaceOrderForm = () => {
                 justifyContent="flex-end"
               >
                 <FieldBox>
-                  <Field
-                    type="text"
-                    name="card"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.card}
-                    required
-                  />
+                  <Field type="text" name="card" value={values.card} required />
                 </FieldBox>
                 {errors.card && touched.card && errors.card}
               </Flex>
@@ -80,8 +100,6 @@ const PlaceOrderForm = () => {
                   <Field
                     type="text"
                     name="card_number"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
                     value={values.card_number}
                     placeholder="16 digits in the front of your card"
                     maxLength="16"
@@ -99,8 +117,6 @@ const PlaceOrderForm = () => {
                   <Field
                     type="text"
                     name="expiration_date"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
                     value={values.expiration_date}
                     placeholder="MM / YY"
                     css={css`
@@ -112,8 +128,6 @@ const PlaceOrderForm = () => {
                   <Field
                     type="text"
                     name="cvc"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
                     value={values.cvc}
                     placeholder="CVC"
                     maxLength="3"
@@ -139,22 +153,18 @@ const PlaceOrderForm = () => {
                 <FieldBox>
                   <Field
                     type="text"
-                    name="name"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.name}
+                    name="fullName"
+                    value={values.fullName}
                     placeholder="Full Name"
                   />
                 </FieldBox>
-                {errors.name && touched.name && errors.name}
+                {errors.fullName && touched.fullName && errors.fullName}
               </Flex>
               <Flex width={[1, 1 / 3]} px={2} flexDirection="column">
                 <FieldBox>
                   <Field
                     type="text"
                     name="email"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
                     value={values.email}
                     placeholder="E-Mail-Address"
                   />
@@ -165,14 +175,12 @@ const PlaceOrderForm = () => {
                 <FieldBox>
                   <Field
                     type="text"
-                    name="phone"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.phone}
+                    name="telephone"
+                    value={values.telephone}
                     placeholder="Telephone"
                   />
                 </FieldBox>
-                {errors.phone && touched.phone && errors.phone}
+                {errors.telephone && touched.telephone && errors.telephone}
               </Flex>
             </Row>
 
@@ -181,8 +189,6 @@ const PlaceOrderForm = () => {
                 <Field
                   type="text"
                   name="address"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
                   value={values.address}
                   placeholder="Address"
                 />
@@ -201,8 +207,6 @@ const PlaceOrderForm = () => {
                   <Field
                     type="text"
                     name="country"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
                     value={values.country}
                     placeholder="Country"
                   />
@@ -214,8 +218,6 @@ const PlaceOrderForm = () => {
                   <Field
                     type="text"
                     name="city"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
                     value={values.city}
                     placeholder="City"
                   />
@@ -226,14 +228,12 @@ const PlaceOrderForm = () => {
                 <FieldBox>
                   <Field
                     type="text"
-                    name="zip"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.zip}
+                    name="postcode"
+                    value={values.postcode}
                     placeholder="Zip Code"
                   />
                 </FieldBox>
-                {errors.zip && touched.zip && errors.zip}
+                {errors.postcode && touched.postcode && errors.postcode}
               </Flex>
             </Row>
 
