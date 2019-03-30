@@ -1,65 +1,59 @@
 import { Box } from '@rebass/grid/emotion';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
-import { Row, Text, Button } from 'lib/ui';
 import { css } from '@emotion/core';
+import { withCartContext } from 'contexts/CartContext';
+import { Row, Text, Button } from 'lib/ui';
 import styled, { colors, breakpoints } from 'lib/theme';
-import { isBrowser } from 'lib/constants';
+import { isBrowser, payPalClient } from 'lib/constants';
 
 const { textColor3, containerBg2 } = colors;
 
-const CheckoutChoose = ({ total }) => {
-  const client = {
-    sandbox: 'YOUR-SANDBOX-APP-ID',
-    production: 'YOUR-PRODUCTION-APP-ID'
-  };
-
-  return (
-    <Box mt={5}>
-      <Row>
-        <Text ml={[3, '77px']} color={textColor3} weight="300" fontSize={8}>
-          Checkout
+const CheckoutChoose = ({ context }) => (
+  <Box mt={14}>
+    <Row>
+      <Text ml={[3, '77px']} color={textColor3} weight="300" fontSize={8}>
+        Checkout
+      </Text>
+    </Row>
+    <Row>
+      <Container mt={9} width={[1, 1 / 2]}>
+        <PayPalLogo
+          src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png"
+          alt="PayPal Logo"
+        />
+        <PayPalBtn mt={4}>
+          {isBrowser && (
+            <PaypalExpressBtn
+              client={payPalClient}
+              currency={'USD'}
+              total={Number(context.total)}
+              style={{
+                size: 'responsive',
+                label: 'pay',
+                tagline: 'false',
+                height: 55
+              }}
+            />
+          )}
+        </PayPalBtn>
+      </Container>
+      <Container mt={9} width={[1, 1 / 2]}>
+        <Text
+          weight="500"
+          fontSize={1}
+          css={css`
+            line-height: 25px;
+          `}
+        >
+          Credit Card
         </Text>
-      </Row>
-      <Row>
-        <Container mt={9} width={[1, 1 / 2]}>
-          <PayPalLogo
-            src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png"
-            alt="PayPal Logo"
-          />
-          <PayPalBtn mt={4}>
-            {isBrowser && (
-              <PaypalExpressBtn
-                client={client}
-                currency={'USD'}
-                total={total}
-                style={{
-                  size: 'responsive',
-                  label: 'pay',
-                  tagline: 'false',
-                  height: 55
-                }}
-              />
-            )}
-          </PayPalBtn>
-        </Container>
-        <Container mt={9} width={[1, 1 / 2]}>
-          <Text
-            weight="500"
-            fontSize={1}
-            css={css`
-              line-height: 25px;
-            `}
-          >
-            Credit Card
-          </Text>
-          <SubmitBtn href="#card-info" py="17px" mt={4}>
-            PLACE YOUR ORDER
-          </SubmitBtn>
-        </Container>
-      </Row>
-    </Box>
-  );
-};
+        <SubmitBtn href="#card-info" py="17px" mt={4}>
+          PLACE YOUR ORDER
+        </SubmitBtn>
+      </Container>
+    </Row>
+  </Box>
+);
 
 const Container: Box = styled(Box)`
   border: 1px solid ${containerBg2};
@@ -87,4 +81,4 @@ const PayPalLogo = styled.img`
   width: 98px;
 `;
 
-export default CheckoutChoose;
+export default withCartContext(CheckoutChoose);

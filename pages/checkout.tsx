@@ -59,12 +59,11 @@ class Checkout extends React.Component<Props, State> {
       <Box>
         <Box pb="72px" bg={whisper}>
           <Container>
+            <CheckoutChoose />
             <PlaceOrderForm />
           </Container>
         </Box>
         <Container>
-          <CheckoutChoose total={200} />
-          <PlaceOrderForm />
           <Row mt="105px" px={[0, '80px']} justifyContent="space-between">
             <Col width={[1, '587px']}>
               <ApplyCodeForm applyCodeHandler={this.applyCodeHandler} />

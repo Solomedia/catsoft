@@ -12,7 +12,7 @@ const PlaceOrderForm = () => {
   }
 
   return (
-    <Box mt={5}>
+    <Box mt={5} id="card-info">
       <Flex>
         <LockIcon className="material-icons">lock</LockIcon>
         <Text color="#212B36" weight="300" fontSize={8}>
@@ -63,7 +63,6 @@ const PlaceOrderForm = () => {
               >
                 <FieldBox>
                   <Field
-                    id="card-info"
                     type="text"
                     name="card"
                     onChange={handleChange}
