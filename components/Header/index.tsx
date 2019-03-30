@@ -12,7 +12,9 @@ import Cta from './cta';
 import SearchBar from './searchbar';
 import * as i18Next from 'i18n';
 import ToggleBtn from './toggle-btn';
+import CheckoutSection from './checkoutSection';
 import { isBrowser, guestCartIdKeyName } from 'lib/constants';
+import { withCartContext, CartContextInt } from 'contexts/CartContext';
 
 const { withNamespaces } = i18Next;
 
@@ -20,6 +22,7 @@ interface Props {
   t: (arg: string) => string;
   theme: ThemeProps;
   categoriesData: any;
+  context: CartContextInt;
 }
 
 class Header extends React.Component<Props> {
@@ -43,7 +46,7 @@ class Header extends React.Component<Props> {
   };
 
   public render() {
-    const { t, theme, categoriesData } = this.props;
+    const { t, theme, categoriesData, context } = this.props;
     const { displayMobileMenu } = this.state;
 
     return (
@@ -73,7 +76,7 @@ class Header extends React.Component<Props> {
             }
           `}
         >
-          <TopNav t={t} />
+          <TopNav t={t} checkoutPage={context.checkout} />
         </ToggleBox>
 
         <Hr />
@@ -117,35 +120,44 @@ class Header extends React.Component<Props> {
                 </Link>
               </Col>
 
-              <SearchCol
-                displayMobileMenu={displayMobileMenu}
-                order={[3, 2]}
-                width={1}
-              >
-                <SearchBar />
-              </SearchCol>
+              {!context.checkout && (
+                <SearchCol
+                  displayMobileMenu={displayMobileMenu}
+                  order={[3, 2]}
+                  width={1}
+                >
+                  <SearchBar />
+                </SearchCol>
+              )}
 
-              <CtaCol order={[2, 3]}>
-                {/* TODO: set i18n for Cta's text prop. */}
-                <Cta
-                  path="/"
-                  ctaType="persone"
-                  text="Hello, log in or sign up"
-                />
-                <Cta
-                  path={this.cartPath()}
-                  ctaType="shopping_cart"
-                  text="Your cart"
-                  inCard={0}
-                />
-              </CtaCol>
+              {!context.checkout ? (
+                <CtaCol order={[2, 3]}>
+                  {/* TODO: set i18n for Cta's text prop. */}
+                  <Cta
+                    path="/"
+                    ctaType="persone"
+                    text="Hello, log in or sign up"
+                  />
+                  <Cta
+                    path={this.cartPath()}
+                    ctaType="shopping_cart"
+                    text="Your cart"
+                    inCard={0}
+                  />
+                </CtaCol>
+              ) : (
+                <Box width={1} order={[2, 3]}>
+                  <CheckoutSection subTotal={context.subTotal} />
+                </Box>
+              )}
             </Flex>
           </Container>
         </Box>
-
-        <ToggleBox displayMobileMenu={displayMobileMenu} order={2}>
-          <Nav data={categoriesData} />
-        </ToggleBox>
+        {!context.checkout && (
+          <ToggleBox displayMobileMenu={displayMobileMenu} order={2}>
+            <Nav data={categoriesData} />
+          </ToggleBox>
+        )}
       </Box>
     );
   }
@@ -204,4 +216,4 @@ const CtaCol: Box = styled(Col)`
   }
 `;
 
-export default withNamespaces('header')(withTheme(Header));
+export default withNamespaces('header')(withCartContext(withTheme(Header)));
