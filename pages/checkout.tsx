@@ -1,7 +1,12 @@
 import React from 'react';
 import { Box } from '@rebass/grid/emotion';
 import { Container, Row, Col } from 'lib/ui';
-import { PlaceOrderForm, ApplyCodeForm, CartTotal } from 'components';
+import {
+  PlaceOrderForm,
+  ApplyCodeForm,
+  CartTotal,
+  OrderSucess
+} from 'components';
 import { theme } from 'lib/theme';
 import defaultPage from 'hoc/defaultPage';
 import { getGuestCartPaymentInformation } from 'lib/services/cartsService';
@@ -12,7 +17,7 @@ const {
 } = theme;
 
 interface State {
-  guestCartId: string;
+  orderNumber: string;
 }
 
 interface CategoriesData {
@@ -50,12 +55,23 @@ class Checkout extends React.Component<Props, State> {
 
   public applyCodeHandler = (promoCode: string) => console.log(promoCode);
 
+  public state = {
+    orderNumber: ''
+  };
+
+  public checkoutHandler = (order: string) =>
+    this.setState({ orderNumber: order });
+
   public render() {
+    const { orderNumber } = this.state;
+
+    if (orderNumber) return <OrderSucess />;
+
     return (
       <Box>
         <Box pb="72px" bg={whisper}>
           <Container>
-            <PlaceOrderForm />
+            <PlaceOrderForm checkoutHandler={this.checkoutHandler} />
           </Container>
         </Box>
         <Container>

@@ -31,3 +31,4 @@ export { default as ProductCompare } from './ProductCompare';
 export { default as PlaceOrderForm } from './PlaceOrderForm';
 export { default as ApplyCodeForm } from './ApplyCodeForm';
 export { default as CartTotal } from './CartTotal';
+export { default as OrderSucess } from './OrderSucess';
